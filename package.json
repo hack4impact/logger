@@ -51,6 +51,7 @@
     "start": "bash scripts/start.sh",
     "build": "bash scripts/build.sh",
     "postbuild": "ts-node scripts/postbuild.ts",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "postinstall": "husky install"
   }
 }
