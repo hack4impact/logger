@@ -1,6 +1,6 @@
 {
   "name": "@hack4impact/logger",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Internal Logger utility for Hack4Impact projects",
   "license": "MIT",
   "homepage": "https://github.com/YashTotale/logger#readme",
@@ -28,6 +28,7 @@
     "logger",
     "hack4impact"
   ],
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^14.14.25",
     "@types/recursive-readdir": "^2.2.0",
@@ -40,7 +41,7 @@
     "prepublishOnly": "npm run build",
     "preversion": "npm test",
     "postversion": "git push && git push --follow-tags",
-    "start": "ncc build src/index.ts --out dist --watch",
+    "start": "bash scripts/start.sh",
     "build": "bash scripts/build.sh",
     "postbuild": "ts-node scripts/postbuild.ts",
     "test": "jest --passWithNoTests"
