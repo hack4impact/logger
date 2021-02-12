@@ -1,33 +1,37 @@
 PUBLIC_PATH='https://github.com/YashTotale/logger/tree/main/docs/'
 
-# Removing existing documentation
+echo "Removing existing documentation..."
 rimraf temp-docs docs README.md
 
-# Create the documentation that will be used to construct the README
-typedoc src/index.ts --plugin typedoc-plugin-markdown --theme markdown --out temp-docs --name 'Hack4Impact Logger' --hideBreadcrumbs --excludePrivate --hideInPageTOC --publicPath $PUBLIC_PATH
+# Create the documentation that will be used to construct the README in the temp-docs folder
+echo "Creating temporary documentation..."
+typedoc src/index.ts --plugin typedoc-plugin-markdown --theme markdown --out temp-docs --name 'Hack4Impact Logger' --hideBreadcrumbs --excludePrivate --hideInPageTOC --publicPath $PUBLIC_PATH > /dev/null
 
-# Echo the Logger Class Documentation to the README
+echo "Redirecting Logger Class Documentation to README..."
 echo "$(cat temp-docs/classes/logger.md)" > README.md
 
-# Append the Log Interface Documentation to the README
-# echo "$(cat temp-docs/interfaces/log.md)" >> README.md
-
-# Add one level of heading to each header
+echo "Adding one level of heading to each header..."
 sed -i '' 's/#/##/' README.md
+
+echo "Renaming 'Class: Logger' to 'API Documentation'"
 sed -i '' 's/Class: Logger/API Documentation/' README.md
 
-# Create the full README, including the skeleton, a table of contents, and the existing README from the previous steps
+echo "Creating the full README..."
+echo "$(cat scripts/templates/readme-above-doc.md)
+$(cat README.md)
+$(cat scripts/templates/readme-below-doc.md)" > README.md
 
-echo "$(cat scripts/templates/readme-skeleton.md)
-      $(cat README.md)" > README.md
-
+echo "Adding a Table of Contents..."
 markdown-toc README.md --maxdepth 3 -i
 
-# Remove the temp-docs folder created to construct the README
+echo "Removing Temporary Docs Folder..."
 rimraf temp-docs
 
-# Create the documentation that will be used to construct the docs folder
-typedoc src/index.ts --plugin typedoc-plugin-markdown --theme markdown --out docs --name 'Hack4Impact Logger' --excludePrivate --publicPath $PUBLIC_PATH
+echo "Generating contributors..."
+npm run contributors:generate > /dev/null
 
-# Format all created documentation
-prettier --write README.md docs/
+echo "Generating docs folder..."
+typedoc src/index.ts --plugin typedoc-plugin-markdown --theme markdown --out docs --name 'Hack4Impact Logger' --excludePrivate --publicPath $PUBLIC_PATH > /dev/null
+
+echo "Formatting files..."
+prettier --write README.md docs/ > /dev/null
