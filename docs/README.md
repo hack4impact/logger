@@ -1,3 +1,5 @@
+Hack4Impact Logger / [Exports](modules.md)
+
 <h1 align="center">Hack4Impact Logger</h1>
 
 <p align="center">Logger Utility used internally by Hack4Impact Projects</p>
