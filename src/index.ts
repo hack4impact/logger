@@ -83,7 +83,7 @@ class Logger {
    * @description Returns the output file path
    * @example const logsPath = logger.getLogsPath();
    */
-  public getLogsPath() {
+  public getLogsPath(): string {
     return this.logsPath;
   }
 
@@ -154,7 +154,7 @@ class Logger {
    * @param logsPath The output file path
    * @example logger.setLogsPath(__dirname + "logs.json");
    */
-  public setLogsPath(logsPath: string) {
+  public setLogsPath(logsPath: string): void {
     this.logsPath = logsPath;
   }
 
@@ -165,7 +165,7 @@ class Logger {
    * @example Logger.log("hi");
    * @example Logger.log("hi %s", "Bill");
    */
-  static log(message?: any, ...optionalParams: any[]): void {
+  static log(message?: unknown, ...optionalParams: any[]): void {
     console.log(message, ...optionalParams);
   }
 
