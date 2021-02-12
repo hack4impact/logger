@@ -5,3 +5,6 @@
 <p align="center">(All documentation auto-generated using <a href="https://typedoc.org/">TypeDoc</a>)</p>
 
 ## Table of Contents
+
+<!-- toc -->
+<!-- tocstop -->

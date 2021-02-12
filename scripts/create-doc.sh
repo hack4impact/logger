@@ -10,16 +10,18 @@ typedoc src/index.ts --plugin typedoc-plugin-markdown --theme markdown --out tem
 echo "$(cat temp-docs/classes/logger.md)" > README.md
 
 # Append the Log Interface Documentation to the README
-echo "$(cat temp-docs/interfaces/log.md)" >> README.md
+# echo "$(cat temp-docs/interfaces/log.md)" >> README.md
 
 # Add one level of heading to each header
 sed -i '' 's/#/##/' README.md
+sed -i '' 's/Class: Logger/API Documentation/' README.md
 
 # Create the full README, including the skeleton, a table of contents, and the existing README from the previous steps
-echo "$(cat scripts/templates/readme-skeleton.md)
-$(markdown-toc README.md --maxdepth 3)
 
-$(cat README.md)" > README.md
+echo "$(cat scripts/templates/readme-skeleton.md)
+      $(cat README.md)" > README.md
+
+markdown-toc README.md --maxdepth 3 -i
 
 # Remove the temp-docs folder created to construct the README
 rimraf temp-docs
