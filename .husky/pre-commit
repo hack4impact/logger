@@ -3,4 +3,4 @@
 
 npm run lintstaged
 npm run create-doc
-git add README.md
+git add README.md docs/

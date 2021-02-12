@@ -1,4 +1,4 @@
-[Hack4Impact Logger](../README.md) / [Exports](../modules.md) / Logger
+[Hack4Impact Logger](https://github.com/YashTotale/logger/tree/main/docs/README.md) / [Exports](https://github.com/YashTotale/logger/tree/main/docs/modules.md) / Logger
 
 # Class: Logger
 
@@ -6,11 +6,38 @@
 
 - **Logger**
 
+## Table of contents
+
+### Constructors
+
+- [constructor](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#constructor)
+
+### Properties
+
+- [COLORS](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#colors)
+
+### Accessors
+
+- [logs](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#logs)
+- [logsPath](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#logspath)
+
+### Methods
+
+- [log](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#log)
+- [bold](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#bold)
+- [coloredLog](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#coloredlog)
+- [error](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#error)
+- [info](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#info)
+- [line](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#line)
+- [log](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#log)
+- [success](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#success)
+- [warn](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md#warn)
+
 ## Constructors
 
 ### constructor
 
-\+ **new Logger**(`logsPath`: _string_): [_Logger_](logger.md)
+\+ **new Logger**(`logsPath`: _string_): [_Logger_](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md)
 
 Creates a new Logger instance
 
@@ -26,9 +53,9 @@ const logger = new Logger(__dirname + "logs.json");
 | ---------- | -------- | -------------------- |
 | `logsPath` | _string_ | The output file path |
 
-**Returns:** [_Logger_](logger.md)
+**Returns:** [_Logger_](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md)
 
-Defined in: [index.ts:71](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L71)
+Defined in: [index.ts:71](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L71)
 
 ## Properties
 
@@ -72,13 +99,13 @@ console.log(Logger.COLORS.Dim + "Dim log" + Logger.COLORS.Reset);
 | `Reverse`    | _string_ |
 | `Underscore` | _string_ |
 
-Defined in: [index.ts:32](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L32)
+Defined in: [index.ts:32](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L32)
 
 ## Accessors
 
 ### logs
 
-• **logs**(): [_Log_](../interfaces/log.md)[]
+• **logs**(): [_Log_](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)[]
 
 All logs that have been output by this Logger instance
 
@@ -88,9 +115,9 @@ All logs that have been output by this Logger instance
 const logs = logger.logs;
 ```
 
-**Returns:** [_Log_](../interfaces/log.md)[]
+**Returns:** [_Log_](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)[]
 
-Defined in: [index.ts:97](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L97)
+Defined in: [index.ts:97](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L97)
 
 ---
 
@@ -108,7 +135,7 @@ const logsPath = logger.logsPath;
 
 **Returns:** _string_
 
-Defined in: [index.ts:110](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L110)
+Defined in: [index.ts:110](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L110)
 
 • **logsPath**(`logsPath`: _string_): _void_
 
@@ -128,7 +155,7 @@ logger.logsPath = __dirname + "logs.json";
 
 **Returns:** _void_
 
-Defined in: [index.ts:123](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L123)
+Defined in: [index.ts:123](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L123)
 
 ## Methods
 
@@ -152,7 +179,7 @@ await logger.log("hi");
 
 **Returns:** _Promise_<_void_\>
 
-Defined in: [index.ts:137](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L137)
+Defined in: [index.ts:137](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L137)
 
 ▸ **log**(`message`: _any_, `writeToFile`: _true_, `type?`: _success_ \| _info_ \| _error_ \| _warn_, `extra?`: _unknown_): _Promise_<_void_\>
 
@@ -187,7 +214,7 @@ await logger.log("hi", true, "success", "extra info that is not logged");
 
 **Returns:** _Promise_<_void_\>
 
-Defined in: [index.ts:159](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L159)
+Defined in: [index.ts:159](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L159)
 
 ▸ **log**(`message`: _any_, `writeToFile`: _false_, `type?`: _success_ \| _info_ \| _error_ \| _warn_): _void_
 
@@ -215,7 +242,7 @@ logger.log("hi", false, "info");
 
 **Returns:** _void_
 
-Defined in: [index.ts:181](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L181)
+Defined in: [index.ts:181](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L181)
 
 ---
 
@@ -246,7 +273,7 @@ Logger.bold("BOLD!", "this part is not bold");
 
 **Returns:** _void_
 
-Defined in: [index.ts:297](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L297)
+Defined in: [index.ts:297](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L297)
 
 ---
 
@@ -285,7 +312,7 @@ Logger.coloredLog("FgRed", "error!!!", "", "error");
 
 **Returns:** _void_
 
-Defined in: [index.ts:271](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L271)
+Defined in: [index.ts:271](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L271)
 
 ---
 
@@ -316,7 +343,7 @@ Logger.bold("ERROR!", "this part is not red");
 
 **Returns:** _void_
 
-Defined in: [index.ts:373](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L373)
+Defined in: [index.ts:373](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L373)
 
 ---
 
@@ -347,7 +374,7 @@ Logger.bold("information...", "this part is not blue");
 
 **Returns:** _void_
 
-Defined in: [index.ts:335](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L335)
+Defined in: [index.ts:335](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L335)
 
 ---
 
@@ -365,7 +392,7 @@ Logger.line();
 
 **Returns:** _void_
 
-Defined in: [index.ts:246](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L246)
+Defined in: [index.ts:246](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L246)
 
 ---
 
@@ -396,7 +423,7 @@ Logger.log("hi %s", "Bill");
 
 **Returns:** _void_
 
-Defined in: [index.ts:233](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L233)
+Defined in: [index.ts:233](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L233)
 
 ---
 
@@ -427,7 +454,7 @@ Logger.bold("SUCCESS!", "this part is not green");
 
 **Returns:** _void_
 
-Defined in: [index.ts:316](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L316)
+Defined in: [index.ts:316](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L316)
 
 ---
 
@@ -458,4 +485,4 @@ Logger.bold("WARNING!", "this part is not yellow");
 
 **Returns:** _void_
 
-Defined in: [index.ts:354](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L354)
+Defined in: [index.ts:354](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L354)

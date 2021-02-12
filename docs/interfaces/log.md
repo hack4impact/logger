@@ -1,4 +1,4 @@
-[Hack4Impact Logger](../README.md) / [Exports](../modules.md) / Log
+[Hack4Impact Logger](https://github.com/YashTotale/logger/tree/main/docs/README.md) / [Exports](https://github.com/YashTotale/logger/tree/main/docs/modules.md) / Log
 
 # Interface: Log
 
@@ -6,13 +6,23 @@
 
 - **Log**
 
+## Table of contents
+
+### Properties
+
+- [extra](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md#extra)
+- [index](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md#index)
+- [message](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md#message)
+- [timestamp](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md#timestamp)
+- [type](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md#type)
+
 ## Properties
 
 ### extra
 
 • `Optional` **extra**: _unknown_
 
-Defined in: [index.ts:19](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L19)
+Defined in: [index.ts:19](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L19)
 
 ---
 
@@ -20,7 +30,7 @@ Defined in: [index.ts:19](https://github.com/YashTotale/logger/blob/790ca3e/src/
 
 • **index**: _number_
 
-Defined in: [index.ts:17](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L17)
+Defined in: [index.ts:17](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L17)
 
 ---
 
@@ -28,7 +38,7 @@ Defined in: [index.ts:17](https://github.com/YashTotale/logger/blob/790ca3e/src/
 
 • **message**: _any_
 
-Defined in: [index.ts:15](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L15)
+Defined in: [index.ts:15](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L15)
 
 ---
 
@@ -36,7 +46,7 @@ Defined in: [index.ts:15](https://github.com/YashTotale/logger/blob/790ca3e/src/
 
 • **timestamp**: _number_
 
-Defined in: [index.ts:16](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L16)
+Defined in: [index.ts:16](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L16)
 
 ---
 
@@ -44,4 +54,4 @@ Defined in: [index.ts:16](https://github.com/YashTotale/logger/blob/790ca3e/src/
 
 • `Optional` **type**: _undefined_ \| _success_ \| _info_ \| _error_ \| _warn_
 
-Defined in: [index.ts:18](https://github.com/YashTotale/logger/blob/790ca3e/src/index.ts#L18)
+Defined in: [index.ts:18](https://github.com/YashTotale/logger/blob/c1e6bd6/src/index.ts#L18)
