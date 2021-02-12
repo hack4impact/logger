@@ -7,9 +7,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 ## Table of Contents <!-- omit in toc -->
 
 - [Unreleased](#unreleased)
+- [[1.1.0] - (2021-02-11)](#110---2021-02-11)
+  - [Changed](#changed)
 - [[1.0.0] - (2021-02-11)](#100---2021-02-11)
 
 ## Unreleased
+
+---
+
+## [1.1.0] - (2021-02-11)
+
+### Changed
+
+- Getters & Setters for Logger
+- TSDoc Syntax for methods and variables
 
 ---
 
