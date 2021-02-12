@@ -9,12 +9,13 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "eslint-plugin-tsdoc"],
   "rules": {
     "indent": "off",
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
+    "tsdoc/syntax": "warn",
     "@typescript-eslint/no-explicit-any": "off"
   }
 }
