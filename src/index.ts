@@ -134,7 +134,7 @@ export class Logger {
    * await logger.log("hi");
    * ```
    */
-  public log(message: LogMessage): Promise<void>;
+  public log(message: LogMessage): Promise<Log>;
   /**
    *
    * Logs a message to the console and writes to the output file path
@@ -161,7 +161,7 @@ export class Logger {
     writeToFile: true,
     type?: LogType,
     extra?: LogExtra
-  ): Promise<void>;
+  ): Promise<Log>;
   /**
    *
    * Logs a message to the console
@@ -178,13 +178,13 @@ export class Logger {
    * logger.log("hi", false, "info");
    * ```
    */
-  public log(message: LogMessage, writeToFile: false, type?: LogType): void;
+  public log(message: LogMessage, writeToFile: false, type?: LogType): Log;
   public log(
     message: LogMessage,
     writeToFile?: boolean,
     type?: LogType,
     extra?: LogExtra
-  ): Promise<void> | void {
+  ): Promise<Log> | Log {
     const newLog: Log = {
       message,
       timestamp: Date.now(),
@@ -199,7 +199,8 @@ export class Logger {
     else Logger.log(message);
 
     if (writeToFile === undefined) writeToFile = true;
-    if (writeToFile) this.writeLogs();
+    if (writeToFile) return this.writeLogs().then(() => newLog);
+    else return newLog;
   }
 
   /**
