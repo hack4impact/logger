@@ -19,13 +19,15 @@ export interface Log {
   extra?: LogExtra;
 }
 
-class Logger {
+export class Logger {
   /**
    *
    * ANSI Escape Codes
    *
    * @example
+   * ```javascript
    * console.log(Logger.COLORS.Dim + "Dim log" + Logger.COLORS.Reset);
+   * ```
    */
   static readonly COLORS = {
     Reset: "\x1b[0m",
@@ -74,7 +76,9 @@ class Logger {
    *
    * @param logsPath - The output file path
    * @example
+   * ```javascript
    * const logger = new Logger(__dirname + "logs.json");
+   * ```
    */
   constructor(logsPath: string) {
     this._logsPath = logsPath;
@@ -86,9 +90,11 @@ class Logger {
    * All logs that have been output by this Logger instance
    *
    * @example
+   * ```javascript
    * const logs = logger.logs;
+   * ```
    */
-  public get logs() {
+  public get logs(): Log[] {
     return this._logs;
   }
 
@@ -97,7 +103,9 @@ class Logger {
    * The output file path
    *
    * @example
+   * ```javascript
    * const logsPath = logger.logsPath;
+   * ```
    */
   public get logsPath(): string {
     return this._logsPath;
@@ -108,7 +116,9 @@ class Logger {
    * The output file path
    *
    * @example
+   * ```javascript
    * logger.logsPath = __dirname + "logs.json";
+   * ```
    */
   public set logsPath(logsPath: string) {
     this._logsPath = logsPath;
@@ -120,7 +130,9 @@ class Logger {
    *
    * @param message - The message to log
    * @example
+   * ```javascript
    * await logger.log("hi");
+   * ```
    */
   public log(message: LogMessage): Promise<void>;
   /**
@@ -132,11 +144,17 @@ class Logger {
    * @param type - The type of log
    * @param extra - Extra information to write to file (will not be logged)
    * @example
+   * ```javascript
    * await logger.log("hi", true);
+   * ```
    * @example
+   * ```javascript
    * await logger.log("hi", true, "info");
+   * ```
    * @example
+   * ```javascript
    * await logger.log("hi", true, "success", "extra info that is not logged");
+   * ```
    */
   public log(
     message: LogMessage,
@@ -152,9 +170,13 @@ class Logger {
    * @param writeToFile - Should write to file
    * @param type - The type of log
    * @example
+   * ```javascript
    * logger.log("hi", false);
+   * ```
    * @example
+   * ```javascript
    * logger.log("hi", false, "info");
+   * ```
    */
   public log(message: LogMessage, writeToFile: false, type?: LogType): void;
   public log(
@@ -185,7 +207,9 @@ class Logger {
    * Writes the logs stored in `this.logs` to the output file
    *
    * @example
+   * ```javascript
    * await logger.writeLogs();
+   * ```
    */
   private writeLogs(): Promise<void> {
     return writeFile(this.logsPath, JSON.stringify(this.logs), "utf-8");
@@ -198,9 +222,13 @@ class Logger {
    * @param message - The message to log
    * @param optionalParams - Substitution strings
    * @example
+   * ```javascript
    * Logger.log("hi");
+   * ```
    * @example
+   * ```javascript
    * Logger.log("hi %s", "Bill");
+   * ```
    */
   static log(message?: unknown, ...optionalParams: any[]): void {
     console.log(message, ...optionalParams);
@@ -211,7 +239,9 @@ class Logger {
    * Logs an empty line to the console
    *
    * @example
+   * ```javascript
    * Logger.line();
+   * ```
    */
   static line(): void {
     console.log();
@@ -226,11 +256,17 @@ class Logger {
    * @param afterColored - The optional message after the colored message (on the same line)
    * @param consoleLevel - The console level to use (log, warn, or error)
    * @example
+   * ```javascript
    * Logger.coloredLog("BgBlue", "hi");
+   * ```
    * @example
+   * ```javascript
    * Logger.coloredLog("FgYellow", "hi", "this string will not be colored");
+   * ```
    * @example
+   * ```javascript
    * Logger.coloredLog("FgRed", "error!!!", "", "error");
+   * ```
    */
   static coloredLog(
     color: keyof typeof Logger.COLORS,
@@ -250,9 +286,13 @@ class Logger {
    * @param message - The message to log
    * @param afterColored - The optional message after the colored message (on the same line)
    * @example
+   * ```javascript
    * Logger.bold("BOLD!");
+   * ```
    * @example
+   * ```javascript
    * Logger.bold("BOLD!", "this part is not bold");
+   * ```
    */
   static bold(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("Bright", message, afterColored);
@@ -265,9 +305,13 @@ class Logger {
    * @param message - The message to log
    * @param afterColored - The optional message after the colored message (on the same line)
    * @example
+   * ```javascript
    * Logger.bold("SUCCESS!");
+   * ```
    * @example
+   * ```javascript
    * Logger.bold("SUCCESS!", "this part is not green");
+   * ```
    */
   static success(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("FgGreen", message, afterColored);
@@ -280,9 +324,13 @@ class Logger {
    * @param message - The message to log
    * @param afterColored - The optional message after the colored message (on the same line)
    * @example
+   * ```javascript
    * Logger.bold("information...");
+   * ```
    * @example
+   * ```javascript
    * Logger.bold("information...", "this part is not blue");
+   * ```
    */
   static info(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("FgBlue", message, afterColored);
@@ -295,9 +343,13 @@ class Logger {
    * @param message - The message to log
    * @param afterColored - The optional message after the colored message (on the same line)
    * @example
+   * ```javascript
    * Logger.bold("WARNING!");
+   * ```
    * @example
+   * ```javascript
    * Logger.bold("WARNING!", "this part is not yellow");
+   * ```
    */
   static warn(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("FgYellow", message, afterColored, "warn");
@@ -310,9 +362,13 @@ class Logger {
    * @param message - The message to log
    * @param afterColored - The optional message after the colored message (on the same line)
    * @example
+   * ```javascript
    * Logger.bold("ERROR!");
+   * ```
    * @example
+   * ```javascript
    * Logger.bold("ERROR!", "this part is not red");
+   * ```
    */
   static error(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("FgRed", message, afterColored, "error");

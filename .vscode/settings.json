@@ -19,5 +19,6 @@
 
     ".snyk": "yaml",
     ".imgbotconfig": "json"
-  }
+  },
+  "markdown.extension.toc.updateOnSave": false
 }
