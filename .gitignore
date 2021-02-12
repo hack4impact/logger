@@ -25,6 +25,7 @@ build/
 *.der
 *.key
 *.pem
+.env
 
 # misc
 .DS_Store

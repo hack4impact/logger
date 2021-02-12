@@ -30,10 +30,13 @@
   ],
   "dependencies": {},
   "devDependencies": {
+    "@octokit/rest": "^18.1.0",
+    "@types/dotenv-safe": "^8.1.1",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.25",
     "@types/recursive-readdir": "^2.2.0",
     "@vercel/ncc": "^0.27.0",
+    "dotenv-safe": "^8.2.0",
     "husky": "^5.0.9",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.4",
@@ -46,15 +49,16 @@
     "typescript": "^4.1.5"
   },
   "scripts": {
-    "prepublishOnly": "npm run build && pinst --disable",
     "preversion": "npm test",
     "postversion": "git push && git push --follow-tags",
-    "postpublish": "pinst --enable",
+    "prepublishOnly": "pinst --disable && npm run build",
+    "postpublish": "pinst --enable && npm run recreate-releases",
     "start": "bash scripts/start.sh",
     "build": "bash scripts/build.sh",
     "postbuild": "ts-node scripts/postbuild.ts",
     "test": "jest --passWithNoTests",
     "postinstall": "husky install",
-    "lintstaged": "lint-staged"
+    "lintstaged": "lint-staged",
+    "recreate-releases": "ts-node scripts/recreate-releases.ts"
   }
 }

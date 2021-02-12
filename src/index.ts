@@ -1,4 +1,4 @@
-// Externals
+// Node
 import { writeFile } from "fs/promises";
 
 export type LogType = "success" | "info" | "error" | "warn";
