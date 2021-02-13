@@ -9,4 +9,6 @@ test("Prints empty line", () => {
 
   expect(spy).toHaveBeenCalledTimes(1);
   expect(spy).toHaveBeenLastCalledWith<[]>();
+
+  spy.mockRestore();
 });

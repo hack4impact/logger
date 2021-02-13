@@ -25,6 +25,8 @@ const checkConsoleSpy = (spy: jest.SpyInstance, message: string) => {
   expect(spy).toHaveBeenCalledWith<[string]>(
     expect.stringMatching(new RegExp(`.*${message}.*`))
   );
+
+  spy.mockRestore();
 };
 
 test("With only message", async () => {
@@ -44,8 +46,6 @@ test("With only message", async () => {
   checkFields(writtenLogs[0], { message }, 0);
 
   checkConsoleSpy(spy, message);
-
-  spy.mockRestore();
 });
 
 test("With writeToFile enabled", async () => {
@@ -74,8 +74,6 @@ test("With writeToFile enabled", async () => {
     checkFields(writtenLogs[i], params, i);
 
     checkConsoleSpy(spy, message);
-
-    spy.mockRestore();
   }
 });
 
@@ -103,7 +101,5 @@ test("With writeToFile disabled", async () => {
     expect(writtenLogs.length).toEqual(0);
 
     checkConsoleSpy(spy, message);
-
-    spy.mockRestore();
   }
 });

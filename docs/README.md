@@ -61,7 +61,7 @@ const logger = new Logger(__dirname + "logs.json");
 
 **Returns:** [_Logger_](https://github.com/hack4impact/logger/tree/main/docs/classes/logger.md)
 
-Defined in: [index.ts:71](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L71)
+Defined in: [index.ts:73](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L73)
 
 ### Properties
 
@@ -105,7 +105,7 @@ console.log(Logger.COLORS.Dim + "Dim log" + Logger.COLORS.Reset);
 | `Reverse`    | _string_ |
 | `Underscore` | _string_ |
 
-Defined in: [index.ts:32](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L32)
+Defined in: [index.ts:34](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L34)
 
 ### Accessors
 
@@ -123,7 +123,7 @@ const logs = logger.logs;
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)[]
 
-Defined in: [index.ts:97](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L97)
+Defined in: [index.ts:99](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L99)
 
 ---
 
@@ -141,7 +141,7 @@ const logsPath = logger.logsPath;
 
 **Returns:** _string_
 
-Defined in: [index.ts:110](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L110)
+Defined in: [index.ts:112](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L112)
 
 • **logsPath**(`logsPath`: _string_): _void_
 
@@ -161,7 +161,7 @@ logger.logsPath = __dirname + "logs.json";
 
 **Returns:** _void_
 
-Defined in: [index.ts:123](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L123)
+Defined in: [index.ts:125](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L125)
 
 ### Methods
 
@@ -185,7 +185,7 @@ await logger.log("hi");
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:137](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L137)
+Defined in: [index.ts:139](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L139)
 
 ▸ **log**(`message`: _any_, `writeToFile`: _true_, `type?`: _success_ \| _info_ \| _error_ \| _warn_, `extra?`: _unknown_): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
@@ -220,7 +220,7 @@ await logger.log("hi", true, "success", "extra info that is not logged");
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:159](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L159)
+Defined in: [index.ts:161](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L161)
 
 ▸ **log**(`message`: _any_, `writeToFile`: _false_, `type?`: _success_ \| _info_ \| _error_ \| _warn_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
@@ -248,7 +248,7 @@ logger.log("hi", false, "info");
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:181](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L181)
+Defined in: [index.ts:183](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L183)
 
 ---
 
@@ -279,13 +279,13 @@ Logger.bold("BOLD!", "this part is not bold");
 
 **Returns:** _void_
 
-Defined in: [index.ts:298](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L298)
+Defined in: [index.ts:300](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L300)
 
 ---
 
 #### coloredLog
 
-▸ `Static`**coloredLog**(`color`: _Reset_ \| _Bright_ \| _Dim_ \| _Underscore_ \| _Blink_ \| _Reverse_ \| _Hidden_ \| _FgBlack_ \| _FgRed_ \| _FgGreen_ \| _FgYellow_ \| _FgBlue_ \| _FgMagenta_ \| _FgCyan_ \| _FgWhite_ \| _BgBlack_ \| _BgRed_ \| _BgGreen_ \| _BgYellow_ \| _BgBlue_ \| _BgMagenta_ \| _BgCyan_ \| _BgWhite_, `message?`: _string_, `afterColored?`: _string_, `consoleLevel?`: _error_ \| _warn_ \| _log_): _void_
+▸ `Static`**coloredLog**(`color`: _Reset_ \| _Bright_ \| _Dim_ \| _Underscore_ \| _Blink_ \| _Reverse_ \| _Hidden_ \| _FgBlack_ \| _FgRed_ \| _FgGreen_ \| _FgYellow_ \| _FgBlue_ \| _FgMagenta_ \| _FgCyan_ \| _FgWhite_ \| _BgBlack_ \| _BgRed_ \| _BgGreen_ \| _BgYellow_ \| _BgBlue_ \| _BgMagenta_ \| _BgCyan_ \| _BgWhite_, `message`: _string_, `afterColored?`: _string_, `consoleLevel?`: [_ConsoleLevel_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##consolelevel)): _void_
 
 Logs a colored message to the console
 
@@ -312,13 +312,13 @@ Logger.coloredLog("FgRed", "error!!!", "", "error");
 | Name           | Type                                                                                                                                                                                                                                                                                           | Default value | Description                                                       |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
 | `color`        | _Reset_ \| _Bright_ \| _Dim_ \| _Underscore_ \| _Blink_ \| _Reverse_ \| _Hidden_ \| _FgBlack_ \| _FgRed_ \| _FgGreen_ \| _FgYellow_ \| _FgBlue_ \| _FgMagenta_ \| _FgCyan_ \| _FgWhite_ \| _BgBlack_ \| _BgRed_ \| _BgGreen_ \| _BgYellow_ \| _BgBlue_ \| _BgMagenta_ \| _BgCyan_ \| _BgWhite_ | -             | The color to log in                                               |
-| `message`      | _string_                                                                                                                                                                                                                                                                                       | ""            | The message to log                                                |
+| `message`      | _string_                                                                                                                                                                                                                                                                                       | -             | The message to log                                                |
 | `afterColored` | _string_                                                                                                                                                                                                                                                                                       | ""            | The optional message after the colored message (on the same line) |
-| `consoleLevel` | _error_ \| _warn_ \| _log_                                                                                                                                                                                                                                                                     | "log"         | The console level to use (log, warn, or error)                    |
+| `consoleLevel` | [_ConsoleLevel_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##consolelevel)                                                                                                                                                                                                | "log"         | The console level to use (log, warn, or error)                    |
 
 **Returns:** _void_
 
-Defined in: [index.ts:272](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L272)
+Defined in: [index.ts:274](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L274)
 
 ---
 
@@ -349,7 +349,7 @@ Logger.bold("ERROR!", "this part is not red");
 
 **Returns:** _void_
 
-Defined in: [index.ts:374](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L374)
+Defined in: [index.ts:376](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L376)
 
 ---
 
@@ -380,7 +380,7 @@ Logger.bold("information...", "this part is not blue");
 
 **Returns:** _void_
 
-Defined in: [index.ts:336](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L336)
+Defined in: [index.ts:338](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L338)
 
 ---
 
@@ -398,7 +398,7 @@ Logger.line();
 
 **Returns:** _void_
 
-Defined in: [index.ts:247](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L247)
+Defined in: [index.ts:249](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L249)
 
 ---
 
@@ -429,7 +429,7 @@ Logger.log("hi %s", "Bill");
 
 **Returns:** _void_
 
-Defined in: [index.ts:234](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L234)
+Defined in: [index.ts:236](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L236)
 
 ---
 
@@ -460,7 +460,7 @@ Logger.bold("SUCCESS!", "this part is not green");
 
 **Returns:** _void_
 
-Defined in: [index.ts:317](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L317)
+Defined in: [index.ts:319](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L319)
 
 ---
 
@@ -491,7 +491,7 @@ Logger.bold("WARNING!", "this part is not yellow");
 
 **Returns:** _void_
 
-Defined in: [index.ts:355](https://github.com/hack4impact/logger/blob/261eddd/src/index.ts##L355)
+Defined in: [index.ts:357](https://github.com/hack4impact/logger/blob/7917c6a/src/index.ts##L357)
 
 ## Dependents
 

@@ -10,6 +10,8 @@ test("With only message", () => {
 
   expect(spy).toHaveBeenCalledTimes(1);
   expect(spy).toHaveBeenLastCalledWith<[string]>(message);
+
+  spy.mockRestore();
 });
 
 test("With message and substitution strings", () => {
@@ -26,4 +28,6 @@ test("With message and substitution strings", () => {
     sub1,
     sub2
   );
+
+  spy.mockRestore();
 });

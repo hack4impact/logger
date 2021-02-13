@@ -1,6 +1,8 @@
 // Node
 import { writeFile } from "fs/promises";
 
+export type ConsoleLevel = "log" | "warn" | "error";
+
 export type LogType = "success" | "info" | "error" | "warn";
 
 export type LogMessage = any;
@@ -271,9 +273,9 @@ export class Logger {
    */
   static coloredLog(
     color: keyof typeof Logger.COLORS,
-    message = "",
+    message: string,
     afterColored = "",
-    consoleLevel: "log" | "warn" | "error" = "log"
+    consoleLevel: ConsoleLevel = "log"
   ): void {
     console[consoleLevel](
       `${this.COLORS[color]}${message}${this.COLORS.Reset}${afterColored}`
