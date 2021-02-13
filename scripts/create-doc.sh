@@ -17,9 +17,9 @@ echo "Renaming 'Class: Logger' to 'API Documentation'"
 sed -i '' 's/Class: Logger/API Documentation/' README.md
 
 echo "Creating the full README..."
-echo "$(cat scripts/templates/readme-above-doc.md)
+echo "$(cat static/templates/readme-above-doc.md)
 $(cat README.md)
-$(cat scripts/templates/readme-below-doc.md)" > README.md
+$(cat static/templates/readme-below-doc.md)" > README.md
 
 echo "Adding a Table of Contents..."
 markdown-toc README.md --maxdepth 3 -i

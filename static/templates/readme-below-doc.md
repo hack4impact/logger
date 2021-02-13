@@ -2,8 +2,6 @@
 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=hack4impact&repo=airtable-automation&show_owner=true)](https://github.com/hack4impact/airtable-automation)
 
-</table>
-
 ## Contributors
 
 Project Contributors ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
