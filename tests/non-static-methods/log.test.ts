@@ -1,90 +1,114 @@
 // Externals
+import { readFileSync } from "fs";
 import { readFile, writeFile } from "fs/promises";
 
 // Internals
-import Logger, { Log } from "../../src";
+import Logger, {
+  Log,
+  LogMessage,
+  LogParameterWithWrite,
+  LogParameterWithoutWrite,
+} from "../../src";
 import { createLogsPath, setUpConsoleSpy } from "../helpers";
 import { checkFields } from "./helpers";
 
 const logsPath = createLogsPath(__filename);
+
+const checkConsoleSpy = (spy: jest.SpyInstance, log: Log) => {
+  const { message, type } = log;
+
+  expect(spy).toHaveBeenCalledTimes(1);
+
+  if (type !== undefined || typeof message === "string")
+    expect(spy).toHaveBeenCalledWith<[string]>(
+      expect.stringMatching(new RegExp(`.*${message}.*`))
+    );
+  else if (typeof message === "number")
+    expect(spy).toHaveBeenCalledWith<[number]>(message);
+  else if (Array.isArray(message))
+    expect(spy).toHaveBeenCalledWith<[LogMessage[]]>(message);
+
+  spy.mockRestore();
+};
 
 beforeEach(async (done) => {
   await writeFile(logsPath, "[]", "utf-8");
   done();
 });
 
-const checkConsoleSpy = (spy: jest.SpyInstance, message: string) => {
-  expect(spy).toHaveBeenCalledTimes(1);
-  expect(spy).toHaveBeenCalledWith<[string]>(
-    expect.stringMatching(new RegExp(`.*${message}.*`))
-  );
-
-  spy.mockRestore();
-};
-
 test("With only message", async () => {
   const logger = new Logger(logsPath);
 
-  const message = "hello";
+  const messages: LogMessage[] = ["hello", 43, ["hi there", ["hi"], 312]];
 
-  const spy = setUpConsoleSpy();
+  for (let i = 0; i < messages.length; i++) {
+    const message = messages[i];
+    const spy = setUpConsoleSpy();
 
-  const log = await logger.log(message);
+    const log = logger.log(message);
 
-  checkFields(log, { message }, 0);
+    checkFields(log, { message }, i);
 
-  const rawLogs = await readFile(logsPath, "utf-8");
-  const writtenLogs: Log[] = JSON.parse(rawLogs);
+    const rawLogs = readFileSync(logsPath, "utf-8");
+    const writtenLogs: Log[] = JSON.parse(rawLogs);
 
-  checkFields(writtenLogs[0], { message }, 0);
+    expect(writtenLogs.length).toEqual(0);
 
-  checkConsoleSpy(spy, message);
+    checkConsoleSpy(spy, log);
+  }
 });
 
 test("With writeToFile enabled", async () => {
   const logger = new Logger(logsPath);
 
-  const testParams: Partial<Log>[] = [
+  const testParams: Partial<LogParameterWithWrite>[] = [
     { message: "hello" },
-    { message: "hi", type: "warn" },
-    { message: "howdy", extra: "Extra.." },
-    { message: "hola", type: "success", extra: "Extra!" },
+    { message: ["hi", 1212], type: "warn" },
+    { message: 1212, extra: "Extra.." },
+    { message: [2121, 12, [121], "qwd"], type: "success", extra: "Extra!" },
   ];
 
   for (let i = 0; i < testParams.length; i++) {
-    const params = testParams[i];
-    const { message, type, extra } = params;
+    const params: LogParameterWithWrite = {
+      message: "",
+      writeToFile: true,
+      ...testParams[i],
+    };
 
-    const spy = setUpConsoleSpy(type);
+    const spy = setUpConsoleSpy(params.type);
 
-    const log = await logger.log(message, true, type, extra);
+    const log = await logger.log(params);
 
     checkFields(log, params, i);
 
-    const rawLogs = await readFile(logsPath, "utf-8");
+    const rawLogs = readFileSync(logsPath, "utf-8");
     const writtenLogs: Log[] = JSON.parse(rawLogs);
 
     checkFields(writtenLogs[i], params, i);
 
-    checkConsoleSpy(spy, message);
+    checkConsoleSpy(spy, log);
   }
 });
 
 test("With writeToFile disabled", async () => {
   const logger = new Logger(logsPath);
 
-  const testParams: Partial<Log>[] = [
-    { message: "hello" },
+  const testParams: Partial<LogParameterWithoutWrite>[] = [
+    { message: ["hello", 1212, ["hi"]] },
+    { message: 121 },
     { message: "hi", type: "warn" },
   ];
 
   for (let i = 0; i < testParams.length; i++) {
-    const params = testParams[i];
-    const { message, type } = params;
+    const params: LogParameterWithoutWrite = {
+      message: "",
+      writeToFile: false,
+      ...testParams[i],
+    };
 
-    const spy = setUpConsoleSpy(type);
+    const spy = setUpConsoleSpy(params.type);
 
-    const log = logger.log(message, false, type);
+    const log = logger.log(params);
 
     checkFields(log, params, i);
 
@@ -93,6 +117,6 @@ test("With writeToFile disabled", async () => {
 
     expect(writtenLogs.length).toEqual(0);
 
-    checkConsoleSpy(spy, message);
+    checkConsoleSpy(spy, log);
   }
 });

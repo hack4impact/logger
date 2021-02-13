@@ -105,7 +105,7 @@ const logger = new Logger(__dirname + "logs.json");
 
 **Returns:** [_Logger_](https://github.com/hack4impact/logger/tree/main/docs/classes/logger.md)
 
-Defined in: [index.ts:77](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L77)
+Defined in: [index.ts:91](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L91)
 
 ### Properties
 
@@ -149,7 +149,7 @@ console.log(Logger.COLORS.Dim + "Dim log" + Logger.COLORS.Reset);
 | `Reverse`    | _string_ |
 | `Underscore` | _string_ |
 
-Defined in: [index.ts:38](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L38)
+Defined in: [index.ts:52](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L52)
 
 ### Accessors
 
@@ -167,7 +167,7 @@ const logs = logger.logs;
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)[]
 
-Defined in: [index.ts:103](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L103)
+Defined in: [index.ts:117](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L117)
 
 ---
 
@@ -185,7 +185,7 @@ const logsPath = logger.logsPath;
 
 **Returns:** _string_
 
-Defined in: [index.ts:116](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L116)
+Defined in: [index.ts:130](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L130)
 
 • **logsPath**(`logsPath`: _string_): _void_
 
@@ -205,173 +205,126 @@ logger.logsPath = __dirname + "logs.json";
 
 **Returns:** _void_
 
-Defined in: [index.ts:129](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L129)
+Defined in: [index.ts:143](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L143)
 
 ### Methods
 
 #### log
 
-▸ **log**(`message`: _any_): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+▸ **log**(`logParameter`: [_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md)): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
 Logs a message to the console and writes to the output file path
 
 **`example`**
 
 ```javascript
-await logger.log("hi");
+await logger.log({
+  message: "Hello",
+  writeToFile: true,
+});
+```
+
+**`example`**
+
+```javascript
+await logger.log({
+  message: "Hello",
+  writeToFile: true,
+  type: "success",
+});
+```
+
+**`example`**
+
+```javascript
+await logger.log({
+  message: "Hello",
+  writeToFile: true,
+  type: "info",
+  extra: "this part is not logged",
+});
 ```
 
 ##### Parameters:
 
-| Name      | Type  | Description        |
-| --------- | ----- | ------------------ |
-| `message` | _any_ | The message to log |
+| Name           | Type                                                                                                                | Description               |
+| -------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `logParameter` | [_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md) | Information about the log |
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:143](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L143)
+Defined in: [index.ts:177](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L177)
 
-▸ **log**(`message`: _any_, `writeToFile`: _true_, `type?`: _success_ \| _info_ \| _error_ \| _warn_, `extra?`: _unknown_): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+▸ **log**(`logParameter`: [_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md)): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Logs a message to the console and writes to the output file path
+Logs a message to the console and DOES NOT write to the output file path
 
 **`example`**
 
 ```javascript
-await logger.log("hi", true);
+await logger.log({
+  message: "Hello",
+  writeToFile: false,
+});
 ```
 
 **`example`**
 
 ```javascript
-await logger.log("hi", true, "info");
-```
-
-**`example`**
-
-```javascript
-await logger.log("hi", true, "success", "extra info that is not logged");
-```
-
-##### Parameters:
-
-| Name          | Type                                     | Description                                             |
-| ------------- | ---------------------------------------- | ------------------------------------------------------- |
-| `message`     | _any_                                    | The message to log                                      |
-| `writeToFile` | _true_                                   | Should write to file                                    |
-| `type?`       | _success_ \| _info_ \| _error_ \| _warn_ | The type of log                                         |
-| `extra?`      | _unknown_                                | Extra information to write to file (will not be logged) |
-
-**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
-
-Defined in: [index.ts:165](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L165)
-
-▸ **log**(`message`: _any_, `writeToFile`: _false_, `type?`: _success_ \| _info_ \| _error_ \| _warn_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
-
-Logs a message to the console
-
-**`example`**
-
-```javascript
-logger.log("hi", false);
-```
-
-**`example`**
-
-```javascript
-logger.log("hi", false, "info");
+await logger.log({
+  message: "Hello",
+  writeToFile: false,
+  type: "error",
+});
 ```
 
 ##### Parameters:
 
-| Name          | Type                                     | Description          |
-| ------------- | ---------------------------------------- | -------------------- |
-| `message`     | _any_                                    | The message to log   |
-| `writeToFile` | _false_                                  | Should write to file |
-| `type?`       | _success_ \| _info_ \| _error_ \| _warn_ | The type of log      |
+| Name           | Type                                                                                                                      | Description               |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `logParameter` | [_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md) | Information about the log |
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:187](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L187)
+Defined in: [index.ts:199](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L199)
 
----
+▸ **log**(`logParameter`: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage)): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-#### success
-
-▸ **success**(`message`: _any_): _Promise_<[*SuccessLog*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/successlog.md)\>
-
-Logs a success message to the console and writes to the output file path
+Logs a message to the console and DOES NOT write to the output file path
 
 **`example`**
 
 ```javascript
-await logger.log("success!!");
+await logger.log("Hello");
+```
+
+**`example`**
+
+```javascript
+await logger.log(2);
+```
+
+**`example`**
+
+```javascript
+await logger.log(["hi!", 4, ["nested string"]]);
 ```
 
 ##### Parameters:
 
-| Name      | Type  | Description                |
-| --------- | ----- | -------------------------- |
-| `message` | _any_ | The success message to log |
+| Name           | Type                                                                                        | Description               |
+| -------------- | ------------------------------------------------------------------------------------------- | ------------------------- |
+| `logParameter` | [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage) | Information about the log |
 
-**Returns:** _Promise_<[*SuccessLog*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/successlog.md)\>
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:222](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L222)
-
-▸ **success**(`message`: _any_, `writeToFile`: _true_, `extra?`: _unknown_): _Promise_<[*SuccessLog*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/successlog.md)\>
-
-Logs a success message to the console and writes to the output file path
-
-**`example`**
-
-```javascript
-await logger.log("success!!", true);
-```
-
-**`example`**
-
-```javascript
-await logger.log("success!!", true, "extra info that is not logged");
-```
-
-##### Parameters:
-
-| Name          | Type      | Description                                             |
-| ------------- | --------- | ------------------------------------------------------- |
-| `message`     | _any_     | The success message to log                              |
-| `writeToFile` | _true_    | Should write to file                                    |
-| `extra?`      | _unknown_ | Extra information to write to file (will not be logged) |
-
-**Returns:** _Promise_<[*SuccessLog*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/successlog.md)\>
-
-Defined in: [index.ts:239](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L239)
-
-▸ **success**(`message`: _any_, `writeToFile`: _false_): [_SuccessLog_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/successlog.md)
-
-Logs a success message to the console
-
-**`example`**
-
-```javascript
-logger.log("success!!", false);
-```
-
-##### Parameters:
-
-| Name          | Type    | Description                |
-| ------------- | ------- | -------------------------- |
-| `message`     | _any_   | The success message to log |
-| `writeToFile` | _false_ | Should write to file       |
-
-**Returns:** [_SuccessLog_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/successlog.md)
-
-Defined in: [index.ts:255](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L255)
+Defined in: [index.ts:218](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L218)
 
 ---
 
 #### bold
 
-▸ `Static`**bold**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**bold**(`message`: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage), `afterColored?`: _string_): _void_
 
 Logs a bold message
 
@@ -389,20 +342,20 @@ Logger.bold("BOLD!", "this part is not bold");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                       |
-| -------------- | -------- | ------------- | ----------------------------------------------------------------- |
-| `message`      | _any_    | -             | The message to log                                                |
-| `afterColored` | _string_ | ""            | The optional message after the colored message (on the same line) |
+| Name           | Type                                                                                        | Default value | Description                                                       |
+| -------------- | ------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
+| `message`      | [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage) | -             | The message to log                                                |
+| `afterColored` | _string_                                                                                    | ""            | The optional message after the colored message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:367](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L367)
+Defined in: [index.ts:490](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L490)
 
 ---
 
 #### coloredLog
 
-▸ `Static`**coloredLog**(`color`: _Reset_ \| _Bright_ \| _Dim_ \| _Underscore_ \| _Blink_ \| _Reverse_ \| _Hidden_ \| _FgBlack_ \| _FgRed_ \| _FgGreen_ \| _FgYellow_ \| _FgBlue_ \| _FgMagenta_ \| _FgCyan_ \| _FgWhite_ \| _BgBlack_ \| _BgRed_ \| _BgGreen_ \| _BgYellow_ \| _BgBlue_ \| _BgMagenta_ \| _BgCyan_ \| _BgWhite_, `message`: _string_, `afterColored?`: _string_, `consoleLevel?`: [_ConsoleLevel_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##consolelevel)): _void_
+▸ `Static`**coloredLog**(`color`: _Reset_ \| _Bright_ \| _Dim_ \| _Underscore_ \| _Blink_ \| _Reverse_ \| _Hidden_ \| _FgBlack_ \| _FgRed_ \| _FgGreen_ \| _FgYellow_ \| _FgBlue_ \| _FgMagenta_ \| _FgCyan_ \| _FgWhite_ \| _BgBlack_ \| _BgRed_ \| _BgGreen_ \| _BgYellow_ \| _BgBlue_ \| _BgMagenta_ \| _BgCyan_ \| _BgWhite_, `message`: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage), `afterColored?`: _string_, `consoleLevel?`: [_ConsoleLevel_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#consolelevel)): _void_
 
 Logs a colored message to the console
 
@@ -429,19 +382,19 @@ Logger.coloredLog("FgRed", "error!!!", "", "error");
 | Name           | Type                                                                                                                                                                                                                                                                                           | Default value | Description                                                       |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
 | `color`        | _Reset_ \| _Bright_ \| _Dim_ \| _Underscore_ \| _Blink_ \| _Reverse_ \| _Hidden_ \| _FgBlack_ \| _FgRed_ \| _FgGreen_ \| _FgYellow_ \| _FgBlue_ \| _FgMagenta_ \| _FgCyan_ \| _FgWhite_ \| _BgBlack_ \| _BgRed_ \| _BgGreen_ \| _BgYellow_ \| _BgBlue_ \| _BgMagenta_ \| _BgCyan_ \| _BgWhite_ | -             | The color to log in                                               |
-| `message`      | _string_                                                                                                                                                                                                                                                                                       | -             | The message to log                                                |
+| `message`      | [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage)                                                                                                                                                                                                    | -             | The message to log                                                |
 | `afterColored` | _string_                                                                                                                                                                                                                                                                                       | ""            | The optional message after the colored message (on the same line) |
 | `consoleLevel` | [_ConsoleLevel_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##consolelevel)                                                                                                                                                                                                | "log"         | The console level to use (log, warn, or error)                    |
 
 **Returns:** _void_
 
-Defined in: [index.ts:341](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L341)
+Defined in: [index.ts:464](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L464)
 
 ---
 
 #### error
 
-▸ `Static`**error**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**error**(`message`: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage), `afterColored?`: _string_): _void_
 
 Logs an error message in red
 
@@ -459,20 +412,20 @@ Logger.bold("ERROR!", "this part is not red");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                       |
-| -------------- | -------- | ------------- | ----------------------------------------------------------------- |
-| `message`      | _any_    | -             | The message to log                                                |
-| `afterColored` | _string_ | ""            | The optional message after the colored message (on the same line) |
+| Name           | Type                                                                                        | Default value | Description                                                       |
+| -------------- | ------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
+| `message`      | [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage) | -             | The message to log                                                |
+| `afterColored` | _string_                                                                                    | ""            | The optional message after the colored message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:443](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L443)
+Defined in: [index.ts:566](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L566)
 
 ---
 
 #### info
 
-▸ `Static`**info**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**info**(`message`: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage), `afterColored?`: _string_): _void_
 
 Logs an info message in blue
 
@@ -490,14 +443,14 @@ Logger.bold("information...", "this part is not blue");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                       |
-| -------------- | -------- | ------------- | ----------------------------------------------------------------- |
-| `message`      | _any_    | -             | The message to log                                                |
-| `afterColored` | _string_ | ""            | The optional message after the colored message (on the same line) |
+| Name           | Type                                                                                        | Default value | Description                                                       |
+| -------------- | ------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
+| `message`      | [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage) | -             | The message to log                                                |
+| `afterColored` | _string_                                                                                    | ""            | The optional message after the colored message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:405](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L405)
+Defined in: [index.ts:528](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L528)
 
 ---
 
@@ -515,7 +468,7 @@ Logger.line();
 
 **Returns:** _void_
 
-Defined in: [index.ts:316](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L316)
+Defined in: [index.ts:439](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L439)
 
 ---
 
@@ -546,13 +499,13 @@ Logger.log("hi %s", "Bill");
 
 **Returns:** _void_
 
-Defined in: [index.ts:303](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L303)
+Defined in: [index.ts:426](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L426)
 
 ---
 
 #### success
 
-▸ `Static`**success**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**success**(`message`: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage), `afterColored?`: _string_): _void_
 
 Logs a success message in green
 
@@ -570,20 +523,20 @@ Logger.bold("SUCCESS!", "this part is not green");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                       |
-| -------------- | -------- | ------------- | ----------------------------------------------------------------- |
-| `message`      | _any_    | -             | The message to log                                                |
-| `afterColored` | _string_ | ""            | The optional message after the colored message (on the same line) |
+| Name           | Type                                                                                        | Default value | Description                                                       |
+| -------------- | ------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
+| `message`      | [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage) | -             | The message to log                                                |
+| `afterColored` | _string_                                                                                    | ""            | The optional message after the colored message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:386](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L386)
+Defined in: [index.ts:509](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L509)
 
 ---
 
 #### warn
 
-▸ `Static`**warn**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**warn**(`message`: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage), `afterColored?`: _string_): _void_
 
 Logs a warning message in yellow
 
@@ -601,14 +554,14 @@ Logger.bold("WARNING!", "this part is not yellow");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                       |
-| -------------- | -------- | ------------- | ----------------------------------------------------------------- |
-| `message`      | _any_    | -             | The message to log                                                |
-| `afterColored` | _string_ | ""            | The optional message after the colored message (on the same line) |
+| Name           | Type                                                                                        | Default value | Description                                                       |
+| -------------- | ------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
+| `message`      | [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage) | -             | The message to log                                                |
+| `afterColored` | _string_                                                                                    | ""            | The optional message after the colored message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:424](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts##L424)
+Defined in: [index.ts:547](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts##L547)
 
 ## Dependents
 

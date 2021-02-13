@@ -6,8 +6,6 @@
 
 - **Log**
 
-  ↳ [_SuccessLog_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/successlog.md)
-
 ## Table of contents
 
 ### Properties
@@ -24,7 +22,7 @@
 
 • `Optional` **extra**: _unknown_
 
-Defined in: [index.ts:21](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts#L21)
+Defined in: [index.ts:39](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts#L39)
 
 ---
 
@@ -32,15 +30,15 @@ Defined in: [index.ts:21](https://github.com/hack4impact/logger/blob/cfc21d0/src
 
 • **index**: _number_
 
-Defined in: [index.ts:19](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts#L19)
+Defined in: [index.ts:37](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts#L37)
 
 ---
 
 ### message
 
-• **message**: _any_
+• **message**: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
 
-Defined in: [index.ts:17](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts#L17)
+Defined in: [index.ts:35](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts#L35)
 
 ---
 
@@ -48,7 +46,7 @@ Defined in: [index.ts:17](https://github.com/hack4impact/logger/blob/cfc21d0/src
 
 • **timestamp**: _number_
 
-Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts#L18)
+Defined in: [index.ts:36](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts#L36)
 
 ---
 
@@ -56,4 +54,4 @@ Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/cfc21d0/src
 
 • `Optional` **type**: _undefined_ \| _success_ \| _info_ \| _error_ \| _warn_
 
-Defined in: [index.ts:20](https://github.com/hack4impact/logger/blob/cfc21d0/src/index.ts#L20)
+Defined in: [index.ts:38](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts#L38)
