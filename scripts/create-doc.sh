@@ -1,4 +1,4 @@
-PUBLIC_PATH='https://github.com/YashTotale/logger/tree/main/docs/'
+PUBLIC_PATH='https://github.com/hack4impact/logger/tree/main/docs/'
 
 echo "Removing existing documentation..."
 rimraf temp-docs docs README.md

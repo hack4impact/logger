@@ -1,4 +1,4 @@
-Hack4Impact Logger / [Exports](https://github.com/YashTotale/logger/tree/main/docs/modules.md)
+Hack4Impact Logger / [Exports](https://github.com/hack4impact/logger/tree/main/docs/modules.md)
 
 <h1 align="center">Hack4Impact Logger</h1>
 
@@ -31,7 +31,7 @@ Hack4Impact Logger / [Exports](https://github.com/YashTotale/logger/tree/main/do
 
 #### constructor
 
-\+ **new Logger**(`logsPath`: _string_): [_Logger_](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md)
+\+ **new Logger**(`logsPath`: _string_): [_Logger_](https://github.com/hack4impact/logger/tree/main/docs/classes/logger.md)
 
 Creates a new Logger instance
 
@@ -47,9 +47,9 @@ const logger = new Logger(__dirname + "logs.json");
 | ---------- | -------- | -------------------- |
 | `logsPath` | _string_ | The output file path |
 
-**Returns:** [_Logger_](https://github.com/YashTotale/logger/tree/main/docs/classes/logger.md)
+**Returns:** [_Logger_](https://github.com/hack4impact/logger/tree/main/docs/classes/logger.md)
 
-Defined in: [index.ts:71](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L71)
+Defined in: [index.ts:71](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L71)
 
 ### Properties
 
@@ -93,13 +93,13 @@ console.log(Logger.COLORS.Dim + "Dim log" + Logger.COLORS.Reset);
 | `Reverse`    | _string_ |
 | `Underscore` | _string_ |
 
-Defined in: [index.ts:32](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L32)
+Defined in: [index.ts:32](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L32)
 
 ### Accessors
 
 #### logs
 
-• **logs**(): [_Log_](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)[]
+• **logs**(): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)[]
 
 All logs that have been output by this Logger instance
 
@@ -109,9 +109,9 @@ All logs that have been output by this Logger instance
 const logs = logger.logs;
 ```
 
-**Returns:** [_Log_](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)[]
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)[]
 
-Defined in: [index.ts:97](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L97)
+Defined in: [index.ts:97](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L97)
 
 ---
 
@@ -129,7 +129,7 @@ const logsPath = logger.logsPath;
 
 **Returns:** _string_
 
-Defined in: [index.ts:110](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L110)
+Defined in: [index.ts:110](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L110)
 
 • **logsPath**(`logsPath`: _string_): _void_
 
@@ -149,13 +149,13 @@ logger.logsPath = __dirname + "logs.json";
 
 **Returns:** _void_
 
-Defined in: [index.ts:123](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L123)
+Defined in: [index.ts:123](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L123)
 
 ### Methods
 
 #### log
 
-▸ **log**(`message`: _any_): _Promise_<[*Log*](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)\>
+▸ **log**(`message`: _any_): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
 Logs a message to the console and writes to the output file path
 
@@ -171,11 +171,11 @@ await logger.log("hi");
 | --------- | ----- | ------------------ |
 | `message` | _any_ | The message to log |
 
-**Returns:** _Promise_<[*Log*](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)\>
+**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:137](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L137)
+Defined in: [index.ts:137](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L137)
 
-▸ **log**(`message`: _any_, `writeToFile`: _true_, `type?`: _success_ \| _info_ \| _error_ \| _warn_, `extra?`: _unknown_): _Promise_<[*Log*](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)\>
+▸ **log**(`message`: _any_, `writeToFile`: _true_, `type?`: _success_ \| _info_ \| _error_ \| _warn_, `extra?`: _unknown_): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
 Logs a message to the console and writes to the output file path
 
@@ -206,11 +206,11 @@ await logger.log("hi", true, "success", "extra info that is not logged");
 | `type?`       | _success_ \| _info_ \| _error_ \| _warn_ | The type of log                                         |
 | `extra?`      | _unknown_                                | Extra information to write to file (will not be logged) |
 
-**Returns:** _Promise_<[*Log*](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)\>
+**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:159](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L159)
+Defined in: [index.ts:159](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L159)
 
-▸ **log**(`message`: _any_, `writeToFile`: _false_, `type?`: _success_ \| _info_ \| _error_ \| _warn_): [_Log_](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)
+▸ **log**(`message`: _any_, `writeToFile`: _false_, `type?`: _success_ \| _info_ \| _error_ \| _warn_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
 Logs a message to the console
 
@@ -234,9 +234,9 @@ logger.log("hi", false, "info");
 | `writeToFile` | _false_                                  | Should write to file |
 | `type?`       | _success_ \| _info_ \| _error_ \| _warn_ | The type of log      |
 
-**Returns:** [_Log_](https://github.com/YashTotale/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:181](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L181)
+Defined in: [index.ts:181](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L181)
 
 ---
 
@@ -267,7 +267,7 @@ Logger.bold("BOLD!", "this part is not bold");
 
 **Returns:** _void_
 
-Defined in: [index.ts:298](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L298)
+Defined in: [index.ts:298](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L298)
 
 ---
 
@@ -306,7 +306,7 @@ Logger.coloredLog("FgRed", "error!!!", "", "error");
 
 **Returns:** _void_
 
-Defined in: [index.ts:272](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L272)
+Defined in: [index.ts:272](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L272)
 
 ---
 
@@ -337,7 +337,7 @@ Logger.bold("ERROR!", "this part is not red");
 
 **Returns:** _void_
 
-Defined in: [index.ts:374](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L374)
+Defined in: [index.ts:374](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L374)
 
 ---
 
@@ -368,7 +368,7 @@ Logger.bold("information...", "this part is not blue");
 
 **Returns:** _void_
 
-Defined in: [index.ts:336](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L336)
+Defined in: [index.ts:336](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L336)
 
 ---
 
@@ -386,7 +386,7 @@ Logger.line();
 
 **Returns:** _void_
 
-Defined in: [index.ts:247](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L247)
+Defined in: [index.ts:247](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L247)
 
 ---
 
@@ -417,7 +417,7 @@ Logger.log("hi %s", "Bill");
 
 **Returns:** _void_
 
-Defined in: [index.ts:234](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L234)
+Defined in: [index.ts:234](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L234)
 
 ---
 
@@ -448,7 +448,7 @@ Logger.bold("SUCCESS!", "this part is not green");
 
 **Returns:** _void_
 
-Defined in: [index.ts:317](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L317)
+Defined in: [index.ts:317](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L317)
 
 ---
 
@@ -479,7 +479,7 @@ Logger.bold("WARNING!", "this part is not yellow");
 
 **Returns:** _void_
 
-Defined in: [index.ts:355](https://github.com/YashTotale/logger/blob/18e8d92/src/index.ts##L355)
+Defined in: [index.ts:355](https://github.com/YashTotale/logger/blob/b30d8c0/src/index.ts##L355)
 
 ## Dependents
 

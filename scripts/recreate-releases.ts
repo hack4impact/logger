@@ -33,7 +33,7 @@ type Releases = RestEndpointMethodTypes["repos"]["listReleases"]["response"]["da
 
 const getReleases = async (octokit: Octokit) => {
   const { data: releases } = await octokit.repos.listReleases({
-    owner: "YashTotale",
+    owner: "hack4impact",
     repo: "logger",
     per_page: 10,
   });
@@ -43,7 +43,7 @@ const getReleases = async (octokit: Octokit) => {
 
 const getTags = async (octokit: Octokit) => {
   const { data: tags } = await octokit.repos.listTags({
-    owner: "YashTotale",
+    owner: "hack4impact",
     repo: "logger",
     per_page: 10,
   });
@@ -64,7 +64,7 @@ const checkTags = async (
       console.log(`Creating release ${name}...`);
 
       octokit.repos.createRelease({
-        owner: "YashTotale",
+        owner: "hack4impact",
         repo: "logger",
         tag_name: name,
         body: await getChangeLogSection(changelog, name.substring(1)),
@@ -91,7 +91,7 @@ const checkReleases = async (
 
       await octokit.repos.updateRelease({
         ...release,
-        owner: "YashTotale",
+        owner: "hack4impact",
         repo: "logger",
         release_id: id,
         body: section,
