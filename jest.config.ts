@@ -54,7 +54,7 @@ export default {
   // forceCoverageMatch: [],
 
   // A path to a module which exports an async function that is triggered once before all test suites
-  // globalSetup: undefined,
+  globalSetup: "<rootDir>/tests/set-up-tests.ts",
 
   // A path to a module which exports an async function that is triggered once after all test suites
   // globalTeardown: undefined,
@@ -84,7 +84,7 @@ export default {
   // moduleNameMapper: {},
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
-  modulePathIgnorePatterns: ["tests/logs.json"],
+  modulePathIgnorePatterns: ["tests\\/logs\\/\\*\\*"],
 
   // Activates notifications for test results
   // notify: false,

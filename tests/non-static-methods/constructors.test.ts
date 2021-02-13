@@ -1,8 +1,8 @@
 // Internals
 import Logger from "../../src";
-import { logsPath } from "../helpers";
 
 test("With Logs Path", () => {
+  const logsPath = "logs.json";
   const logger = new Logger(logsPath);
 
   expect(logger.logsPath).toEqual(logsPath);

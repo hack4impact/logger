@@ -4,7 +4,13 @@ import { readFile, writeFile } from "fs/promises";
 // Internals
 import Logger, { Log } from "../../src";
 import { checkFields } from "./helpers";
-import { createSuccessRegex, logsPath, setUpConsoleSpy } from "../helpers";
+import {
+  createLogsPath,
+  createSuccessRegex,
+  setUpConsoleSpy,
+} from "../helpers";
+
+const logsPath = createLogsPath(__filename);
 
 beforeEach(async (done) => {
   await writeFile(logsPath, "[]", "utf-8");

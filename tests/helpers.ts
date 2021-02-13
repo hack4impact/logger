@@ -1,10 +1,8 @@
 // Externals
-import { join } from "path";
+import { basename, dirname, join } from "path";
 
 // Internals
 import Logger, { LogType, ConsoleLevel, LogMessage } from "../src";
-
-export const logsPath = join(__dirname, "logs.json");
 
 export const setUpConsoleSpy = (
   type?: LogType | ConsoleLevel
@@ -20,6 +18,13 @@ export const setUpConsoleSpy = (
   }
 
   return spy;
+};
+
+export const createLogsPath = (filePath: string): string => {
+  const logsPath = join(__dirname, "logs");
+  const nestedLogs = join(logsPath, basename(dirname(filePath)));
+
+  return join(nestedLogs, basename(filePath, ".test.ts") + ".json");
 };
 
 export const createSuccessRegex = (
