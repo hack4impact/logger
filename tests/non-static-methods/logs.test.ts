@@ -2,8 +2,8 @@
 import { readFile, writeFile } from "fs/promises";
 
 // Internals
-import Logger, { Log, LogType } from "../../src";
-import { logsPath } from "../constants";
+import Logger, { Log } from "../../src";
+import { logsPath, setUpConsoleSpy } from "../helpers";
 
 beforeEach(async (done) => {
   await writeFile(logsPath, "[]", "utf-8");
@@ -20,18 +20,11 @@ const checkFields = (log: Log, params: Partial<Log>, index: number) => {
   expect(log.extra).toEqual(extra);
 };
 
-const setUpConsoleSpy = (type?: LogType) => {
-  let spy: jest.SpyInstance;
-
-  if (type === "warn") {
-    spy = jest.spyOn(global.console, "warn").mockImplementation();
-  } else if (type === "error") {
-    spy = jest.spyOn(global.console, "error").mockImplementation();
-  } else {
-    spy = jest.spyOn(global.console, "log").mockImplementation();
-  }
-
-  return spy;
+const checkConsoleSpy = (spy: jest.SpyInstance, message: string) => {
+  expect(spy).toHaveBeenCalledTimes(1);
+  expect(spy).toHaveBeenCalledWith<[string]>(
+    expect.stringMatching(new RegExp(`.*${message}.*`))
+  );
 };
 
 test("With only message", async () => {
@@ -50,10 +43,7 @@ test("With only message", async () => {
 
   checkFields(writtenLogs[0], { message }, 0);
 
-  expect(spy).toHaveBeenCalledTimes(1);
-  expect(spy).toHaveBeenCalledWith<[string]>(
-    expect.stringMatching(new RegExp(`.*${message}.*`))
-  );
+  checkConsoleSpy(spy, message);
 
   spy.mockRestore();
 });
@@ -83,10 +73,7 @@ test("With writeToFile enabled", async () => {
 
     checkFields(writtenLogs[i], params, i);
 
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toHaveBeenCalledWith<[string]>(
-      expect.stringMatching(new RegExp(`.*${message}.*`))
-    );
+    checkConsoleSpy(spy, message);
 
     spy.mockRestore();
   }
@@ -115,10 +102,7 @@ test("With writeToFile disabled", async () => {
 
     expect(writtenLogs.length).toEqual(0);
 
-    expect(spy).toHaveBeenCalledTimes(1);
-    expect(spy).toHaveBeenCalledWith<[string]>(
-      expect.stringMatching(new RegExp(`.*${message}.*`))
-    );
+    checkConsoleSpy(spy, message);
 
     spy.mockRestore();
   }

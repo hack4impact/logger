@@ -2,8 +2,8 @@
 import { join } from "path";
 
 // Internals
-import Logger from "../src";
-import { logsPath } from "./constants";
+import Logger from "../../src";
+import { logsPath } from "../helpers";
 
 test("Set Logs Path", () => {
   const logger = new Logger(logsPath);

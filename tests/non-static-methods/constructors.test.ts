@@ -1,6 +1,6 @@
 // Internals
-import Logger from "../src";
-import { logsPath } from "./constants";
+import Logger from "../../src";
+import { logsPath } from "../helpers";
 
 test("With Logs Path", () => {
   const logger = new Logger(logsPath);
