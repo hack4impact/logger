@@ -21,6 +21,10 @@ export interface Log {
   extra?: LogExtra;
 }
 
+export interface SuccessLog extends Log {
+  type: "success";
+}
+
 export class Logger {
   /**
    *
@@ -31,7 +35,7 @@ export class Logger {
    * console.log(Logger.COLORS.Dim + "Dim log" + Logger.COLORS.Reset);
    * ```
    */
-  static readonly COLORS = {
+  public static readonly COLORS = {
     Reset: "\x1b[0m",
     Bright: "\x1b[1m",
     Dim: "\x1b[2m",
@@ -207,6 +211,69 @@ export class Logger {
 
   /**
    *
+   * Logs a success message to the console and writes to the output file path
+   *
+   * @param message - The success message to log
+   * @example
+   * ```javascript
+   * await logger.log("success!!");
+   * ```
+   */
+  public success(message: LogMessage): Promise<SuccessLog>;
+  /**
+   *
+   * Logs a success message to the console and writes to the output file path
+   *
+   * @param message - The success message to log
+   * @param writeToFile - Should write to file
+   * @param extra - Extra information to write to file (will not be logged)
+   * @example
+   * ```javascript
+   * await logger.log("success!!", true);
+   * ```
+   * @example
+   * ```javascript
+   * await logger.log("success!!", true, "extra info that is not logged");
+   * ```
+   */
+  public success(
+    message: LogMessage,
+    writeToFile: true,
+    extra?: LogExtra
+  ): Promise<SuccessLog>;
+  /**
+   *
+   * Logs a success message to the console
+   *
+   * @param message - The success message to log
+   * @param writeToFile - Should write to file
+   * @example
+   * ```javascript
+   * logger.log("success!!", false);
+   * ```
+   */
+  public success(message: LogMessage, writeToFile: false): SuccessLog;
+  public success(
+    message: LogMessage,
+    writeToFile?: boolean,
+    extra?: LogExtra
+  ): Promise<SuccessLog> | SuccessLog {
+    if (writeToFile === undefined) writeToFile = true;
+
+    if (writeToFile) {
+      return this.log(
+        message,
+        writeToFile,
+        "success",
+        extra
+      ) as Promise<SuccessLog>;
+    }
+
+    return this.log(message, writeToFile, "success") as SuccessLog;
+  }
+
+  /**
+   *
    * Writes the logs stored in `this.logs` to the output file
    *
    * @example
@@ -233,7 +300,7 @@ export class Logger {
    * Logger.log("hi %s", "Bill");
    * ```
    */
-  static log(message?: unknown, ...optionalParams: any[]): void {
+  public static log(message?: unknown, ...optionalParams: any[]): void {
     console.log(message, ...optionalParams);
   }
 
@@ -246,7 +313,7 @@ export class Logger {
    * Logger.line();
    * ```
    */
-  static line(): void {
+  public static line(): void {
     console.log();
   }
 
@@ -271,7 +338,7 @@ export class Logger {
    * Logger.coloredLog("FgRed", "error!!!", "", "error");
    * ```
    */
-  static coloredLog(
+  public static coloredLog(
     color: keyof typeof Logger.COLORS,
     message: string,
     afterColored = "",
@@ -297,7 +364,7 @@ export class Logger {
    * Logger.bold("BOLD!", "this part is not bold");
    * ```
    */
-  static bold(message: LogMessage, afterColored = ""): void {
+  public static bold(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("Bright", message, afterColored);
   }
 
@@ -316,7 +383,7 @@ export class Logger {
    * Logger.bold("SUCCESS!", "this part is not green");
    * ```
    */
-  static success(message: LogMessage, afterColored = ""): void {
+  public static success(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("FgGreen", message, afterColored);
   }
 
@@ -335,7 +402,7 @@ export class Logger {
    * Logger.bold("information...", "this part is not blue");
    * ```
    */
-  static info(message: LogMessage, afterColored = ""): void {
+  public static info(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("FgBlue", message, afterColored);
   }
 
@@ -354,7 +421,7 @@ export class Logger {
    * Logger.bold("WARNING!", "this part is not yellow");
    * ```
    */
-  static warn(message: LogMessage, afterColored = ""): void {
+  public static warn(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("FgYellow", message, afterColored, "warn");
   }
 
@@ -373,7 +440,7 @@ export class Logger {
    * Logger.bold("ERROR!", "this part is not red");
    * ```
    */
-  static error(message: LogMessage, afterColored = ""): void {
+  public static error(message: LogMessage, afterColored = ""): void {
     return this.coloredLog("FgRed", message, afterColored, "error");
   }
 }

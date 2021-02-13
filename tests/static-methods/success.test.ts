@@ -1,6 +1,6 @@
 // Internals
 import Logger from "../../src";
-import { setUpConsoleSpy } from "../helpers";
+import { createSuccessRegex, setUpConsoleSpy } from "../helpers";
 
 test("With only message", () => {
   const spy = setUpConsoleSpy();
@@ -10,9 +10,7 @@ test("With only message", () => {
   Logger.success(message);
 
   expect(spy).toHaveBeenCalledTimes(1);
-  expect(spy).toHaveBeenLastCalledWith<[string]>(
-    `${Logger.COLORS.FgGreen}${message}${Logger.COLORS.Reset}`
-  );
+  expect(spy).toHaveBeenLastCalledWith<[string]>(createSuccessRegex(message));
 
   spy.mockRestore();
 });
@@ -27,7 +25,7 @@ test("With message and afterColored", () => {
 
   expect(spy).toHaveBeenCalledTimes(1);
   expect(spy).toHaveBeenLastCalledWith<[string]>(
-    `${Logger.COLORS.FgGreen}${message}${Logger.COLORS.Reset}${afterColored}`
+    createSuccessRegex(message, afterColored)
   );
 
   spy.mockRestore();

@@ -4,21 +4,12 @@ import { readFile, writeFile } from "fs/promises";
 // Internals
 import Logger, { Log } from "../../src";
 import { logsPath, setUpConsoleSpy } from "../helpers";
+import { checkFields } from "./helpers";
 
 beforeEach(async (done) => {
   await writeFile(logsPath, "[]", "utf-8");
   done();
 });
-
-const checkFields = (log: Log, params: Partial<Log>, index: number) => {
-  const { message, type, extra } = params;
-
-  expect(log.message).toEqual(message);
-  expect(log.index).toEqual(index);
-  expect(new Date(log.timestamp).toString()).not.toEqual("Invalid Date");
-  expect(log.type).toEqual(type);
-  expect(log.extra).toEqual(extra);
-};
 
 const checkConsoleSpy = (spy: jest.SpyInstance, message: string) => {
   expect(spy).toHaveBeenCalledTimes(1);

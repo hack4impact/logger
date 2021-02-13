@@ -15,6 +15,7 @@
 ### Interfaces
 
 - [Log](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+- [SuccessLog](https://github.com/hack4impact/logger/tree/main/docs/interfaces/successlog.md)
 
 ### Type aliases
 
@@ -37,7 +38,7 @@ Renames and exports: [Logger](https://github.com/hack4impact/logger/tree/main/do
 
 Ƭ **ConsoleLevel**: _log_ \| _warn_ \| _error_
 
-Defined in: [index.ts:4](https://github.com/hack4impact/logger/blob/1f1ccad/src/index.ts#L4)
+Defined in: [index.ts:4](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L4)
 
 ---
 
@@ -45,7 +46,7 @@ Defined in: [index.ts:4](https://github.com/hack4impact/logger/blob/1f1ccad/src/
 
 Ƭ **LogExtra**: _unknown_
 
-Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/1f1ccad/src/index.ts#L14)
+Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L14)
 
 ---
 
@@ -53,7 +54,7 @@ Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/1f1ccad/src
 
 Ƭ **LogIndex**: _number_
 
-Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/1f1ccad/src/index.ts#L12)
+Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L12)
 
 ---
 
@@ -61,7 +62,7 @@ Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/1f1ccad/src
 
 Ƭ **LogMessage**: _any_
 
-Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/1f1ccad/src/index.ts#L8)
+Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L8)
 
 ---
 
@@ -69,7 +70,7 @@ Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/1f1ccad/src/
 
 Ƭ **LogTimestamp**: _number_
 
-Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/1f1ccad/src/index.ts#L10)
+Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L10)
 
 ---
 
@@ -77,4 +78,4 @@ Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/1f1ccad/src
 
 Ƭ **LogType**: _success_ \| _info_ \| _error_ \| _warn_
 
-Defined in: [index.ts:6](https://github.com/hack4impact/logger/blob/1f1ccad/src/index.ts#L6)
+Defined in: [index.ts:6](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L6)

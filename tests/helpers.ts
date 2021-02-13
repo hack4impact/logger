@@ -2,7 +2,7 @@
 import { join } from "path";
 
 // Internals
-import { LogType, ConsoleLevel } from "../src";
+import Logger, { LogType, ConsoleLevel, LogMessage } from "../src";
 
 export const logsPath = join(__dirname, "logs.json");
 
@@ -21,3 +21,9 @@ export const setUpConsoleSpy = (
 
   return spy;
 };
+
+export const createSuccessRegex = (
+  message: LogMessage,
+  afterColored = ""
+): string =>
+  `${Logger.COLORS.FgGreen}${message}${Logger.COLORS.Reset}${afterColored}`;
