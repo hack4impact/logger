@@ -1,4 +1,4 @@
-// Node
+// Externals
 import { writeFile } from "fs/promises";
 
 export type ConsoleLevel = "log" | "warn" | "error";
