@@ -1,0 +1,69 @@
+name: Node Package Deploy
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 15
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint Project
+        run: npm run lint
+
+      - name: Test Project
+        run: npm test
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 15
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Publish to NPM
+        run: npm publish --registry https://registry.npmjs.org/
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 15
+          registry-url: https://npm.pkg.github.com/
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Publish to GitHub Packages
+        run: npm publish --registry https://npm.pkg.github.com/
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GH_PAT}}
