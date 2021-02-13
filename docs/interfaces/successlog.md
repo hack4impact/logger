@@ -26,7 +26,7 @@
 
 Inherited from: [Log](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md).[extra](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md#extra)
 
-Defined in: [index.ts:21](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L21)
+Defined in: [index.ts:21](https://github.com/hack4impact/logger/blob/04b9bbe/src/index.ts#L21)
 
 ---
 
@@ -36,7 +36,7 @@ Defined in: [index.ts:21](https://github.com/hack4impact/logger/blob/af6db23/src
 
 Inherited from: [Log](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md).[index](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md#index)
 
-Defined in: [index.ts:19](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L19)
+Defined in: [index.ts:19](https://github.com/hack4impact/logger/blob/04b9bbe/src/index.ts#L19)
 
 ---
 
@@ -46,7 +46,7 @@ Defined in: [index.ts:19](https://github.com/hack4impact/logger/blob/af6db23/src
 
 Inherited from: [Log](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md).[message](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md#message)
 
-Defined in: [index.ts:17](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L17)
+Defined in: [index.ts:17](https://github.com/hack4impact/logger/blob/04b9bbe/src/index.ts#L17)
 
 ---
 
@@ -56,7 +56,7 @@ Defined in: [index.ts:17](https://github.com/hack4impact/logger/blob/af6db23/src
 
 Inherited from: [Log](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md).[timestamp](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md#timestamp)
 
-Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L18)
+Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/04b9bbe/src/index.ts#L18)
 
 ---
 
@@ -66,4 +66,4 @@ Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/af6db23/src
 
 Overrides: [Log](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md).[type](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md#type)
 
-Defined in: [index.ts:25](https://github.com/hack4impact/logger/blob/af6db23/src/index.ts#L25)
+Defined in: [index.ts:25](https://github.com/hack4impact/logger/blob/04b9bbe/src/index.ts#L25)
