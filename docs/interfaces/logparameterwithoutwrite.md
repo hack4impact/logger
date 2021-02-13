@@ -20,7 +20,7 @@
 
 • **message**: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
 
-Defined in: [index.ts:24](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts#L24)
+Defined in: [index.ts:24](https://github.com/hack4impact/logger/blob/100b6a3/src/index.ts#L24)
 
 ---
 
@@ -28,7 +28,7 @@ Defined in: [index.ts:24](https://github.com/hack4impact/logger/blob/bff5e4c/src
 
 • `Optional` **type**: _undefined_ \| _success_ \| _info_ \| _error_ \| _warn_
 
-Defined in: [index.ts:26](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts#L26)
+Defined in: [index.ts:26](https://github.com/hack4impact/logger/blob/100b6a3/src/index.ts#L26)
 
 ---
 
@@ -36,4 +36,4 @@ Defined in: [index.ts:26](https://github.com/hack4impact/logger/blob/bff5e4c/src
 
 • **writeToFile**: _false_
 
-Defined in: [index.ts:25](https://github.com/hack4impact/logger/blob/bff5e4c/src/index.ts#L25)
+Defined in: [index.ts:25](https://github.com/hack4impact/logger/blob/100b6a3/src/index.ts#L25)

@@ -31,9 +31,8 @@ const checkConsoleSpy = (spy: jest.SpyInstance, log: Log) => {
   spy.mockRestore();
 };
 
-beforeEach(async (done) => {
+beforeEach(async () => {
   await writeFile(logsPath, "[]", "utf-8");
-  done();
 });
 
 test("With only message", async () => {

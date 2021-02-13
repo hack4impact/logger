@@ -12,7 +12,10 @@ export default async (): Promise<void> => {
     .filter((content) => content.isDirectory())
     .map((dir) => dir.name);
 
-  dirs.forEach(
-    async (dir) => await mkdir(join(logsPath, dir), { recursive: true })
-  );
+  for (const dir of dirs) {
+    const path = join(logsPath, dir);
+
+    console.log(`Creating ${dir} logs folder in ${path}...`);
+    await mkdir(path, { recursive: true });
+  }
 };
