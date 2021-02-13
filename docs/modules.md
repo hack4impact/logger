@@ -36,7 +36,7 @@ Renames and exports: [Logger](https://github.com/hack4impact/logger/tree/main/do
 
 Ƭ **LogExtra**: _unknown_
 
-Defined in: [index.ts:12](https://github.com/YashTotale/logger/blob/23625e8/src/index.ts#L12)
+Defined in: [index.ts:12](https://github.com/YashTotale/logger/blob/9cf5599/src/index.ts#L12)
 
 ---
 
@@ -44,7 +44,7 @@ Defined in: [index.ts:12](https://github.com/YashTotale/logger/blob/23625e8/src/
 
 Ƭ **LogIndex**: _number_
 
-Defined in: [index.ts:10](https://github.com/YashTotale/logger/blob/23625e8/src/index.ts#L10)
+Defined in: [index.ts:10](https://github.com/YashTotale/logger/blob/9cf5599/src/index.ts#L10)
 
 ---
 
@@ -52,7 +52,7 @@ Defined in: [index.ts:10](https://github.com/YashTotale/logger/blob/23625e8/src/
 
 Ƭ **LogMessage**: _any_
 
-Defined in: [index.ts:6](https://github.com/YashTotale/logger/blob/23625e8/src/index.ts#L6)
+Defined in: [index.ts:6](https://github.com/YashTotale/logger/blob/9cf5599/src/index.ts#L6)
 
 ---
 
@@ -60,7 +60,7 @@ Defined in: [index.ts:6](https://github.com/YashTotale/logger/blob/23625e8/src/i
 
 Ƭ **LogTimestamp**: _number_
 
-Defined in: [index.ts:8](https://github.com/YashTotale/logger/blob/23625e8/src/index.ts#L8)
+Defined in: [index.ts:8](https://github.com/YashTotale/logger/blob/9cf5599/src/index.ts#L8)
 
 ---
 
@@ -68,4 +68,4 @@ Defined in: [index.ts:8](https://github.com/YashTotale/logger/blob/23625e8/src/i
 
 Ƭ **LogType**: _success_ \| _info_ \| _error_ \| _warn_
 
-Defined in: [index.ts:4](https://github.com/YashTotale/logger/blob/23625e8/src/index.ts#L4)
+Defined in: [index.ts:4](https://github.com/YashTotale/logger/blob/9cf5599/src/index.ts#L4)

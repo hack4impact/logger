@@ -63,9 +63,9 @@
   },
   "scripts": {
     "preversion": "npm test",
-    "postversion": "git push && git push --follow-tags",
+    "postversion": "git push && git push --follow-tags && npm run recreate-releases",
     "prepublishOnly": "pinst --disable && npm run build",
-    "postpublish": "pinst --enable && npm run recreate-releases",
+    "postpublish": "pinst --enable",
     "start": "bash scripts/start.sh",
     "build": "bash scripts/build.sh",
     "postbuild": "ts-node scripts/postbuild.ts",
