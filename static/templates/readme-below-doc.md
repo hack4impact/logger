@@ -1,5 +1,7 @@
 ## Dependents
 
+If your project uses this package, you can add it to this list by submitting a PR [here](https://github.com/hack4impact/logger/pulls).
+
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=hack4impact&repo=airtable-automation&show_owner=true)](https://github.com/hack4impact/airtable-automation)
 
 ## Contributors
