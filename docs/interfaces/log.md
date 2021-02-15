@@ -22,7 +22,7 @@
 
 • `Optional` **extra**: _unknown_
 
-Defined in: [index.ts:39](https://github.com/hack4impact/logger/blob/e92632c/src/index.ts#L39)
+Defined in: [index.ts:47](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L47)
 
 ---
 
@@ -30,7 +30,7 @@ Defined in: [index.ts:39](https://github.com/hack4impact/logger/blob/e92632c/src
 
 • **index**: _number_
 
-Defined in: [index.ts:37](https://github.com/hack4impact/logger/blob/e92632c/src/index.ts#L37)
+Defined in: [index.ts:45](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L45)
 
 ---
 
@@ -38,7 +38,7 @@ Defined in: [index.ts:37](https://github.com/hack4impact/logger/blob/e92632c/src
 
 • **message**: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
 
-Defined in: [index.ts:35](https://github.com/hack4impact/logger/blob/e92632c/src/index.ts#L35)
+Defined in: [index.ts:43](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L43)
 
 ---
 
@@ -46,12 +46,12 @@ Defined in: [index.ts:35](https://github.com/hack4impact/logger/blob/e92632c/src
 
 • **timestamp**: _number_
 
-Defined in: [index.ts:36](https://github.com/hack4impact/logger/blob/e92632c/src/index.ts#L36)
+Defined in: [index.ts:44](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L44)
 
 ---
 
 ### type
 
-• `Optional` **type**: _undefined_ \| _success_ \| _info_ \| _error_ \| _warn_
+• `Optional` **type**: _undefined_ \| _warn_ \| _error_ \| _success_ \| _info_
 
-Defined in: [index.ts:38](https://github.com/hack4impact/logger/blob/e92632c/src/index.ts#L38)
+Defined in: [index.ts:46](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L46)

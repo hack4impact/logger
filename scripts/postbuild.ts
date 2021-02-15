@@ -24,7 +24,7 @@ const createIndexFile = async (): Promise<void> => {
 };
 
 const removeTypings = async (): Promise<void> => {
-  const keepTypings = ["dist/index.d.ts"];
+  const keepTypings = ["index.d.ts", "errors.d.ts"];
 
   const distFiles = await recursive("dist");
 
@@ -32,7 +32,7 @@ const removeTypings = async (): Promise<void> => {
     distFiles.map(async (file) => {
       if (file.length > 5) {
         const ending = file.substr(file.length - 5);
-        if (ending === ".d.ts" && !keepTypings.includes(file)) {
+        if (ending === ".d.ts" && !keepTypings.includes("dist/" + file)) {
           await rm(file);
         }
       }

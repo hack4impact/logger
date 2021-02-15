@@ -1,11 +1,19 @@
 // Externals
+import { strict as assert } from "assert";
 import { writeFile } from "fs/promises";
+
+// Internals
+import { INVALID_MESSAGE, INVALID_TYPE } from "./errors";
 
 export type ConsoleLevel = "log" | "warn" | "error";
 
+export const CONSOLE_LEVELS = ["log", "warn", "error"] as const;
+
 export type LogType = "success" | "info" | "error" | "warn";
 
-export type LogMessage = string | number | LogMessage[];
+export const LOG_TYPES = ["success", "info", "error", "warn"] as const;
+
+export type LogMessage = string | number | boolean | LogMessage[];
 
 export type LogTimestamp = number;
 
@@ -39,10 +47,21 @@ export interface Log {
   extra?: LogExtra;
 }
 
+const checkValidMessage = (
+  parameter: LogParameter
+): parameter is LogMessage => {
+  return (
+    Array.isArray(parameter) ||
+    typeof parameter === "string" ||
+    typeof parameter === "number" ||
+    typeof parameter === "boolean"
+  );
+};
+
 export class Logger {
   /**
    *
-   * ANSI Escape Codes
+   * ANSI Escape Sequences
    *
    * @example
    * ```javascript
@@ -97,7 +116,7 @@ export class Logger {
    * @param logsPath - The output file path
    * @example
    * ```javascript
-   * const logger = new Logger(__dirname + "logs.json");
+   * const logger = new Logger(__dirname + "/logs.json");
    * ```
    */
   constructor(logsPath: string) {
@@ -137,7 +156,7 @@ export class Logger {
    *
    * @example
    * ```javascript
-   * logger.logsPath = __dirname + "logs.json";
+   * logger.logsPath = __dirname + "/logs.json";
    * ```
    */
   public set logsPath(logsPath: string) {
@@ -146,35 +165,23 @@ export class Logger {
 
   /**
    *
-   * Logs a message to the console and writes to the output file path
+   * Logs a message to the console and DOES NOT write to the output file path
    *
    * @param logParameter - Information about the log
    * @example
    * ```javascript
-   * await logger.log({
-   *   message: "Hello",
-   *   writeToFile: true,
-   * });
+   * await logger.log("Hello");
    * ```
    * @example
    * ```javascript
-   * await logger.log({
-   *   message: "Hello",
-   *   writeToFile: true,
-   *   type: "success",
-   * });
+   * await logger.log(2);
    * ```
    * @example
    * ```javascript
-   * await logger.log({
-   *   message: "Hello",
-   *   writeToFile: true,
-   *   type: "info",
-   *   extra: "this part is not logged"
-   * });
+   * await logger.log(["hi!", 4, ["nested string"]]);
    * ```
    */
-  public log(logParameter: LogParameterWithWrite): Promise<Log>;
+  public log(logParameter: LogMessage): Log;
   /**
    *
    * Logs a message to the console and DOES NOT write to the output file path
@@ -199,23 +206,35 @@ export class Logger {
   public log(logParameter: LogParameterWithoutWrite): Log;
   /**
    *
-   * Logs a message to the console and DOES NOT write to the output file path
+   * Logs a message to the console and writes to the output file path
    *
    * @param logParameter - Information about the log
    * @example
    * ```javascript
-   * await logger.log("Hello");
+   * await logger.log({
+   *   message: "Hello",
+   *   writeToFile: true,
+   * });
    * ```
    * @example
    * ```javascript
-   * await logger.log(2);
+   * await logger.log({
+   *   message: ["hi", "hello"],
+   *   writeToFile: true,
+   *   type: "success",
+   * });
    * ```
    * @example
    * ```javascript
-   * await logger.log(["hi!", 4, ["nested string"]]);
+   * await logger.log({
+   *   message: 32,
+   *   writeToFile: true,
+   *   type: "info",
+   *   extra: "this part is not logged"
+   * });
    * ```
    */
-  public log(logParameter: LogMessage): Log;
+  public log(logParameter: LogParameterWithWrite): Promise<Log>;
   public log(logParameter: LogParameter): Promise<Log> | Log {
     let log: Log = {
       timestamp: Date.now(),
@@ -223,11 +242,7 @@ export class Logger {
       message: "",
     };
 
-    if (
-      Array.isArray(logParameter) ||
-      typeof logParameter === "string" ||
-      typeof logParameter === "number"
-    ) {
+    if (checkValidMessage(logParameter)) {
       Logger.log(logParameter);
       log.message = logParameter;
 
@@ -236,10 +251,14 @@ export class Logger {
     }
 
     const { message, type } = logParameter;
+    assert.ok(checkValidMessage(message), INVALID_MESSAGE);
+
     log = { ...log, message, type };
 
-    if (type) Logger[type](message);
-    else Logger.log(message);
+    if (type) {
+      assert.ok(LOG_TYPES.includes(type), INVALID_TYPE);
+      Logger[type](message);
+    } else Logger.log(message);
 
     if (!logParameter.writeToFile) {
       this.logs.push(log);
@@ -458,7 +477,7 @@ export class Logger {
    * ```
    * @example
    * ```javascript
-   * Logger.coloredLog("FgRed", "error!!!", "", "error");
+   * Logger.coloredLog("FgRed", "error!!!", "not colored", "error");
    * ```
    */
   public static coloredLog(
@@ -476,8 +495,8 @@ export class Logger {
    *
    * Logs a bold message
    *
-   * @param message - The message to log
-   * @param afterColored - The optional message after the colored message (on the same line)
+   * @param message - The bold message to log
+   * @param afterColored - The optional message after the bold message (on the same line)
    * @example
    * ```javascript
    * Logger.bold("BOLD!");
@@ -495,15 +514,15 @@ export class Logger {
    *
    * Logs a success message in green
    *
-   * @param message - The message to log
-   * @param afterColored - The optional message after the colored message (on the same line)
+   * @param message - The success message to log
+   * @param afterColored - The optional message after the success message (on the same line)
    * @example
    * ```javascript
-   * Logger.bold("SUCCESS!");
+   * Logger.success("SUCCESS!");
    * ```
    * @example
    * ```javascript
-   * Logger.bold("SUCCESS!", "this part is not green");
+   * Logger.success("SUCCESS!", "this part is not green");
    * ```
    */
   public static success(message: LogMessage, afterColored = ""): void {
@@ -514,15 +533,15 @@ export class Logger {
    *
    * Logs an info message in blue
    *
-   * @param message - The message to log
-   * @param afterColored - The optional message after the colored message (on the same line)
+   * @param message - The info message to log
+   * @param afterColored - The optional message after the info message (on the same line)
    * @example
    * ```javascript
-   * Logger.bold("information...");
+   * Logger.info("information...");
    * ```
    * @example
    * ```javascript
-   * Logger.bold("information...", "this part is not blue");
+   * Logger.info("information...", "this part is not blue");
    * ```
    */
   public static info(message: LogMessage, afterColored = ""): void {
@@ -533,15 +552,15 @@ export class Logger {
    *
    * Logs a warning message in yellow
    *
-   * @param message - The message to log
-   * @param afterColored - The optional message after the colored message (on the same line)
+   * @param message - The warning message to log
+   * @param afterColored - The optional message after the warning message (on the same line)
    * @example
    * ```javascript
-   * Logger.bold("WARNING!");
+   * Logger.warn("WARNING!");
    * ```
    * @example
    * ```javascript
-   * Logger.bold("WARNING!", "this part is not yellow");
+   * Logger.warn("WARNING!", "this part is not yellow");
    * ```
    */
   public static warn(message: LogMessage, afterColored = ""): void {
@@ -552,15 +571,15 @@ export class Logger {
    *
    * Logs an error message in red
    *
-   * @param message - The message to log
-   * @param afterColored - The optional message after the colored message (on the same line)
+   * @param message - The error message to log
+   * @param afterColored - The optional message after the error message (on the same line)
    * @example
    * ```javascript
-   * Logger.bold("ERROR!");
+   * Logger.error("ERROR!");
    * ```
    * @example
    * ```javascript
-   * Logger.bold("ERROR!", "this part is not red");
+   * Logger.error("ERROR!", "this part is not red");
    * ```
    */
   public static error(message: LogMessage, afterColored = ""): void {
