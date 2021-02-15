@@ -40,7 +40,7 @@ Renames and exports: [Logger](https://github.com/hack4impact/logger/tree/main/do
 
 Ƭ **ConsoleLevel**: _log_ \| _warn_ \| _error_
 
-Defined in: [index.ts:4](https://github.com/hack4impact/logger/blob/079ea81/src/index.ts#L4)
+Defined in: [index.ts:4](https://github.com/hack4impact/logger/blob/de2a3d6/src/index.ts#L4)
 
 ---
 
@@ -48,7 +48,7 @@ Defined in: [index.ts:4](https://github.com/hack4impact/logger/blob/079ea81/src/
 
 Ƭ **LogExtra**: _unknown_
 
-Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/079ea81/src/index.ts#L14)
+Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/de2a3d6/src/index.ts#L14)
 
 ---
 
@@ -56,7 +56,7 @@ Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/079ea81/src
 
 Ƭ **LogIndex**: _number_
 
-Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/079ea81/src/index.ts#L12)
+Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/de2a3d6/src/index.ts#L12)
 
 ---
 
@@ -64,7 +64,7 @@ Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/079ea81/src
 
 Ƭ **LogMessage**: _string_ \| _number_ \| [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)[]
 
-Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/079ea81/src/index.ts#L8)
+Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/de2a3d6/src/index.ts#L8)
 
 ---
 
@@ -72,7 +72,7 @@ Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/079ea81/src/
 
 Ƭ **LogParameter**: [_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md) \| [_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md) \| [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
 
-Defined in: [index.ts:29](https://github.com/hack4impact/logger/blob/079ea81/src/index.ts#L29)
+Defined in: [index.ts:29](https://github.com/hack4impact/logger/blob/de2a3d6/src/index.ts#L29)
 
 ---
 
@@ -80,7 +80,7 @@ Defined in: [index.ts:29](https://github.com/hack4impact/logger/blob/079ea81/src
 
 Ƭ **LogTimestamp**: _number_
 
-Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/079ea81/src/index.ts#L10)
+Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/de2a3d6/src/index.ts#L10)
 
 ---
 
@@ -88,4 +88,4 @@ Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/079ea81/src
 
 Ƭ **LogType**: _success_ \| _info_ \| _error_ \| _warn_
 
-Defined in: [index.ts:6](https://github.com/hack4impact/logger/blob/079ea81/src/index.ts#L6)
+Defined in: [index.ts:6](https://github.com/hack4impact/logger/blob/de2a3d6/src/index.ts#L6)
