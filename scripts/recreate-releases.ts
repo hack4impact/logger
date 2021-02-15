@@ -7,6 +7,7 @@ import { config } from "dotenv-safe";
 import { Octokit, RestEndpointMethodTypes } from "@octokit/rest";
 
 // Internals
+import { REPO_NAME, REPO_OWNER } from "./helpers/constants";
 import pkg from "../package.json";
 import getChangeLogSection from "./helpers/get-changelog-section";
 
@@ -14,7 +15,7 @@ config();
 
 const CHANGELOG_PATH = join(__dirname, "..", "CHANGELOG.md");
 
-const recreateReleases = async () => {
+const recreateReleases = async (): Promise<void> => {
   const changelog = (await readFile(CHANGELOG_PATH, "utf-8")).trim();
 
   const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
@@ -24,27 +25,30 @@ const recreateReleases = async () => {
     getReleases(octokit),
   ]);
 
-  checkTags(octokit, changelog, tags, releases);
-
-  checkReleases(octokit, changelog, releases);
+  await Promise.all([
+    checkTags(octokit, changelog, tags, releases),
+    checkReleases(octokit, changelog, releases),
+  ]);
 };
 
 type Releases = RestEndpointMethodTypes["repos"]["listReleases"]["response"]["data"];
 
-const getReleases = async (octokit: Octokit) => {
+type Tags = RestEndpointMethodTypes["repos"]["listTags"]["response"]["data"];
+
+const getReleases = async (octokit: Octokit): Promise<Releases> => {
   const { data: releases } = await octokit.repos.listReleases({
-    owner: "hack4impact",
-    repo: "logger",
+    owner: REPO_OWNER,
+    repo: REPO_NAME,
     per_page: 10,
   });
 
   return releases;
 };
 
-const getTags = async (octokit: Octokit) => {
+const getTags = async (octokit: Octokit): Promise<Tags> => {
   const { data: tags } = await octokit.repos.listTags({
-    owner: "hack4impact",
-    repo: "logger",
+    owner: REPO_OWNER,
+    repo: REPO_NAME,
     per_page: 10,
   });
   return tags;
@@ -53,52 +57,56 @@ const getTags = async (octokit: Octokit) => {
 const checkTags = async (
   octokit: Octokit,
   changelog: string,
-  tags: RestEndpointMethodTypes["repos"]["listTags"]["response"]["data"],
+  tags: Tags,
   releases: Releases
-) => {
-  tags.forEach(async ({ name, commit }) => {
-    if (
-      name === `v${pkg.version}` &&
-      !releases.find(({ name: releaseName }) => name === releaseName)
-    ) {
-      console.log(`Creating release ${name}...`);
+): Promise<void> => {
+  await Promise.all(
+    tags.map(async ({ name, commit }) => {
+      if (
+        name === `v${pkg.version}` &&
+        !releases.find(({ name: releaseName }) => name === releaseName)
+      ) {
+        console.log(`Creating release ${name}...`);
 
-      octokit.repos.createRelease({
-        owner: "hack4impact",
-        repo: "logger",
-        tag_name: name,
-        body: await getChangeLogSection(changelog, name.substring(1)),
-        target_commitish: commit.sha,
-        name,
-        prerelease: false,
-        draft: false,
-      });
-    }
-  });
+        octokit.repos.createRelease({
+          owner: REPO_OWNER,
+          repo: REPO_NAME,
+          tag_name: name,
+          body: getChangeLogSection(changelog, name.substring(1)),
+          target_commitish: commit.sha,
+          name,
+          prerelease: false,
+          draft: false,
+        });
+      }
+    })
+  );
 };
 
 const checkReleases = async (
   octokit: Octokit,
   changelog: string,
   releases: Releases
-) => {
-  releases.forEach(async (release) => {
-    const { id, name, tag_name, body } = release;
-    const section = await getChangeLogSection(changelog, tag_name.substring(1));
+): Promise<void> => {
+  await Promise.all(
+    releases.map(async (release) => {
+      const { id, name, tag_name, body } = release;
+      const section = getChangeLogSection(changelog, tag_name.substring(1));
 
-    if (section !== body) {
-      console.log(`Updating release ${name} ...`);
+      if (section !== body) {
+        console.log(`Updating release ${name} ...`);
 
-      await octokit.repos.updateRelease({
-        ...release,
-        owner: "hack4impact",
-        repo: "logger",
-        release_id: id,
-        body: section,
-        name: name ?? undefined,
-      });
-    }
-  });
+        await octokit.repos.updateRelease({
+          ...release,
+          owner: REPO_OWNER,
+          repo: REPO_NAME,
+          release_id: id,
+          body: section,
+          name: name ?? undefined,
+        });
+      }
+    })
+  );
 };
 
 recreateReleases();

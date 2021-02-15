@@ -15,7 +15,6 @@ export default async (): Promise<void> => {
   for (const dir of dirs) {
     const path = join(logsPath, dir);
 
-    console.log(`Creating ${dir} logs folder in ${path}...`);
     await mkdir(path, { recursive: true });
   }
 };

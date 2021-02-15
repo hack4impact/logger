@@ -78,7 +78,6 @@
     "recreate-releases": "ts-node scripts/recreate-releases.ts",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "contributors:check": "all-contributors check",
-    "type-doc": "typedoc"
+    "contributors:check": "all-contributors check"
   }
 }
