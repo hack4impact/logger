@@ -324,7 +324,7 @@ export class Logger {
   ): Promise<Log>;
   /**
    *
-   * Logs a message to the console and writes to the output file path
+   * Logs a success message to the console and writes to the output file path
    *
    * @param logParameter - Information about the log
    * @example
@@ -353,6 +353,72 @@ export class Logger {
       return this.log({ ...logParameter, type: "success" });
     }
     return this.log({ ...logParameter, type: "success" }); // Same as above, but different overload and return value
+  }
+
+  /**
+   *
+   * Logs an info message to the console and DOES NOT write to the output file path
+   *
+   * @param logParameter - The info message to log
+   * @example
+   * ```javascript
+   * await logger.info("Hello");
+   * ```
+   * @example
+   * ```javascript
+   * await logger.info(2);
+   * ```
+   * @example
+   * ```javascript
+   * await logger.info(["hi!", 4, ["nested string"]]);
+   * ```
+   */
+  public info(logParameter: LogMessage): Promise<Log>;
+  /**
+   *
+   * Logs an info message to the console and DOES NOT write to the output file path
+   *
+   * @param logParameter - Information about the log
+   * @example
+   * ```javascript
+   * await logger.info({
+   *   message: "Hello",
+   *   writeToFile: false,
+   * });
+   * ```
+   */
+  public info(logParameter: LogParameterWithoutWriteWithoutType): Promise<Log>;
+  /**
+   *
+   * Logs an info message to the console and writes to the output file path
+   *
+   * @param logParameter - Information about the log
+   * @example
+   * ```javascript
+   * await logger.info({
+   *   message: "Hello",
+   *   writeToFile: true,
+   * });
+   * ```
+   * @example
+   * ```javascript
+   * await logger.info({
+   *   message: 32,
+   *   writeToFile: true,
+   *   extra: "this part is not logged"
+   * });
+   * ```
+   */
+  public info(message: LogParameterWithWriteWithoutType): Log;
+  public info(logParameter: LogParameterWithoutType): Promise<Log> | Log {
+    if (checkValidMessage(logParameter)) {
+      return this.log(logParameter);
+    }
+
+    if (logParameter.writeToFile === undefined || logParameter.writeToFile) {
+      return this.log({ ...logParameter, type: "info" });
+    }
+    return this.log({ ...logParameter, type: "info" }); // Same as above, but different overload and return value
   }
 
   /**
