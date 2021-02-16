@@ -423,6 +423,72 @@ export class Logger {
 
   /**
    *
+   * Logs a warning message to the console and DOES NOT write to the output file path
+   *
+   * @param logParameter - The warning message to log
+   * @example
+   * ```javascript
+   * await logger.warn("Hello");
+   * ```
+   * @example
+   * ```javascript
+   * await logger.warn(2);
+   * ```
+   * @example
+   * ```javascript
+   * await logger.warn(["hi!", 4, ["nested string"]]);
+   * ```
+   */
+  public warn(logParameter: LogMessage): Promise<Log>;
+  /**
+   *
+   * Logs a warning message to the console and DOES NOT write to the output file path
+   *
+   * @param logParameter - Information about the log
+   * @example
+   * ```javascript
+   * await logger.warn({
+   *   message: "Hello",
+   *   writeToFile: false,
+   * });
+   * ```
+   */
+  public warn(logParameter: LogParameterWithoutWriteWithoutType): Promise<Log>;
+  /**
+   *
+   * Logs a warning message to the console and writes to the output file path
+   *
+   * @param logParameter - Information about the log
+   * @example
+   * ```javascript
+   * await logger.warn({
+   *   message: "Hello",
+   *   writeToFile: true,
+   * });
+   * ```
+   * @example
+   * ```javascript
+   * await logger.warn({
+   *   message: 32,
+   *   writeToFile: true,
+   *   extra: "this part is not logged"
+   * });
+   * ```
+   */
+  public warn(message: LogParameterWithWriteWithoutType): Log;
+  public warn(logParameter: LogParameterWithoutType): Promise<Log> | Log {
+    if (checkValidMessage(logParameter)) {
+      return this.log(logParameter);
+    }
+
+    if (logParameter.writeToFile === undefined || logParameter.writeToFile) {
+      return this.log({ ...logParameter, type: "warn" });
+    }
+    return this.log({ ...logParameter, type: "warn" }); // Same as above, but different overload and return value
+  }
+
+  /**
+   *
    * Writes the logs stored in `this.logs` to the output file
    *
    * @example
