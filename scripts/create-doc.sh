@@ -32,10 +32,10 @@ echo "Removing Temporary Docs Folder..."
 rimraf temp-docs
 
 echo "Generating contributors..."
-npm run contributors:generate
+npm run contributors:generate > /dev/null
 
 echo "Generating docs folder..."
 typedoc src/index.ts --plugin typedoc-plugin-markdown --theme markdown --out docs --name 'Hack4Impact Logger' --excludePrivate --publicPath $PUBLIC_PATH
 
 echo "Formatting files..."
-prettier --write README.md docs/
+prettier --write README.md docs/ > /dev/null

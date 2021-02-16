@@ -39,6 +39,21 @@ export type LogParameter =
   | LogParameterWithoutWrite
   | LogMessage;
 
+export type LogParameterWithWriteWithoutType = Omit<
+  LogParameterWithWrite,
+  "type"
+>;
+
+export type LogParameterWithoutWriteWithoutType = Omit<
+  LogParameterWithoutWrite,
+  "type"
+>;
+
+export type LogParameterWithoutType =
+  | LogParameterWithWriteWithoutType
+  | LogParameterWithoutWriteWithoutType
+  | LogMessage;
+
 export interface Log {
   message: LogMessage;
   timestamp: LogTimestamp;
@@ -167,7 +182,7 @@ export class Logger {
    *
    * Logs a message to the console and DOES NOT write to the output file path
    *
-   * @param logParameter - Information about the log
+   * @param logParameter - The message to log
    * @example
    * ```javascript
    * await logger.log("Hello");
@@ -272,147 +287,73 @@ export class Logger {
     return this.writeLogs().then(() => log);
   }
 
-  // /**
-  //  *
-  //  * Logs a message to the console and writes to the output file path
-  //  *
-  //  * @param message - The message to log
-  //  * @example
-  //  * ```javascript
-  //  * await logger.log("hi");
-  //  * ```
-  //  */
-  // public log(message: LogMessage): Promise<Log>;
-  // /**
-  //  *
-  //  * Logs a message to the console and writes to the output file path
-  //  *
-  //  * @param message - The message to log
-  //  * @param writeToFile - Should write to file
-  //  * @param type - The type of log
-  //  * @param extra - Extra information to write to file (will not be logged)
-  //  * @example
-  //  * ```javascript
-  //  * await logger.log("hi", true);
-  //  * ```
-  //  * @example
-  //  * ```javascript
-  //  * await logger.log("hi", true, "info");
-  //  * ```
-  //  * @example
-  //  * ```javascript
-  //  * await logger.log("hi", true, "success", "extra info that is not logged");
-  //  * ```
-  //  */
-  // public log(
-  //   message: LogMessage,
-  //   writeToFile: true,
-  //   type?: LogType,
-  //   extra?: LogExtra
-  // ): Promise<Log>;
-  // /**
-  //  *
-  //  * Logs a message to the console
-  //  *
-  //  * @param message - The message to log
-  //  * @param writeToFile - Should write to file
-  //  * @param type - The type of log
-  //  * @example
-  //  * ```javascript
-  //  * logger.log("hi", false);
-  //  * ```
-  //  * @example
-  //  * ```javascript
-  //  * logger.log("hi", false, "info");
-  //  * ```
-  //  */
-  // public log(message: LogMessage, writeToFile: false, type?: LogType): Log;
-  // public log(
-  //   message: LogMessage,
-  //   writeToFile?: boolean,
-  //   type?: LogType,
-  //   extra?: LogExtra
-  // ): Promise<Log> | Log {
-  //   const newLog: Log = {
-  //     message,
-  //     timestamp: Date.now(),
-  //     type,
-  //     index: this.logs.length,
-  //     extra,
-  //   };
+  /**
+   *
+   * Logs a success message to the console and DOES NOT write to the output file path
+   *
+   * @param logParameter - The success message to log
+   * @example
+   * ```javascript
+   * await logger.success("Hello");
+   * ```
+   * @example
+   * ```javascript
+   * await logger.success(2);
+   * ```
+   * @example
+   * ```javascript
+   * await logger.success(["hi!", 4, ["nested string"]]);
+   * ```
+   */
+  public success(logParameter: LogMessage): Promise<Log>;
+  /**
+   *
+   * Logs a success message to the console and DOES NOT write to the output file path
+   *
+   * @param logParameter - Information about the log
+   * @example
+   * ```javascript
+   * await logger.success({
+   *   message: "Hello",
+   *   writeToFile: false,
+   * });
+   * ```
+   */
+  public success(
+    logParameter: LogParameterWithoutWriteWithoutType
+  ): Promise<Log>;
+  /**
+   *
+   * Logs a message to the console and writes to the output file path
+   *
+   * @param logParameter - Information about the log
+   * @example
+   * ```javascript
+   * await logger.success({
+   *   message: "Hello",
+   *   writeToFile: true,
+   * });
+   * ```
+   * @example
+   * ```javascript
+   * await logger.success({
+   *   message: 32,
+   *   writeToFile: true,
+   *   extra: "this part is not logged"
+   * });
+   * ```
+   */
+  public success(message: LogParameterWithWriteWithoutType): Log;
+  public success(logParameter: LogParameterWithoutType): Promise<Log> | Log {
+    if (checkValidMessage(logParameter)) {
+      return this.log(logParameter);
+    }
 
-  //   this.logs.push(newLog);
-
-  //   if (type) Logger[type](message);
-  //   else Logger.log(message);
-
-  //   if (writeToFile === undefined) writeToFile = true;
-  //   if (writeToFile) return this.writeLogs().then(() => newLog);
-  //   else return newLog;
-  // }
-
-  // /**
-  //  *
-  //  * Logs a success message to the console and writes to the output file path
-  //  *
-  //  * @param message - The success message to log
-  //  * @example
-  //  * ```javascript
-  //  * await logger.log("success!!");
-  //  * ```
-  //  */
-  // public success(message: LogMessage): Promise<SuccessLog>;
-  // /**
-  //  *
-  //  * Logs a success message to the console and writes to the output file path
-  //  *
-  //  * @param message - The success message to log
-  //  * @param writeToFile - Should write to file
-  //  * @param extra - Extra information to write to file (will not be logged)
-  //  * @example
-  //  * ```javascript
-  //  * await logger.log("success!!", true);
-  //  * ```
-  //  * @example
-  //  * ```javascript
-  //  * await logger.log("success!!", true, "extra info that is not logged");
-  //  * ```
-  //  */
-  // public success(
-  //   message: LogMessage,
-  //   writeToFile: true,
-  //   extra?: LogExtra
-  // ): Promise<SuccessLog>;
-  // /**
-  //  *
-  //  * Logs a success message to the console
-  //  *
-  //  * @param message - The success message to log
-  //  * @param writeToFile - Should write to file
-  //  * @example
-  //  * ```javascript
-  //  * logger.log("success!!", false);
-  //  * ```
-  //  */
-  // public success(message: LogMessage, writeToFile: false): SuccessLog;
-  // public success(
-  //   message: LogMessage,
-  //   writeToFile?: boolean,
-  //   extra?: LogExtra
-  // ): Promise<SuccessLog> | SuccessLog {
-  //   if (writeToFile === undefined) writeToFile = true;
-
-  //   if (writeToFile) {
-  //     return this.log(
-  //       message,
-  //       writeToFile,
-  //       "success",
-  //       extra
-  //     ) as Promise<SuccessLog>;
-  //   }
-
-  //   return this.log(message, writeToFile, "success") as SuccessLog;
-  // }
+    if (logParameter.writeToFile === undefined || logParameter.writeToFile) {
+      return this.log({ ...logParameter, type: "success" });
+    }
+    return this.log({ ...logParameter, type: "success" }); // Same as above, but different overload and return value
+  }
 
   /**
    *

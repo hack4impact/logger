@@ -25,6 +25,9 @@
 - [LogIndex](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logindex)
 - [LogMessage](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
 - [LogParameter](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameter)
+- [LogParameterWithWriteWithoutType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithwritewithouttype)
+- [LogParameterWithoutType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithouttype)
+- [LogParameterWithoutWriteWithoutType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithoutwritewithouttype)
 - [LogTimestamp](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logtimestamp)
 - [LogType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logtype)
 
@@ -45,7 +48,7 @@ Renames and exports: [Logger](https://github.com/hack4impact/logger/tree/main/do
 
 Ƭ **ConsoleLevel**: _log_ \| _warn_ \| _error_
 
-Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L8)
+Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L8)
 
 ---
 
@@ -53,7 +56,7 @@ Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/565aff0/src/
 
 Ƭ **LogExtra**: _unknown_
 
-Defined in: [index.ts:22](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L22)
+Defined in: [index.ts:22](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L22)
 
 ---
 
@@ -61,7 +64,7 @@ Defined in: [index.ts:22](https://github.com/hack4impact/logger/blob/565aff0/src
 
 Ƭ **LogIndex**: _number_
 
-Defined in: [index.ts:20](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L20)
+Defined in: [index.ts:20](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L20)
 
 ---
 
@@ -69,7 +72,7 @@ Defined in: [index.ts:20](https://github.com/hack4impact/logger/blob/565aff0/src
 
 Ƭ **LogMessage**: _string_ \| _number_ \| _boolean_ \| [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)[]
 
-Defined in: [index.ts:16](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L16)
+Defined in: [index.ts:16](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L16)
 
 ---
 
@@ -77,7 +80,31 @@ Defined in: [index.ts:16](https://github.com/hack4impact/logger/blob/565aff0/src
 
 Ƭ **LogParameter**: [_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md) \| [_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md) \| [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
 
-Defined in: [index.ts:37](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L37)
+Defined in: [index.ts:37](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L37)
+
+---
+
+### LogParameterWithWriteWithoutType
+
+Ƭ **LogParameterWithWriteWithoutType**: _Omit_<[_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md), _type_\>
+
+Defined in: [index.ts:42](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L42)
+
+---
+
+### LogParameterWithoutType
+
+Ƭ **LogParameterWithoutType**: [_LogParameterWithWriteWithoutType_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithwritewithouttype) \| [_LogParameterWithoutWriteWithoutType_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithoutwritewithouttype) \| [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
+
+Defined in: [index.ts:52](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L52)
+
+---
+
+### LogParameterWithoutWriteWithoutType
+
+Ƭ **LogParameterWithoutWriteWithoutType**: _Omit_<[_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md), _type_\>
+
+Defined in: [index.ts:47](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L47)
 
 ---
 
@@ -85,7 +112,7 @@ Defined in: [index.ts:37](https://github.com/hack4impact/logger/blob/565aff0/src
 
 Ƭ **LogTimestamp**: _number_
 
-Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L18)
+Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L18)
 
 ---
 
@@ -93,7 +120,7 @@ Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/565aff0/src
 
 Ƭ **LogType**: _success_ \| _info_ \| _error_ \| _warn_
 
-Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L12)
+Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L12)
 
 ## Variables
 
@@ -101,7 +128,7 @@ Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/565aff0/src
 
 • `Const` **CONSOLE_LEVELS**: readonly _log_[]
 
-Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L10)
+Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L10)
 
 ---
 
@@ -109,4 +136,4 @@ Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/565aff0/src
 
 • `Const` **LOG_TYPES**: readonly _success_[]
 
-Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/565aff0/src/index.ts#L14)
+Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/1c2c72f/src/index.ts#L14)
