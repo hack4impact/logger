@@ -489,6 +489,72 @@ export class Logger {
 
   /**
    *
+   * Logs an error message to the console and DOES NOT write to the output file path
+   *
+   * @param logParameter - The error message to log
+   * @example
+   * ```javascript
+   * await logger.error("Hello");
+   * ```
+   * @example
+   * ```javascript
+   * await logger.error(2);
+   * ```
+   * @example
+   * ```javascript
+   * await logger.error(["hi!", 4, ["nested string"]]);
+   * ```
+   */
+  public error(logParameter: LogMessage): Promise<Log>;
+  /**
+   *
+   * Logs an error message to the console and DOES NOT write to the output file path
+   *
+   * @param logParameter - Information about the log
+   * @example
+   * ```javascript
+   * await logger.error({
+   *   message: "Hello",
+   *   writeToFile: false,
+   * });
+   * ```
+   */
+  public error(logParameter: LogParameterWithoutWriteWithoutType): Promise<Log>;
+  /**
+   *
+   * Logs an error message to the console and writes to the output file path
+   *
+   * @param logParameter - Information about the log
+   * @example
+   * ```javascript
+   * await logger.error({
+   *   message: "Hello",
+   *   writeToFile: true,
+   * });
+   * ```
+   * @example
+   * ```javascript
+   * await logger.error({
+   *   message: 32,
+   *   writeToFile: true,
+   *   extra: "this part is not logged"
+   * });
+   * ```
+   */
+  public error(message: LogParameterWithWriteWithoutType): Log;
+  public error(logParameter: LogParameterWithoutType): Promise<Log> | Log {
+    if (checkValidMessage(logParameter)) {
+      return this.log(logParameter);
+    }
+
+    if (logParameter.writeToFile === undefined || logParameter.writeToFile) {
+      return this.log({ ...logParameter, type: "error" });
+    }
+    return this.log({ ...logParameter, type: "error" }); // Same as above, but different overload and return value
+  }
+
+  /**
+   *
    * Writes the logs stored in `this.logs` to the output file
    *
    * @example
