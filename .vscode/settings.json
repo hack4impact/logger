@@ -21,7 +21,9 @@
     ".imgbotconfig": "json",
     ".all-contributorsrc": "json"
   },
-  "markdown.extension.toc.updateOnSave": false,
+  "markdown.extension.toc.omittedFromToc": {
+    "README.md": ["## Table of Contents"]
+  },
   // Install the 'Terminal All In One' extension to use the scripts below
   "terminalAllInOne.script.disableDescription": true,
   "terminalAllInOne.scripts": [
