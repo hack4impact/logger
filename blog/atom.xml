@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://hack4impact.github.io/logger/blog</id>
+    <id>https://hack4impact.github.io/blog</id>
     <title>Hack4Impact Logger Blog</title>
     <updated>2015-10-25T23:29:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://hack4impact.github.io/logger/blog"/>
+    <link rel="alternate" href="https://hack4impact.github.io/blog"/>
     <subtitle>Hack4Impact Logger Blog</subtitle>
-    <icon>https://hack4impact.github.io/logger/img/favicon.ico</icon>
+    <icon>https://hack4impact.github.io/img/favicon.ico</icon>
 </feed>
