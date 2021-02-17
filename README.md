@@ -103,7 +103,7 @@ const logger = new Logger(__dirname + "/logs.json");
 
 **Returns:** [_Logger_](https://github.com/hack4impact/logger/tree/main/docs/classes/logger.md)
 
-Defined in: [index.ts:125](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L125)
+Defined in: [index.ts:125](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L125)
 
 ### Properties
 
@@ -147,7 +147,7 @@ console.log(Logger.COLORS.Dim + "Dim log" + Logger.COLORS.Reset);
 | `Reverse`    | _string_ |
 | `Underscore` | _string_ |
 
-Defined in: [index.ts:86](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L86)
+Defined in: [index.ts:86](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L86)
 
 ### Accessors
 
@@ -165,7 +165,7 @@ const logs = logger.logs;
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)[]
 
-Defined in: [index.ts:151](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L151)
+Defined in: [index.ts:151](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L151)
 
 ---
 
@@ -183,7 +183,7 @@ const logsPath = logger.logsPath;
 
 **Returns:** _string_
 
-Defined in: [index.ts:164](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L164)
+Defined in: [index.ts:164](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L164)
 
 • **logsPath**(`logsPath`: _string_): _void_
 
@@ -203,7 +203,7 @@ logger.logsPath = __dirname + "/logs.json";
 
 **Returns:** _void_
 
-Defined in: [index.ts:177](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L177)
+Defined in: [index.ts:177](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L177)
 
 ### Methods
 
@@ -239,7 +239,7 @@ await logger.error(["hi!", 4, ["nested string"]]);
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:508](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L508)
+Defined in: [index.ts:510](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L510)
 
 ▸ **error**(`logParameter`: _Pick_<[_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md), _message_ \| _writeToFile_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
@@ -262,7 +262,7 @@ await logger.error({
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:522](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L522)
+Defined in: [index.ts:524](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L524)
 
 ▸ **error**(`message`: _Pick_<[_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md), _message_ \| _writeToFile_ \| _extra_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
@@ -295,7 +295,7 @@ await logger.error({
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:544](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L544)
+Defined in: [index.ts:546](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L546)
 
 ---
 
@@ -331,7 +331,7 @@ await logger.info(["hi!", 4, ["nested string"]]);
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:376](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L376)
+Defined in: [index.ts:378](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L378)
 
 ▸ **info**(`logParameter`: _Pick_<[_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md), _message_ \| _writeToFile_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
@@ -354,7 +354,7 @@ await logger.info({
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:390](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L390)
+Defined in: [index.ts:392](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L392)
 
 ▸ **info**(`message`: _Pick_<[_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md), _message_ \| _writeToFile_ \| _extra_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
@@ -387,7 +387,7 @@ await logger.info({
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:412](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L412)
+Defined in: [index.ts:414](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L414)
 
 ---
 
@@ -423,7 +423,7 @@ await logger.log(["hi!", 4, ["nested string"]]);
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:199](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L199)
+Defined in: [index.ts:199](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L199)
 
 ▸ **log**(`logParameter`: [_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md)): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
@@ -456,7 +456,7 @@ await logger.log({
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:221](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L221)
+Defined in: [index.ts:221](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L221)
 
 ▸ **log**(`logParameter`: [_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md)): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
@@ -500,13 +500,13 @@ await logger.log({
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:252](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L252)
+Defined in: [index.ts:252](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L252)
 
 ---
 
 #### success
 
-▸ **success**(`logParameter`: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage)): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+▸ **success**(`logParameter`: [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage)): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
 Logs a success message to the console and DOES NOT write to the output file path
 
@@ -534,11 +534,11 @@ await logger.success(["hi!", 4, ["nested string"]]);
 | -------------- | ------------------------------------------------------------------------------------------- | -------------------------- |
 | `logParameter` | [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logmessage) | The success message to log |
 
-**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:308](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L308)
+Defined in: [index.ts:308](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L308)
 
-▸ **success**(`logParameter`: _Pick_<[_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md), _message_ \| _writeToFile_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+▸ **success**(`logParameter`: _Pick_<[_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md), _message_ \| _writeToFile_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
 Logs a success message to the console and DOES NOT write to the output file path
 
@@ -557,11 +557,11 @@ await logger.success({
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `logParameter` | _Pick_<[_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md), _message_ \| _writeToFile_\> | Information about the log |
 
-**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:322](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L322)
+Defined in: [index.ts:322](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L322)
 
-▸ **success**(`message`: _Pick_<[_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md), _message_ \| _writeToFile_ \| _extra_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **success**(`message`: _Pick_<[_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md), _message_ \| _writeToFile_ \| _extra_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
 Logs a success message to the console and writes to the output file path
 
@@ -590,9 +590,9 @@ await logger.success({
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `message` | _Pick_<[_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md), _message_ \| _writeToFile_ \| _extra_\> |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:346](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L346)
+Defined in: [index.ts:344](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L344)
 
 ---
 
@@ -628,7 +628,7 @@ await logger.warn(["hi!", 4, ["nested string"]]);
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:442](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L442)
+Defined in: [index.ts:444](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L444)
 
 ▸ **warn**(`logParameter`: _Pick_<[_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md), _message_ \| _writeToFile_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
@@ -651,7 +651,7 @@ await logger.warn({
 
 **Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
 
-Defined in: [index.ts:456](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L456)
+Defined in: [index.ts:458](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L458)
 
 ▸ **warn**(`message`: _Pick_<[_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md), _message_ \| _writeToFile_ \| _extra_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
@@ -684,7 +684,7 @@ await logger.warn({
 
 **Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
 
-Defined in: [index.ts:478](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L478)
+Defined in: [index.ts:480](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L480)
 
 ---
 
@@ -715,7 +715,7 @@ Logger.bold("BOLD!", "this part is not bold");
 
 **Returns:** _void_
 
-Defined in: [index.ts:648](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L648)
+Defined in: [index.ts:650](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L650)
 
 ---
 
@@ -754,7 +754,7 @@ Logger.coloredLog("FgRed", "error!!!", "not colored", "error");
 
 **Returns:** _void_
 
-Defined in: [index.ts:622](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L622)
+Defined in: [index.ts:624](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L624)
 
 ---
 
@@ -785,7 +785,7 @@ Logger.error("ERROR!", "this part is not red");
 
 **Returns:** _void_
 
-Defined in: [index.ts:724](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L724)
+Defined in: [index.ts:726](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L726)
 
 ---
 
@@ -816,7 +816,7 @@ Logger.info("information...", "this part is not blue");
 
 **Returns:** _void_
 
-Defined in: [index.ts:686](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L686)
+Defined in: [index.ts:688](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L688)
 
 ---
 
@@ -834,7 +834,7 @@ Logger.line();
 
 **Returns:** _void_
 
-Defined in: [index.ts:597](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L597)
+Defined in: [index.ts:599](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L599)
 
 ---
 
@@ -865,7 +865,7 @@ Logger.log("hi %s", "Bill");
 
 **Returns:** _void_
 
-Defined in: [index.ts:584](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L584)
+Defined in: [index.ts:586](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L586)
 
 ---
 
@@ -896,7 +896,7 @@ Logger.success("SUCCESS!", "this part is not green");
 
 **Returns:** _void_
 
-Defined in: [index.ts:667](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L667)
+Defined in: [index.ts:669](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L669)
 
 ---
 
@@ -927,7 +927,7 @@ Logger.warn("WARNING!", "this part is not yellow");
 
 **Returns:** _void_
 
-Defined in: [index.ts:705](https://github.com/hack4impact/logger/blob/5fb6edf/src/index.ts##L705)
+Defined in: [index.ts:707](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts##L707)
 
 ## Dependents
 

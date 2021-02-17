@@ -5,10 +5,9 @@ import { readFile, writeFile } from "fs/promises";
 import Logger, {
   Log,
   LogMessage,
-  LogParameterWithWrite,
-  LogParameterWithoutWrite,
+  LogParameterWithoutWriteWithoutType,
+  LogParameterWithWriteWithoutType,
 } from "../../src";
-import { INVALID_MESSAGE, INVALID_TYPE } from "../../src/errors";
 import { createLogsPath, setUpConsoleSpy } from "../helpers";
 import { checkFields, checkConsoleSpy } from "./helpers";
 
@@ -25,11 +24,11 @@ test("With only message", async () => {
 
   for (let i = 0; i < messages.length; i++) {
     const message = messages[i];
-    const spy = setUpConsoleSpy();
+    const spy = setUpConsoleSpy("success");
 
-    const log = logger.log(message);
+    const log = logger.success(message);
 
-    checkFields(log, { message }, i);
+    checkFields(log, { message, type: "success" }, i);
 
     const rawLogs = await readFile(logsPath, "utf-8");
     const writtenLogs: Log[] = JSON.parse(rawLogs);
@@ -43,29 +42,29 @@ test("With only message", async () => {
 test("With writeToFile enabled", async () => {
   const logger = new Logger(logsPath);
 
-  const testParams: Pick<Log, "message" | "type" | "extra">[] = [
+  const testParams: Pick<Log, "message" | "extra">[] = [
     { message: "hello" },
-    { message: ["hi", 1212, false], type: "warn" },
+    { message: ["hi", 1212, false] },
     { message: 1212, extra: "Extra.." },
-    { message: [2121, true, [121], "qwd"], type: "success", extra: "Extra!" },
+    { message: [2121, true, [121], "qwd"], extra: "Extra!" },
   ];
 
   for (let i = 0; i < testParams.length; i++) {
-    const params: LogParameterWithWrite = {
+    const params: LogParameterWithWriteWithoutType = {
       writeToFile: true,
       ...testParams[i],
     };
 
-    const spy = setUpConsoleSpy(params.type);
+    const spy = setUpConsoleSpy("success");
 
-    const log = await logger.log(params);
+    const log = await logger.success(params);
 
-    checkFields(log, params, i);
+    checkFields(log, params, i, { type: "success" });
 
     const rawLogs = await readFile(logsPath, "utf-8");
     const writtenLogs: Log[] = JSON.parse(rawLogs);
 
-    checkFields(writtenLogs[i], params, i);
+    checkFields(writtenLogs[i], params, i, { type: "success" });
 
     checkConsoleSpy(spy, log);
   }
@@ -74,23 +73,23 @@ test("With writeToFile enabled", async () => {
 test("With writeToFile disabled", async () => {
   const logger = new Logger(logsPath);
 
-  const testParams: Pick<Log, "message" | "type">[] = [
+  const testParams: Pick<Log, "message">[] = [
     { message: ["hello", 1212, ["hi"]] },
     { message: [false, 212] },
-    { message: "hi", type: "warn" },
+    { message: "hi" },
   ];
 
   for (let i = 0; i < testParams.length; i++) {
-    const params: LogParameterWithoutWrite = {
+    const params: LogParameterWithoutWriteWithoutType = {
       writeToFile: false,
       ...testParams[i],
     };
 
-    const spy = setUpConsoleSpy(params.type);
+    const spy = setUpConsoleSpy("success");
 
-    const log = logger.log(params);
+    const log = logger.success(params);
 
-    checkFields(log, params, i);
+    checkFields(log, params, i, { type: "success" });
 
     const rawLogs = await readFile(logsPath, "utf-8");
     const writtenLogs: Log[] = JSON.parse(rawLogs);
@@ -99,37 +98,4 @@ test("With writeToFile disabled", async () => {
 
     checkConsoleSpy(spy, log);
   }
-});
-
-test("With invalid message", () => {
-  const logger = new Logger(logsPath);
-
-  const invalidMessages = [writeFile, new Error()];
-
-  invalidMessages.forEach((invalid) => {
-    expect(() =>
-      logger.log({
-        // @ts-expect-error Testing for invalid messages
-        message: invalid,
-        writeToFile: false,
-      })
-    ).toThrowError(INVALID_MESSAGE.message);
-  });
-});
-
-test("With invalid type", () => {
-  const logger = new Logger(logsPath);
-
-  const invalidTypes = [31, "invalid-type", true, new Error(), writeFile];
-
-  invalidTypes.forEach((invalid) => {
-    expect(() =>
-      logger.log({
-        message: "qwd",
-        writeToFile: false,
-        // @ts-expect-error Testing for invalid types
-        type: invalid,
-      })
-    ).toThrowError(INVALID_TYPE.message);
-  });
 });

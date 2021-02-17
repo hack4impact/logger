@@ -305,7 +305,7 @@ export class Logger {
    * await logger.success(["hi!", 4, ["nested string"]]);
    * ```
    */
-  public success(logParameter: LogMessage): Promise<Log>;
+  public success(logParameter: LogMessage): Log;
   /**
    *
    * Logs a success message to the console and DOES NOT write to the output file path
@@ -319,9 +319,7 @@ export class Logger {
    * });
    * ```
    */
-  public success(
-    logParameter: LogParameterWithoutWriteWithoutType
-  ): Promise<Log>;
+  public success(logParameter: LogParameterWithoutWriteWithoutType): Log;
   /**
    *
    * Logs a success message to the console and writes to the output file path
@@ -343,10 +341,14 @@ export class Logger {
    * });
    * ```
    */
-  public success(message: LogParameterWithWriteWithoutType): Log;
+  public success(message: LogParameterWithWriteWithoutType): Promise<Log>;
   public success(logParameter: LogParameterWithoutType): Promise<Log> | Log {
     if (checkValidMessage(logParameter)) {
-      return this.log(logParameter);
+      return this.log({
+        message: logParameter,
+        writeToFile: false,
+        type: "success",
+      });
     }
 
     if (logParameter.writeToFile === undefined || logParameter.writeToFile) {
