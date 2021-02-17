@@ -1,12 +1,12 @@
-<p align="center"><img alt="Icon" width="200" src="https://raw.githubusercontent.com/hack4impact/logger/main/static/images/icon.svg"></img></p>
+<p align="center"><img alt="Icon" width="200" src="https://raw.githubusercontent.com/hack4impact/logger/main/static/images/icon.svg"/></p>
 
 <h1 align="center">Hack4Impact Logger</h1>
 
 <p align="center">
-<a href="https://www.npmjs.com/package/@hack4impact/logger"><img src="https://img.shields.io/npm/v/@hack4impact/logger?logo=npm&logoColor=FFFFFF&labelColor=000000&label=Version&style=flat-square" alt="Version"></a>
-<a href="https://www.npmjs.com/package/@hack4impact/logger"><img src="https://img.shields.io/npm/dt/@hack4impact/logger?logo=npm&logoColor=FFFFFF&labelColor=000000&label=Downloads&style=flat-square" alt="Downloads"></a>
-<a href="https://github.com/hack4impact/logger/actions?query=workflow%3A%22Node+CI%22"><img src="https://img.shields.io/github/workflow/status/hack4impact/logger/Node%20CI?logo=github&logoColor=FFFFFF&labelColor=000000&label=Build&style=flat-square" alt="Build"></a>
-<a href="https://lgtm.com/projects/g/hack4impact/logger/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/github/hack4impact/logger?logo=lgtm&logoColor=FFFFFF&labelColor=000000&label=Code%20Quality&style=flat-square" alt="Code Quality"></a>
+<a href="https://www.npmjs.com/package/@hack4impact/logger"><img src="https://img.shields.io/npm/v/@hack4impact/logger?logo=npm&logoColor=FFFFFF&labelColor=000000&label=Version&style=flat-square" alt="Version"/></a>&nbsp;
+<a href="https://www.npmjs.com/package/@hack4impact/logger"><img src="https://img.shields.io/npm/dt/@hack4impact/logger?logo=npm&logoColor=FFFFFF&labelColor=000000&label=Downloads&style=flat-square" alt="Downloads"/></a>&nbsp;
+<a href="https://github.com/hack4impact/logger/actions?query=workflow%3A%22Node+CI%22"><img src="https://img.shields.io/github/workflow/status/hack4impact/logger/Node%20CI?logo=github&logoColor=FFFFFF&labelColor=000000&label=Build&style=flat-square" alt="Build"/></a>&nbsp;
+<a href="https://lgtm.com/projects/g/hack4impact/logger/context:javascript"><img src="https://img.shields.io/lgtm/grade/javascript/github/hack4impact/logger?logo=lgtm&logoColor=FFFFFF&labelColor=000000&label=Code%20Quality&style=flat-square" alt="Code Quality"/></a>
 </p>
 
 <p align="center">The <strong>📦 lightweight</strong> & <strong>⚡ lightning-fast</strong> Logger Utility used by <a href="https://hack4impact.org/">Hack4Impact</a> Projects</p>

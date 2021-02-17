@@ -64,7 +64,7 @@ const Home: FC = () => {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout title="Home" description="Hack4Impact's Logger Utility">
+    <Layout title="Home" description={siteConfig.tagline}>
       <header className={clsx("hero", styles.heroBanner)}>
         <div className="container">
           <Link href="https://hack4impact.org/">
