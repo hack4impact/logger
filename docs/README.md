@@ -105,7 +105,7 @@ const logger = new Logger(__dirname + "/logs.json");
 
 **Returns:** [_Logger_](https://github.com/hack4impact/logger/tree/main/docs/classes/logger.md)
 
-Defined in: [index.ts:105](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L105)
+Defined in: [index.ts:105](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L105)
 
 ### Properties
 
@@ -149,13 +149,13 @@ console.log(Logger.COLORS.Dim + "Dim log" + Logger.COLORS.Reset);
 | `Reverse`    | _string_ |
 | `Underscore` | _string_ |
 
-Defined in: [index.ts:66](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L66)
+Defined in: [index.ts:66](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L66)
 
 ### Accessors
 
 #### logs
 
-• **logs**(): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)[]
+• **logs**(): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)[]
 
 All logs that have been output by this Logger instance
 
@@ -165,9 +165,9 @@ All logs that have been output by this Logger instance
 const logs = logger.logs;
 ```
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)[]
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)[]
 
-Defined in: [index.ts:131](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L131)
+Defined in: [index.ts:131](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L131)
 
 ---
 
@@ -185,7 +185,7 @@ const logsPath = logger.logsPath;
 
 **Returns:** _string_
 
-Defined in: [index.ts:144](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L144)
+Defined in: [index.ts:144](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L144)
 
 • **logsPath**(`logsPath`: _string_): _void_
 
@@ -205,13 +205,13 @@ logger.logsPath = __dirname + "/logs.json";
 
 **Returns:** _void_
 
-Defined in: [index.ts:157](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L157)
+Defined in: [index.ts:157](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L157)
 
 ### Methods
 
 #### error
 
-▸ **error**(`message`: _any_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **error**(`message`: _unknown_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
 Logs an error message to the console and DOES NOT write to the output file path
 
@@ -235,15 +235,15 @@ await logger.error(["hi!", 4, ["nested string"]]);
 
 ##### Parameters:
 
-| Name      | Type  | Description              |
-| --------- | ----- | ------------------------ |
-| `message` | _any_ | The error message to log |
+| Name      | Type      | Description              |
+| --------- | --------- | ------------------------ |
+| `message` | _unknown_ | The error message to log |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:496](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L496)
+Defined in: [index.ts:496](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L496)
 
-▸ **error**(`message`: _any_, `logOptions`: _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md), _writeToFile_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **error**(`message`: _unknown_, `logOptions`: _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite), _writeToFile_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)
 
 Logs an error message to the console and DOES NOT write to the output file path
 
@@ -257,16 +257,16 @@ await logger.error("Hello", {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                                                          | Description              |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| `message`    | _any_                                                                                                                                         | The error message to log |
-| `logOptions` | _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md), _writeToFile_\> | Logging options          |
+| Name         | Type                                                                                                                                        | Description              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| `message`    | _unknown_                                                                                                                                   | The error message to log |
+| `logOptions` | _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite), _writeToFile_\> | Logging options          |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:510](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L510)
+Defined in: [index.ts:510](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L510)
 
-▸ **error**(`message`: _any_, `logOptions`: _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md), _writeToFile_ \| _extra_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+▸ **error**(`message`: _unknown_, `logOptions`: _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite), _writeToFile_ \| _extra_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)\>
 
 Logs an error message to the console and writes to the output file path
 
@@ -289,20 +289,20 @@ await logger.error(32, {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                                                               | Description              |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| `message`    | _any_                                                                                                                                              | The error message to log |
-| `logOptions` | _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md), _writeToFile_ \| _extra_\> | Logging options          |
+| Name         | Type                                                                                                                                             | Description              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
+| `message`    | _unknown_                                                                                                                                        | The error message to log |
+| `logOptions` | _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite), _writeToFile_ \| _extra_\> | Logging options          |
 
-**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)\>
 
-Defined in: [index.ts:534](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L534)
+Defined in: [index.ts:534](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L534)
 
 ---
 
 #### info
 
-▸ **info**(`message`: _any_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **info**(`message`: _unknown_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
 Logs an info message to the console and DOES NOT write to the output file path
 
@@ -326,15 +326,15 @@ await logger.info(["hi!", 4, ["nested string"]]);
 
 ##### Parameters:
 
-| Name      | Type  | Description             |
-| --------- | ----- | ----------------------- |
-| `message` | _any_ | The info message to log |
+| Name      | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| `message` | _unknown_ | The info message to log |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:350](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L350)
+Defined in: [index.ts:350](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L350)
 
-▸ **info**(`message`: _any_, `logOptions`: _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md), _writeToFile_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **info**(`message`: _unknown_, `logOptions`: _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite), _writeToFile_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)
 
 Logs an info message to the console and DOES NOT write to the output file path
 
@@ -348,16 +348,16 @@ await logger.info("Hello", {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                                                          | Description             |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `message`    | _any_                                                                                                                                         | The info message to log |
-| `logOptions` | _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md), _writeToFile_\> | Logging options         |
+| Name         | Type                                                                                                                                        | Description             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `message`    | _unknown_                                                                                                                                   | The info message to log |
+| `logOptions` | _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite), _writeToFile_\> | Logging options         |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:364](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L364)
+Defined in: [index.ts:364](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L364)
 
-▸ **info**(`message`: _any_, `logOptions`: _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md), _writeToFile_ \| _extra_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+▸ **info**(`message`: _unknown_, `logOptions`: _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite), _writeToFile_ \| _extra_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)\>
 
 Logs an info message to the console and writes to the output file path
 
@@ -380,20 +380,20 @@ await logger.info(32, {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                                                               | Description             |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `message`    | _any_                                                                                                                                              | The info message to log |
-| `logOptions` | _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md), _writeToFile_ \| _extra_\> | Logging options         |
+| Name         | Type                                                                                                                                             | Description             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| `message`    | _unknown_                                                                                                                                        | The info message to log |
+| `logOptions` | _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite), _writeToFile_ \| _extra_\> | Logging options         |
 
-**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)\>
 
-Defined in: [index.ts:388](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L388)
+Defined in: [index.ts:388](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L388)
 
 ---
 
 #### log
 
-▸ **log**(`message`: _any_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **log**(`message`: _unknown_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
 Logs a message to the console and DOES NOT write to the output file path
 
@@ -417,15 +417,15 @@ await logger.log(["hi!", 4, ["nested string"]]);
 
 ##### Parameters:
 
-| Name      | Type  | Description        |
-| --------- | ----- | ------------------ |
-| `message` | _any_ | The message to log |
+| Name      | Type      | Description        |
+| --------- | --------- | ------------------ |
+| `message` | _unknown_ | The message to log |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:179](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L179)
+Defined in: [index.ts:179](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L179)
 
-▸ **log**(`message`: _any_, `logOptions`: [_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md)): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **log**(`message`: _unknown_, `logOptions`: [_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite)): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)
 
 Logs a message to the console and DOES NOT write to the output file path
 
@@ -448,16 +448,16 @@ await logger.log("Hello", {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                                  | Description        |
-| ------------ | --------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `message`    | _any_                                                                                                                 | The message to log |
-| `logOptions` | [_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md) | Logging options    |
+| Name         | Type                                                                                                                | Description        |
+| ------------ | ------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `message`    | _unknown_                                                                                                           | The message to log |
+| `logOptions` | [_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite) | Logging options    |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:200](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L200)
+Defined in: [index.ts:200](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L200)
 
-▸ **log**(`message`: _any_, `logOptions`: [_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md)): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+▸ **log**(`message`: _unknown_, `logOptions`: [_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite)): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)\>
 
 Logs a message to the console and writes to the output file path
 
@@ -490,20 +490,20 @@ await logger.log(32, {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                            | Description        |
-| ------------ | --------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `message`    | _any_                                                                                                           | The message to log |
-| `logOptions` | [_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md) | Logging options    |
+| Name         | Type                                                                                                          | Description        |
+| ------------ | ------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `message`    | _unknown_                                                                                                     | The message to log |
+| `logOptions` | [_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite) | Logging options    |
 
-**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)\>
 
-Defined in: [index.ts:229](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L229)
+Defined in: [index.ts:229](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L229)
 
 ---
 
 #### success
 
-▸ **success**(`message`: _any_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **success**(`message`: _unknown_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
 Logs a success message to the console and DOES NOT write to the output file path
 
@@ -527,15 +527,15 @@ await logger.success(["hi!", 4, ["nested string"]]);
 
 ##### Parameters:
 
-| Name      | Type  | Description                |
-| --------- | ----- | -------------------------- |
-| `message` | _any_ | The success message to log |
+| Name      | Type      | Description                |
+| --------- | --------- | -------------------------- |
+| `message` | _unknown_ | The success message to log |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:277](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L277)
+Defined in: [index.ts:277](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L277)
 
-▸ **success**(`message`: _any_, `logOptions`: _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md), _writeToFile_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **success**(`message`: _unknown_, `logOptions`: _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite), _writeToFile_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)
 
 Logs a success message to the console and DOES NOT write to the output file path
 
@@ -549,16 +549,16 @@ await logger.success("Hello", {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                                                          | Description                |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `message`    | _any_                                                                                                                                         | The success message to log |
-| `logOptions` | _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md), _writeToFile_\> | Logging options            |
+| Name         | Type                                                                                                                                        | Description                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `message`    | _unknown_                                                                                                                                   | The success message to log |
+| `logOptions` | _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite), _writeToFile_\> | Logging options            |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:291](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L291)
+Defined in: [index.ts:291](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L291)
 
-▸ **success**(`message`: _any_, `logOptions`: _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md), _writeToFile_ \| _extra_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+▸ **success**(`message`: _unknown_, `logOptions`: _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite), _writeToFile_ \| _extra_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)\>
 
 Logs a success message to the console and writes to the output file path
 
@@ -581,20 +581,20 @@ await logger.success(32, {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                                                               | Description                |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `message`    | _any_                                                                                                                                              | The success message to log |
-| `logOptions` | _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md), _writeToFile_ \| _extra_\> | Logging options            |
+| Name         | Type                                                                                                                                             | Description                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
+| `message`    | _unknown_                                                                                                                                        | The success message to log |
+| `logOptions` | _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite), _writeToFile_ \| _extra_\> | Logging options            |
 
-**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)\>
 
-Defined in: [index.ts:315](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L315)
+Defined in: [index.ts:315](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L315)
 
 ---
 
 #### warn
 
-▸ **warn**(`message`: _any_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **warn**(`message`: _unknown_): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
 Logs a warning message to the console and DOES NOT write to the output file path
 
@@ -618,15 +618,15 @@ await logger.warn(["hi!", 4, ["nested string"]]);
 
 ##### Parameters:
 
-| Name      | Type  | Description             |
-| --------- | ----- | ----------------------- |
-| `message` | _any_ | The warn message to log |
+| Name      | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| `message` | _unknown_ | The warn message to log |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:423](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L423)
+Defined in: [index.ts:423](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L423)
 
-▸ **warn**(`message`: _any_, `logOptions`: _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md), _writeToFile_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+▸ **warn**(`message`: _unknown_, `logOptions`: _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite), _writeToFile_\>): [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)
 
 Logs a warning message to the console and DOES NOT write to the output file path
 
@@ -640,16 +640,16 @@ await logger.warn("Hello", {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                                                          | Description                |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `message`    | _any_                                                                                                                                         | The warning message to log |
-| `logOptions` | _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md), _writeToFile_\> | Logging options            |
+| Name         | Type                                                                                                                                        | Description                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| `message`    | _unknown_                                                                                                                                   | The warning message to log |
+| `logOptions` | _Pick_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithoutwrite), _writeToFile_\> | Logging options            |
 
-**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
+**Returns:** [_Log_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)
 
-Defined in: [index.ts:437](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L437)
+Defined in: [index.ts:437](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L437)
 
-▸ **warn**(`message`: _any_, `logOptions`: _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md), _writeToFile_ \| _extra_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+▸ **warn**(`message`: _unknown_, `logOptions`: _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite), _writeToFile_ \| _extra_\>): _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md#log)\>
 
 Logs a warning message to the console and writes to the output file path
 
@@ -672,20 +672,20 @@ await logger.warn(32, {
 
 ##### Parameters:
 
-| Name         | Type                                                                                                                                               | Description                |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| `message`    | _any_                                                                                                                                              | The warning message to log |
-| `logOptions` | _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md), _writeToFile_ \| _extra_\> | Logging options            |
+| Name         | Type                                                                                                                                             | Description                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
+| `message`    | _unknown_                                                                                                                                        | The warning message to log |
+| `logOptions` | _Pick_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/modules.md##logoptionswithwrite), _writeToFile_ \| _extra_\> | Logging options            |
 
-**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)\>
+**Returns:** _Promise_<[*Log*](https://github.com/hack4impact/logger/tree/main/docs/modules.md##log)\>
 
-Defined in: [index.ts:461](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L461)
+Defined in: [index.ts:461](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L461)
 
 ---
 
 #### bold
 
-▸ `Static`**bold**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**bold**(`message`: _unknown_, `afterColored?`: _string_): _void_
 
 Logs a bold message
 
@@ -703,20 +703,20 @@ Logger.bold("BOLD!", "this part is not bold");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                    |
-| -------------- | -------- | ------------- | -------------------------------------------------------------- |
-| `message`      | _any_    | -             | The bold message to log                                        |
-| `afterColored` | _string_ | ""            | The optional message after the bold message (on the same line) |
+| Name           | Type      | Default value | Description                                                    |
+| -------------- | --------- | ------------- | -------------------------------------------------------------- |
+| `message`      | _unknown_ | -             | The bold message to log                                        |
+| `afterColored` | _string_  | ""            | The optional message after the bold message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:643](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L643)
+Defined in: [index.ts:643](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L643)
 
 ---
 
 #### coloredLog
 
-▸ `Static`**coloredLog**(`color`: _Reset_ \| _Bright_ \| _Dim_ \| _Underscore_ \| _Blink_ \| _Reverse_ \| _Hidden_ \| _FgBlack_ \| _FgRed_ \| _FgGreen_ \| _FgYellow_ \| _FgBlue_ \| _FgMagenta_ \| _FgCyan_ \| _FgWhite_ \| _BgBlack_ \| _BgRed_ \| _BgGreen_ \| _BgYellow_ \| _BgBlue_ \| _BgMagenta_ \| _BgCyan_ \| _BgWhite_, `message`: _any_, `afterColored?`: _string_, `consoleLevel?`: _log_ \| _warn_ \| _error_): _void_
+▸ `Static`**coloredLog**(`color`: _Reset_ \| _Bright_ \| _Dim_ \| _Underscore_ \| _Blink_ \| _Reverse_ \| _Hidden_ \| _FgBlack_ \| _FgRed_ \| _FgGreen_ \| _FgYellow_ \| _FgBlue_ \| _FgMagenta_ \| _FgCyan_ \| _FgWhite_ \| _BgBlack_ \| _BgRed_ \| _BgGreen_ \| _BgYellow_ \| _BgBlue_ \| _BgMagenta_ \| _BgCyan_ \| _BgWhite_, `message`: _unknown_, `afterColored?`: _string_, `consoleLevel?`: _log_ \| _warn_ \| _error_): _void_
 
 Logs a colored message to the console
 
@@ -743,19 +743,19 @@ Logger.coloredLog("FgRed", "error!!!", "not colored", "error");
 | Name           | Type                                                                                                                                                                                                                                                                                           | Default value | Description                                                       |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
 | `color`        | _Reset_ \| _Bright_ \| _Dim_ \| _Underscore_ \| _Blink_ \| _Reverse_ \| _Hidden_ \| _FgBlack_ \| _FgRed_ \| _FgGreen_ \| _FgYellow_ \| _FgBlue_ \| _FgMagenta_ \| _FgCyan_ \| _FgWhite_ \| _BgBlack_ \| _BgRed_ \| _BgGreen_ \| _BgYellow_ \| _BgBlue_ \| _BgMagenta_ \| _BgCyan_ \| _BgWhite_ | -             | The color to log in                                               |
-| `message`      | _any_                                                                                                                                                                                                                                                                                          | -             | The message to log                                                |
+| `message`      | _unknown_                                                                                                                                                                                                                                                                                      | -             | The message to log                                                |
 | `afterColored` | _string_                                                                                                                                                                                                                                                                                       | ""            | The optional message after the colored message (on the same line) |
 | `consoleLevel` | _log_ \| _warn_ \| _error_                                                                                                                                                                                                                                                                     | "log"         | The console level to use (log, warn, or error)                    |
 
 **Returns:** _void_
 
-Defined in: [index.ts:617](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L617)
+Defined in: [index.ts:617](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L617)
 
 ---
 
 #### error
 
-▸ `Static`**error**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**error**(`message`: _unknown_, `afterColored?`: _string_): _void_
 
 Logs an error message in red
 
@@ -773,20 +773,20 @@ Logger.error("ERROR!", "this part is not red");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                     |
-| -------------- | -------- | ------------- | --------------------------------------------------------------- |
-| `message`      | _any_    | -             | The error message to log                                        |
-| `afterColored` | _string_ | ""            | The optional message after the error message (on the same line) |
+| Name           | Type      | Default value | Description                                                     |
+| -------------- | --------- | ------------- | --------------------------------------------------------------- |
+| `message`      | _unknown_ | -             | The error message to log                                        |
+| `afterColored` | _string_  | ""            | The optional message after the error message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:719](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L719)
+Defined in: [index.ts:719](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L719)
 
 ---
 
 #### info
 
-▸ `Static`**info**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**info**(`message`: _unknown_, `afterColored?`: _string_): _void_
 
 Logs an info message in blue
 
@@ -804,14 +804,14 @@ Logger.info("information...", "this part is not blue");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                    |
-| -------------- | -------- | ------------- | -------------------------------------------------------------- |
-| `message`      | _any_    | -             | The info message to log                                        |
-| `afterColored` | _string_ | ""            | The optional message after the info message (on the same line) |
+| Name           | Type      | Default value | Description                                                    |
+| -------------- | --------- | ------------- | -------------------------------------------------------------- |
+| `message`      | _unknown_ | -             | The info message to log                                        |
+| `afterColored` | _string_  | ""            | The optional message after the info message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:681](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L681)
+Defined in: [index.ts:681](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L681)
 
 ---
 
@@ -829,7 +829,7 @@ Logger.line();
 
 **Returns:** _void_
 
-Defined in: [index.ts:592](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L592)
+Defined in: [index.ts:592](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L592)
 
 ---
 
@@ -860,13 +860,13 @@ Logger.log("hi %s", "Bill");
 
 **Returns:** _void_
 
-Defined in: [index.ts:579](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L579)
+Defined in: [index.ts:579](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L579)
 
 ---
 
 #### success
 
-▸ `Static`**success**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**success**(`message`: _unknown_, `afterColored?`: _string_): _void_
 
 Logs a success message in green
 
@@ -884,20 +884,20 @@ Logger.success("SUCCESS!", "this part is not green");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                       |
-| -------------- | -------- | ------------- | ----------------------------------------------------------------- |
-| `message`      | _any_    | -             | The success message to log                                        |
-| `afterColored` | _string_ | ""            | The optional message after the success message (on the same line) |
+| Name           | Type      | Default value | Description                                                       |
+| -------------- | --------- | ------------- | ----------------------------------------------------------------- |
+| `message`      | _unknown_ | -             | The success message to log                                        |
+| `afterColored` | _string_  | ""            | The optional message after the success message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:662](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L662)
+Defined in: [index.ts:662](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L662)
 
 ---
 
 #### warn
 
-▸ `Static`**warn**(`message`: _any_, `afterColored?`: _string_): _void_
+▸ `Static`**warn**(`message`: _unknown_, `afterColored?`: _string_): _void_
 
 Logs a warning message in yellow
 
@@ -915,14 +915,14 @@ Logger.warn("WARNING!", "this part is not yellow");
 
 ##### Parameters:
 
-| Name           | Type     | Default value | Description                                                       |
-| -------------- | -------- | ------------- | ----------------------------------------------------------------- |
-| `message`      | _any_    | -             | The warning message to log                                        |
-| `afterColored` | _string_ | ""            | The optional message after the warning message (on the same line) |
+| Name           | Type      | Default value | Description                                                       |
+| -------------- | --------- | ------------- | ----------------------------------------------------------------- |
+| `message`      | _unknown_ | -             | The warning message to log                                        |
+| `afterColored` | _string_  | ""            | The optional message after the warning message (on the same line) |
 
 **Returns:** _void_
 
-Defined in: [index.ts:700](https://github.com/hack4impact/logger/blob/331132d/src/index.ts##L700)
+Defined in: [index.ts:700](https://github.com/hack4impact/logger/blob/a613d31/src/index.ts##L700)
 
 ## Dependents
 

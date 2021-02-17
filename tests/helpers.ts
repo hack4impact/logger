@@ -20,15 +20,52 @@ export const setUpConsoleSpy = (
   return spy;
 };
 
-export const createLogsPath = (filePath: string): string => {
+export const createLogsPath = (filePath: string, append = ""): string => {
   const logsPath = join(__dirname, "logs");
   const nestedLogs = join(logsPath, basename(dirname(filePath)));
 
-  return join(nestedLogs, basename(filePath, ".test.ts") + ".json");
+  return join(nestedLogs, basename(filePath, ".test.ts") + append + ".json");
 };
 
-export const createSuccessRegex = (
+export const createTypeRegex = (
   message: LogMessage,
+  type: LogType | "bold",
   afterColored = ""
-): string =>
-  `${Logger.COLORS.FgGreen}${message}${Logger.COLORS.Reset}${afterColored}`;
+): string => {
+  const template = (color: keyof typeof Logger.COLORS) =>
+    `${Logger.COLORS[color]}${message}${Logger.COLORS.Reset}${afterColored}`;
+
+  switch (type) {
+    case "success": {
+      return template("FgGreen");
+    }
+    case "info": {
+      return template("FgBlue");
+    }
+    case "warn": {
+      return template("FgYellow");
+    }
+    case "error": {
+      return template("FgRed");
+    }
+    case "bold": {
+      return template("Bright");
+    }
+    default: {
+      return null;
+    }
+  }
+};
+
+export const ALL_MESSAGES = [
+  "message",
+  212,
+  new Error(),
+  basename,
+  ["message", new Error()],
+  {
+    key: "value",
+  },
+  false,
+  /wq/,
+];

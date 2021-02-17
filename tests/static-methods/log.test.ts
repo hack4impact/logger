@@ -1,33 +1,35 @@
 // Internals
 import Logger from "../../src";
-import { setUpConsoleSpy } from "../helpers";
+import { ALL_MESSAGES, setUpConsoleSpy } from "../helpers";
 
 test("With only message", () => {
-  const spy = setUpConsoleSpy();
-  const message = "hi";
+  ALL_MESSAGES.forEach((message) => {
+    const spy = setUpConsoleSpy();
 
-  Logger.log(message);
+    Logger.log(message);
 
-  expect(spy).toHaveBeenCalledTimes(1);
-  expect(spy).toHaveBeenLastCalledWith<[string]>(message);
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenLastCalledWith<[typeof message]>(message);
 
-  spy.mockRestore();
+    spy.mockRestore();
+  });
 });
 
 test("With message and substitution strings", () => {
-  const spy = setUpConsoleSpy();
-  const message = "Hi %s! How is %s?";
-  const sub1 = "Bill";
-  const sub2 = "life";
+  ALL_MESSAGES.forEach((message) => {
+    const spy = setUpConsoleSpy();
+    const sub1 = "Bill";
+    const sub2 = "life";
 
-  Logger.log(message, sub1, sub2);
+    Logger.log(message, sub1, sub2);
 
-  expect(spy).toHaveBeenCalledTimes(1);
-  expect(spy).toHaveBeenLastCalledWith<[string, string, string]>(
-    message,
-    sub1,
-    sub2
-  );
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenLastCalledWith<[typeof message, string, string]>(
+      message,
+      sub1,
+      sub2
+    );
 
-  spy.mockRestore();
+    spy.mockRestore();
+  });
 });

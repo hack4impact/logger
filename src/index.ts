@@ -13,7 +13,7 @@ export type LogType = "success" | "info" | "error" | "warn";
 
 export const LOG_TYPES = ["success", "info", "error", "warn"] as const;
 
-export type LogMessage = any;
+export type LogMessage = unknown;
 
 export type LogTimestamp = number;
 
@@ -21,16 +21,16 @@ export type LogIndex = number;
 
 export type LogExtra = unknown;
 
-export interface LogOptionsWithWrite {
+export type LogOptionsWithWrite = {
   writeToFile: true;
   type?: LogType;
   extra?: LogExtra;
-}
+};
 
-export interface LogOptionsWithoutWrite {
+export type LogOptionsWithoutWrite = {
   writeToFile: false;
   type?: LogType;
-}
+};
 
 export type LogOptions = LogOptionsWithWrite | LogOptionsWithoutWrite;
 
@@ -45,13 +45,13 @@ export type LogOptionsWithoutType =
   | LogOptionsWithWriteWithoutType
   | LogOptionsWithoutWriteWithoutType;
 
-export interface Log {
+export type Log = {
   message: LogMessage;
   timestamp: LogTimestamp;
   index: LogIndex;
   type?: LogType;
   extra?: LogExtra;
-}
+};
 
 export class Logger {
   /**
