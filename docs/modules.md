@@ -15,8 +15,8 @@
 ### Interfaces
 
 - [Log](https://github.com/hack4impact/logger/tree/main/docs/interfaces/log.md)
-- [LogParameterWithWrite](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md)
-- [LogParameterWithoutWrite](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md)
+- [LogOptionsWithWrite](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md)
+- [LogOptionsWithoutWrite](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md)
 
 ### Type aliases
 
@@ -24,10 +24,10 @@
 - [LogExtra](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logextra)
 - [LogIndex](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logindex)
 - [LogMessage](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
-- [LogParameter](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameter)
-- [LogParameterWithWriteWithoutType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithwritewithouttype)
-- [LogParameterWithoutType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithouttype)
-- [LogParameterWithoutWriteWithoutType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithoutwritewithouttype)
+- [LogOptions](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logoptions)
+- [LogOptionsWithWriteWithoutType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logoptionswithwritewithouttype)
+- [LogOptionsWithoutType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logoptionswithouttype)
+- [LogOptionsWithoutWriteWithoutType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logoptionswithoutwritewithouttype)
 - [LogTimestamp](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logtimestamp)
 - [LogType](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logtype)
 
@@ -48,7 +48,7 @@ Renames and exports: [Logger](https://github.com/hack4impact/logger/tree/main/do
 
 Ƭ **ConsoleLevel**: _log_ \| _warn_ \| _error_
 
-Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L8)
+Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L8)
 
 ---
 
@@ -56,7 +56,7 @@ Defined in: [index.ts:8](https://github.com/hack4impact/logger/blob/4a96e26/src/
 
 Ƭ **LogExtra**: _unknown_
 
-Defined in: [index.ts:22](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L22)
+Defined in: [index.ts:22](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L22)
 
 ---
 
@@ -64,47 +64,47 @@ Defined in: [index.ts:22](https://github.com/hack4impact/logger/blob/4a96e26/src
 
 Ƭ **LogIndex**: _number_
 
-Defined in: [index.ts:20](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L20)
+Defined in: [index.ts:20](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L20)
 
 ---
 
 ### LogMessage
 
-Ƭ **LogMessage**: _string_ \| _number_ \| _boolean_ \| [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)[]
+Ƭ **LogMessage**: _any_
 
-Defined in: [index.ts:16](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L16)
-
----
-
-### LogParameter
-
-Ƭ **LogParameter**: [_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md) \| [_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md) \| [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
-
-Defined in: [index.ts:37](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L37)
+Defined in: [index.ts:16](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L16)
 
 ---
 
-### LogParameterWithWriteWithoutType
+### LogOptions
 
-Ƭ **LogParameterWithWriteWithoutType**: _Omit_<[_LogParameterWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithwrite.md), _type_\>
+Ƭ **LogOptions**: [_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md) \| [_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md)
 
-Defined in: [index.ts:42](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L42)
-
----
-
-### LogParameterWithoutType
-
-Ƭ **LogParameterWithoutType**: [_LogParameterWithWriteWithoutType_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithwritewithouttype) \| [_LogParameterWithoutWriteWithoutType_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logparameterwithoutwritewithouttype) \| [_LogMessage_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logmessage)
-
-Defined in: [index.ts:52](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L52)
+Defined in: [index.ts:35](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L35)
 
 ---
 
-### LogParameterWithoutWriteWithoutType
+### LogOptionsWithWriteWithoutType
 
-Ƭ **LogParameterWithoutWriteWithoutType**: _Omit_<[_LogParameterWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logparameterwithoutwrite.md), _type_\>
+Ƭ **LogOptionsWithWriteWithoutType**: _Omit_<[_LogOptionsWithWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithwrite.md), _type_\>
 
-Defined in: [index.ts:47](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L47)
+Defined in: [index.ts:37](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L37)
+
+---
+
+### LogOptionsWithoutType
+
+Ƭ **LogOptionsWithoutType**: [_LogOptionsWithWriteWithoutType_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logoptionswithwritewithouttype) \| [_LogOptionsWithoutWriteWithoutType_](https://github.com/hack4impact/logger/tree/main/docs/modules.md#logoptionswithoutwritewithouttype)
+
+Defined in: [index.ts:44](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L44)
+
+---
+
+### LogOptionsWithoutWriteWithoutType
+
+Ƭ **LogOptionsWithoutWriteWithoutType**: _Omit_<[_LogOptionsWithoutWrite_](https://github.com/hack4impact/logger/tree/main/docs/interfaces/logoptionswithoutwrite.md), _type_\>
+
+Defined in: [index.ts:39](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L39)
 
 ---
 
@@ -112,7 +112,7 @@ Defined in: [index.ts:47](https://github.com/hack4impact/logger/blob/4a96e26/src
 
 Ƭ **LogTimestamp**: _number_
 
-Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L18)
+Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L18)
 
 ---
 
@@ -120,7 +120,7 @@ Defined in: [index.ts:18](https://github.com/hack4impact/logger/blob/4a96e26/src
 
 Ƭ **LogType**: _success_ \| _info_ \| _error_ \| _warn_
 
-Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L12)
+Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L12)
 
 ## Variables
 
@@ -128,7 +128,7 @@ Defined in: [index.ts:12](https://github.com/hack4impact/logger/blob/4a96e26/src
 
 • `Const` **CONSOLE_LEVELS**: readonly _log_[]
 
-Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L10)
+Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L10)
 
 ---
 
@@ -136,4 +136,4 @@ Defined in: [index.ts:10](https://github.com/hack4impact/logger/blob/4a96e26/src
 
 • `Const` **LOG_TYPES**: readonly _success_[]
 
-Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/4a96e26/src/index.ts#L14)
+Defined in: [index.ts:14](https://github.com/hack4impact/logger/blob/331132d/src/index.ts#L14)

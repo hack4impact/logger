@@ -17,7 +17,7 @@ echo "$(cat temp-docs/classes/logger.md)" > README.md
 echo "Adding one level of heading to each header..."
 sed -i '' 's/#/##/' README.md
 
-echo "Renaming 'Class: Logger' to 'API Documentation'"
+echo "Renaming 'Class: Logger' to 'API Documentation'..."
 sed -i '' 's/Class: Logger/API Documentation/' README.md
 
 echo "Creating the full README..."

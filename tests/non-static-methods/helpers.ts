@@ -1,14 +1,14 @@
 // Internals
-import { Log, LogMessage } from "../../src";
+import { Log, LogMessage, LogOptions } from "../../src";
 
 export const checkFields = (
   log: Log,
-  params: Partial<Log>,
+  message: LogMessage,
   index: number,
-  defaults?: Partial<Log>
+  options?: LogOptions
 ): void => {
-  const allParams = { ...defaults, ...params };
-  const { message, type, extra } = allParams;
+  //@ts-expect-error Checking for all possibilities
+  const { type, extra } = options ?? {};
 
   expect(log.message).toEqual(message);
   expect(log.index).toEqual(index);

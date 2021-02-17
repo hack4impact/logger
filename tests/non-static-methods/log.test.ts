@@ -5,10 +5,10 @@ import { readFile, writeFile } from "fs/promises";
 import Logger, {
   Log,
   LogMessage,
-  LogParameterWithWrite,
-  LogParameterWithoutWrite,
+  LogOptionsWithWrite,
+  LogOptionsWithoutWrite,
 } from "../../src";
-import { INVALID_MESSAGE, INVALID_TYPE } from "../../src/errors";
+import { INVALID_TYPE } from "../../src/errors";
 import { createLogsPath, setUpConsoleSpy } from "../helpers";
 import { checkFields, checkConsoleSpy } from "./helpers";
 
@@ -29,7 +29,7 @@ test("With only message", async () => {
 
     const log = logger.log(message);
 
-    checkFields(log, { message }, i);
+    checkFields(log, message, i);
 
     const rawLogs = await readFile(logsPath, "utf-8");
     const writtenLogs: Log[] = JSON.parse(rawLogs);
@@ -43,29 +43,30 @@ test("With only message", async () => {
 test("With writeToFile enabled", async () => {
   const logger = new Logger(logsPath);
 
-  const testParams: Pick<Log, "message" | "type" | "extra">[] = [
-    { message: "hello" },
-    { message: ["hi", 1212, false], type: "warn" },
-    { message: 1212, extra: "Extra.." },
-    { message: [2121, true, [121], "qwd"], type: "success", extra: "Extra!" },
+  const message = "hi";
+
+  const testParams: Omit<LogOptionsWithWrite, "writeToFile">[] = [
+    { type: "warn" },
+    { extra: "Extra.." },
+    { type: "success", extra: "Extra!" },
   ];
 
   for (let i = 0; i < testParams.length; i++) {
-    const params: LogParameterWithWrite = {
+    const options: LogOptionsWithWrite = {
       writeToFile: true,
       ...testParams[i],
     };
 
-    const spy = setUpConsoleSpy(params.type);
+    const spy = setUpConsoleSpy(options.type);
 
-    const log = await logger.log(params);
+    const log = await logger.log(message, options);
 
-    checkFields(log, params, i);
+    checkFields(log, message, i, options);
 
     const rawLogs = await readFile(logsPath, "utf-8");
     const writtenLogs: Log[] = JSON.parse(rawLogs);
 
-    checkFields(writtenLogs[i], params, i);
+    checkFields(writtenLogs[i], message, i, options);
 
     checkConsoleSpy(spy, log);
   }
@@ -74,23 +75,24 @@ test("With writeToFile enabled", async () => {
 test("With writeToFile disabled", async () => {
   const logger = new Logger(logsPath);
 
-  const testParams: Pick<Log, "message" | "type">[] = [
-    { message: ["hello", 1212, ["hi"]] },
-    { message: [false, 212] },
-    { message: "hi", type: "warn" },
+  const message = "hi";
+
+  const testParams: Omit<LogOptionsWithoutWrite, "writeToFile">[] = [
+    { type: "warn" },
+    { type: "success" },
   ];
 
   for (let i = 0; i < testParams.length; i++) {
-    const params: LogParameterWithoutWrite = {
+    const options: LogOptionsWithoutWrite = {
       writeToFile: false,
       ...testParams[i],
     };
 
-    const spy = setUpConsoleSpy(params.type);
+    const spy = setUpConsoleSpy(options.type);
 
-    const log = logger.log(params);
+    const log = logger.log(message, options);
 
-    checkFields(log, params, i);
+    checkFields(log, message, i, options);
 
     const rawLogs = await readFile(logsPath, "utf-8");
     const writtenLogs: Log[] = JSON.parse(rawLogs);
@@ -101,31 +103,14 @@ test("With writeToFile disabled", async () => {
   }
 });
 
-test("With invalid message", () => {
-  const logger = new Logger(logsPath);
-
-  const invalidMessages = [writeFile, new Error()];
-
-  invalidMessages.forEach((invalid) => {
-    expect(() =>
-      logger.log({
-        // @ts-expect-error Testing for invalid messages
-        message: invalid,
-        writeToFile: false,
-      })
-    ).toThrowError(INVALID_MESSAGE.message);
-  });
-});
-
 test("With invalid type", () => {
   const logger = new Logger(logsPath);
 
-  const invalidTypes = [31, "invalid-type", true, new Error(), writeFile];
+  const invalidTypes = [31, "invalid-type", [], true, new Error(), writeFile];
 
   invalidTypes.forEach((invalid) => {
     expect(() =>
-      logger.log({
-        message: "qwd",
+      logger.log("hi", {
         writeToFile: false,
         // @ts-expect-error Testing for invalid types
         type: invalid,
