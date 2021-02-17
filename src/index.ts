@@ -28,7 +28,7 @@ export type LogOptionsWithWrite = {
 };
 
 export type LogOptionsWithoutWrite = {
-  writeToFile: false;
+  writeToFile?: false;
   type?: LogType;
 };
 

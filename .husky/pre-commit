@@ -1,6 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run lintstaged
-npm run create-doc
-git add README.md docs/
+npm run lint:staged

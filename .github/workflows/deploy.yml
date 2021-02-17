@@ -1,4 +1,4 @@
-name: Node Package Deploy
+name: Package & Website Deploy
 
 on:
   release:
@@ -67,3 +67,29 @@ jobs:
         run: npm publish --registry https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_PAT}}
+
+  deploy-website:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 15
+
+      - name: Install Dependencies
+        run: |
+          npm ci
+          cd website
+          npm ci
+
+      - name: Deploy to GitHub Pages
+        run: |
+          cd website
+          npm run deploy
+        env:
+          GIT_USER: YashTotale
+          GIT_PASS: ${{secrets.GH_PAT}}

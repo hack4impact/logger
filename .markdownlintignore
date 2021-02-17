@@ -7,4 +7,10 @@ coverage/
 # production
 dist/
 out/
-build/
+/build
+/website/build
+docs/
+
+# misc
+tests/logs
+.docusaurus/

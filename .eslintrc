@@ -1,21 +1,37 @@
 {
   "env": {
+    "browser": true,
     "es2021": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "eslint-plugin-tsdoc"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "eslint-plugin-tsdoc",
+    "react-hooks"
+  ],
   "rules": {
     "indent": "off",
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "tsdoc/syntax": "warn",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "react/prop-types": "off",
+    "react-hooks/rules-of-hooks": "error"
   }
 }

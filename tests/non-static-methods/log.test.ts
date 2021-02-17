@@ -77,16 +77,14 @@ test("With writeToFile disabled", async () => {
 
   const message = "hi";
 
-  const testParams: Omit<LogOptionsWithoutWrite, "writeToFile">[] = [
+  const testOptions: LogOptionsWithoutWrite[] = [
     { type: "warn" },
-    { type: "success" },
+    { type: "success", writeToFile: false },
+    { writeToFile: false },
   ];
 
-  for (let i = 0; i < testParams.length; i++) {
-    const options: LogOptionsWithoutWrite = {
-      writeToFile: false,
-      ...testParams[i],
-    };
+  for (let i = 0; i < testOptions.length; i++) {
+    const options = testOptions[i];
 
     const spy = setUpConsoleSpy(options.type);
 

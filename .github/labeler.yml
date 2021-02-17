@@ -1,2 +1,5 @@
 documentation:
   - README.md
+  - docs/**/**
+website:
+  - website/**/**

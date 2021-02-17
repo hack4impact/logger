@@ -24,7 +24,7 @@ const createIndexFile = async (): Promise<void> => {
 };
 
 const removeTypings = async (): Promise<void> => {
-  const keepTypings = ["index.d.ts", "errors.d.ts"];
+  const keepTypings = ["index.d.ts"];
 
   const distFiles = await recursive("dist");
 
