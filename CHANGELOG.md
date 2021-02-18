@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 ## Table of Contents <!-- omit in toc -->
 
 - [Unreleased](#unreleased)
+- [[2.0.2] - (2020-02-17)](#202---2020-02-17)
+  - [Fixed](#fixed)
 - [[2.0.1] - (2020-02-17)](#201---2020-02-17)
   - [Added](#added)
 - [[2.0.0] - (2021-02-17)](#200---2021-02-17)
@@ -34,6 +36,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 - [[1.0.0] - (2021-02-11)](#100---2021-02-11)
 
 ## Unreleased
+
+---
+
+## [2.0.2] - (2020-02-17)
+
+### Fixed
+
+- TypeScript definitions not being added to `dist` folder
 
 ---
 
