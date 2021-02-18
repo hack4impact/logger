@@ -51,7 +51,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 
 ### Added
 
-- Badges in README
+- Badges in [README]
 
 ---
 
@@ -60,7 +60,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 ### Changed
 
 - Parameters for Non-static methods
-- TSDocs for all methods
+- [TSDoc] for all methods
 
 ### Added
 
@@ -80,7 +80,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 
 ### Added
 
-- Usage section in README
+- Usage section in [README]
 
 ---
 
@@ -88,7 +88,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 
 ### Added
 
-- Installation section in README
+- Installation section in [README]
 
 ---
 
@@ -108,7 +108,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 
 ### Added
 
-- Icon in README
+- Icon in [README]
 
 ---
 
@@ -116,7 +116,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 
 ### Added
 
-- Features section in README
+- Features section in [README]
 
 ---
 
@@ -132,7 +132,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 
 ### Added
 
-- README Documentation
+- [README] Documentation
 
 ---
 
@@ -141,7 +141,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 ### Changed
 
 - Getters & Setters for Logger
-- TSDoc Syntax for methods and variables
+- [TSDoc] Syntax for methods and variables
 
 ---
 
@@ -154,3 +154,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 <!-- Start Reference Links -->
 
 [website]: https://hack4impact.github.io/logger/
+[readme]: https://github.com/hack4impact/logger#readme
+[tsdoc]: https://tsdoc.org/
