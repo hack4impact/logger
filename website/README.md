@@ -28,10 +28,19 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
-**WARNING: DON'T PERFORM LOCALLY! GH ACTION DEPLOYS AUTOMATICALLY ON NEW RELEASES!**
+**WARNING: DON'T PERFORM LOCALLY IF DOCS HAVE BEEN CHANGED! GH ACTION DEPLOYS AUTOMATICALLY ON NEW RELEASES!**
 
-```shell
-GIT_USER=<Your GitHub username> USE_SSH=true npm run deploy
-```
+1. Create a `.env` file in the website directory which looks like this:
+
+   ```text
+   GIT_USER=<Your GitHub username>
+   GIT_PASS=<Your GitHub password or personal access token>
+   ```
+
+2. Then, run the deploy script:
+
+   ```shell
+   npm run deploy
+   ```
 
 This command is a convenient way to build the website and push to the `gh-pages` branch.
