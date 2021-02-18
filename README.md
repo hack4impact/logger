@@ -54,7 +54,9 @@ const { join } = require("path");
 // ESM: import Logger from "@hack4impact/logger";
 const Logger = require("@hack4impact/logger");
 
-const logger = new Logger(join(__dirname, "logs.json"));
+const outputFile = join(__dirname, "logs.json");
+
+const logger = new Logger(outputDir);
 
 // Log "Hello" (DOES NOT append to the output file)
 logger.log("Hello");
@@ -62,7 +64,7 @@ logger.log("Hello");
 // Log "Hello" and append it to the output file
 logger.log("Hello", { writeToFile: true });
 
-// Log "WARNING!" using console.warn and append it the output file
+// Log "WARNING!" using console.warn and don't append it the output file
 logger.log("WARNING!", { type: "warn" });
 
 // Log a success message using the static method 'success'

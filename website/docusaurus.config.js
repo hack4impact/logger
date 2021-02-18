@@ -10,6 +10,10 @@ module.exports = {
   organizationName: "hack4impact",
   projectName: "logger",
   themeConfig: {
+    image: "img/logo.png",
+    prism: {
+      defaultLanguage: "javascript",
+    },
     navbar: {
       title: "Hack4Impact Logger",
       logo: {
@@ -36,7 +40,10 @@ module.exports = {
       ],
     },
     footer: {
-      style: "dark",
+      logo: {
+        alt: "Hack4Impact Logo",
+        href: "https://hack4impact.org/",
+      },
       links: [
         {
           title: "Docs",
@@ -69,7 +76,7 @@ module.exports = {
           ],
         },
         {
-          title: "More",
+          title: "Project",
           items: [
             {
               label: "NPM",
@@ -78,6 +85,27 @@ module.exports = {
             {
               label: "GitHub",
               href: "https://github.com/hack4impact/logger",
+            },
+          ],
+        },
+        {
+          title: "Hack4Impact",
+          items: [
+            {
+              label: "Website",
+              href: "https://hack4impact.org/",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/hack4impact",
+            },
+            {
+              label: "LinkedIn",
+              href: "https://www.linkedin.com/company/hack4impact/",
+            },
+            {
+              label: "YouTube",
+              href: "https://www.youtube.com/channel/UCr4NvmG36QucUxjZIUUd4TQ",
             },
           ],
         },

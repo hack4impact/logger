@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import useThemeContext from "@theme/hooks/useThemeContext";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./styles.module.css";
 
@@ -60,34 +61,45 @@ const Feature: FC<FeatureProps> = ({ icon, title, description }) => {
   );
 };
 
+interface HeroProps {
+  siteConfig: Record<string, any>;
+}
+
+const Hero: FC<HeroProps> = ({ siteConfig }) => {
+  const { isDarkTheme } = useThemeContext();
+  return (
+    <header className={clsx("hero", styles.heroBanner)}>
+      <div className="container">
+        <Link href="https://hack4impact.org/">
+          <img
+            className={clsx(styles.heroBannerLogo, "margin-vert--md")}
+            src={useBaseUrl(`img/hack4impact${isDarkTheme ? "-dark" : ""}.svg`)}
+          />
+        </Link>
+        <h1 className="hero__title">{siteConfig.title}</h1>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          <Link
+            className={clsx(
+              "button button--primary button--lg",
+              styles.getStarted
+            )}
+            to={useBaseUrl("docs/")}
+          >
+            Get Started&nbsp;&nbsp;→
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+};
+
 const Home: FC = () => {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
     <Layout title="Home" description={siteConfig.tagline}>
-      <header className={clsx("hero", styles.heroBanner)}>
-        <div className="container">
-          <Link href="https://hack4impact.org/">
-            <img
-              className={clsx(styles.heroBannerLogo, "margin-vert--md")}
-              src={useBaseUrl("img/hack4impact.svg")}
-            />
-          </Link>
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                "button button--primary button--lg",
-                styles.getStarted
-              )}
-              to={useBaseUrl("docs/")}
-            >
-              Get Started&nbsp;&nbsp;→
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Hero siteConfig={siteConfig} />
       <main>
         <p className="padding-vert--md">
           <p className="container">
