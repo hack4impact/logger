@@ -1,5 +1,5 @@
 // Node
-import { join } from "path";
+import { basename, join } from "path";
 import { writeFile, rm } from "fs/promises";
 
 // Externals
@@ -32,7 +32,7 @@ const removeTypings = async (): Promise<void> => {
     distFiles.map(async (file) => {
       if (file.length > 5) {
         const ending = file.substr(file.length - 5);
-        if (ending === ".d.ts" && !keepTypings.includes("dist/" + file)) {
+        if (ending === ".d.ts" && !keepTypings.includes(basename(file))) {
           await rm(file);
         }
       }
