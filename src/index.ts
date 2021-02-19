@@ -632,7 +632,7 @@ export class Logger {
    * await logger.writeLogs();
    * ```
    */
-  private writeLogs(): Promise<void> {
+  public writeLogs(): Promise<void> {
     return writeFile(this.logsPath, JSON.stringify(this.logs), "utf-8");
   }
 

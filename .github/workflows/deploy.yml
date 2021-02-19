@@ -93,3 +93,4 @@ jobs:
         env:
           GIT_USER: YashTotale
           GIT_PASS: ${{secrets.GH_PAT}}
+          USE_SSH: false
