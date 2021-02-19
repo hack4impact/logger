@@ -26,7 +26,7 @@
 
 - 🚀 **NO dependencies, <1.1kB size (zipped)**
 - ✨ TypeScript definitions **built in**
-- 📖 **Thorough** and **detailed** [documentation](https://hack4impact.github.io/logger/)
+- 📖 **Thorough** and **detailed** [documentation](https://hack4impact.github.io/logger/docs/classes/logger)
 - ✅ Tested **end-to-end** with Jest
 - 🌟 Code quality **perfected** with linters ([Prettier](https://prettier.io/), [ESLint](https://eslint.org/), [EditorConfig](https://editorconfig.org/), [Markdownlint](https://github.com/DavidAnson/markdownlint)) to reduce **bundle size** and ensure **bug-free code**
 - 💫 Automated [GitHub Workflows](https://github.com/hack4impact/logger/actions?query=workflow%3A%22Node+CI%22) ensure that every change is **high quality** and **functional**

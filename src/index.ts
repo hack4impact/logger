@@ -5,46 +5,121 @@ import { writeFile } from "fs/promises";
 // Internals
 import { INVALID_TYPE } from "./errors";
 
+/**
+ *
+ * The possible console log levels (log, warn, or error)
+ *
+ */
 export type ConsoleLevel = "log" | "warn" | "error";
 
+/**
+ *
+ * Array of all possible console log levels
+ *
+ */
 export const CONSOLE_LEVELS = ["log", "warn", "error"] as const;
 
-export type LogType = "success" | "info" | "error" | "warn";
+/**
+ *
+ * The type of log (success, info, warn, or error)
+ *
+ */
+export type LogType = "success" | "info" | "warn" | "error";
 
+/**
+ *
+ * Array of all possible log types
+ *
+ */
 export const LOG_TYPES = ["success", "info", "error", "warn"] as const;
 
+/**
+ *
+ * The message to log
+ *
+ */
 export type LogMessage = unknown;
 
+/**
+ *
+ * The timestamp (in ms) of the log
+ *
+ */
 export type LogTimestamp = number;
 
+/**
+ *
+ * The index of the log (0-based)
+ *
+ */
 export type LogIndex = number;
 
+/**
+ *
+ * The extra information to write to the output file (will not be logged)
+ *
+ */
 export type LogExtra = unknown;
 
+/**
+ *
+ * Log options with writeToFile enabled
+ *
+ */
 export type LogOptionsWithWrite = {
   writeToFile: true;
   type?: LogType;
   extra?: LogExtra;
 };
 
+/**
+ *
+ * Log options with writeToFile disabled
+ *
+ */
 export type LogOptionsWithoutWrite = {
   writeToFile?: false;
   type?: LogType;
 };
 
+/**
+ *
+ * Log options (writeToFile, type, extra)
+ *
+ */
 export type LogOptions = LogOptionsWithWrite | LogOptionsWithoutWrite;
 
+/**
+ *
+ * Log options with writeToFile enabled and without type parameter
+ *
+ */
 export type LogOptionsWithWriteWithoutType = Omit<LogOptionsWithWrite, "type">;
 
+/**
+ *
+ * Log options with writeToFile disabled and without type parameter
+ *
+ */
 export type LogOptionsWithoutWriteWithoutType = Omit<
   LogOptionsWithoutWrite,
   "type"
 >;
 
+/**
+ *
+ * Log options without type parameter (writeToFile, extra)
+ *
+ */
 export type LogOptionsWithoutType =
   | LogOptionsWithWriteWithoutType
   | LogOptionsWithoutWriteWithoutType;
 
+/**
+ *
+ * Structure of all logs written to the output file
+ *
+ */
 export type Log = {
   message: LogMessage;
   timestamp: LogTimestamp;
