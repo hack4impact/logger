@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "HK Grotesk";
+  src: local("HK Grotesk"), local("HKGrotesk-Regular"),
+    url("/fonts/hkgrotesk-regular.woff2") format("woff2"),
+    url("/fonts/hkgrotesk-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HK Grotesk";
+  src: local("HK Grotesk"), local("HKGrotesk-Bold"),
+    url("/fonts/hkgrotesk-bold.woff2") format("woff2"),
+    url("/fonts/hkgrotesk-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   --ifm-color-primary: #0169ca;
   --ifm-code-font-size: 95%;
