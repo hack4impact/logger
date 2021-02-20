@@ -2,4 +2,4 @@
 
 set -e
 
-pinst --enable
+pinst --enable # Enables postinstall script

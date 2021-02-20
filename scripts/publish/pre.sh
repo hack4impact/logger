@@ -2,5 +2,5 @@
 
 set -e
 
-pinst --disable
+pinst --disable # Disables postinstall script
 npm run build

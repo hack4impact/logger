@@ -43,7 +43,7 @@ jobs:
         run: npm ci
 
       - name: Publish to NPM
-        run: npm publish --registry https://registry.npmjs.org/
+        run: npm run publish:npm
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
@@ -64,7 +64,7 @@ jobs:
         run: npm ci
 
       - name: Publish to GitHub Packages
-        run: npm publish --registry https://npm.pkg.github.com/
+        run: npm run publish:gh
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_PAT}}
 
