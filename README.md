@@ -56,16 +56,20 @@ const Logger = require("@hack4impact/logger");
 
 const outputFile = join(__dirname, "logs.json");
 
-const logger = new Logger(outputDir);
+const logger = new Logger(outputFile);
 
 // Log "Hello" (DOES NOT append to the output file)
 logger.log("Hello");
 
-// Log "Hello" and append it to the output file
+// Log "Hello" and append the created Log object (w/ message, timestamp, index) to the output file
 logger.log("Hello", { writeToFile: true });
 
-// Log "WARNING!" using console.warn and don't append it the output file
-logger.log("WARNING!", { type: "warn" });
+// Log "WARNING!" using console.warn and don't append to the output file
+logger.warn("WARNING!");
+// ↑ Can also use logger.log("WARNING!", { type: warn })
+
+// Log "ERROR!" using console.error and append the created Log object to the output file
+logger.error("ERROR!", { writeToFile: true });
 
 // Log a success message using the static method 'success'
 Logger.success("It works!");
