@@ -35,6 +35,7 @@ This command generates static content into the `build` directory and can be serv
    ```text
    GIT_USER=<Your GitHub username>
    GIT_PASS=<Your GitHub password or personal access token>
+   USE_SSH=false
    ```
 
 2. Then, run the deploy script:
