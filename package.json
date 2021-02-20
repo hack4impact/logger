@@ -1,6 +1,6 @@
 {
   "name": "@hack4impact/logger",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "The lightweight & lightning-fast Logger Utility used by Hack4Impact Projects",
   "license": "MIT",
   "homepage": "https://github.com/hack4impact/logger#readme",
