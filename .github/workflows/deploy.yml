@@ -86,11 +86,24 @@ jobs:
           cd website
           npm ci
 
+      - name: Add Deploy Key
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.GH_PAGES_DEPLOY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          cat <<EOT >> ~/.ssh/config
+          Host github.com
+          HostName github.com
+          IdentityFile ~/.ssh/id_rsa
+          EOT
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+
       - name: Deploy to GitHub Pages
         run: |
           cd website
           npm run deploy
         env:
           GIT_USER: YashTotale
-          GIT_PASS: ${{secrets.GH_PAT}}
-          USE_SSH: false
+          USE_SSH: true
