@@ -112,6 +112,10 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Hack4Impact`,
     },
+    algolia: {
+      apiKey: "07c71363660fc7aa6e0b71174e002f9e",
+      indexName: "logger",
+    },
   },
   presets: [
     [
