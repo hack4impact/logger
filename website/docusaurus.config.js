@@ -28,6 +28,11 @@ module.exports = {
           position: "left",
         },
         {
+          href: "https://hack4impact-logger-code-coverage.onrender.com/",
+          label: "Code Coverage",
+          position: "left",
+        },
+        {
           href: "https://www.npmjs.com/package/@hack4impact/logger",
           label: "NPM",
           position: "right",
