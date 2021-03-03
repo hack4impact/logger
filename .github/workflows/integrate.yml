@@ -37,6 +37,9 @@ jobs:
         with:
           fail_ci_if_error: true
 
+      - name: Deploy Coverage Website
+        run: curl "${{ secrets.COVERAGE_DEPLOY_URL }}"
+
       - name: Build Project
         run: npm run build
 
