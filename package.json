@@ -72,6 +72,7 @@
     "postbuild": "ts-node scripts/build/post.ts",
     "test": "jest",
     "test:watch": "npm test -- --watch",
+    "test:coverage": "bash scripts/test-coverage.sh",
     "lint": "npx lint-check",
     "lint:staged": "lint-staged",
     "start": "bash scripts/start.sh",
