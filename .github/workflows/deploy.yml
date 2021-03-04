@@ -103,7 +103,9 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           cd website
+          git config --global user.email "actions@gihub.com"
+          git config --global user.name "gh-actions"
           npm run deploy
         env:
-          GIT_USER: YashTotale
+          GIT_USER: git
           USE_SSH: true
