@@ -1,4 +1,5 @@
 .prettierrc linguist-language=JSON
+.eslintrc linguist-language=JSON
 
 .huskyrc linguist-language=JSON
 .lintstagedrc linguist-language=JSON
@@ -9,3 +10,5 @@
 .imgbotconfig linguist-language=JSON
 
 .snyk linguist-language=YAML
+
+.all-contributorsrc linguist-language=JSON
