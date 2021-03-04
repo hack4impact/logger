@@ -90,7 +90,9 @@ Logger.success("It works!");
 
 If your project uses this package, you can add it to this list by submitting a PR [here](https://github.com/hack4impact/logger/pulls).
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=hack4impact&repo=feedback-survey-automation&show_owner=true)](https://github.com/hack4impact/feedback-survey-automation)
+| Owner                                                                                                                                                                                 | Repository Information                                                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <p align="center"><a href="https://github.com/hack4impact"><img width="75" height="75" src="static/images/hack4impact-icon.svg"></a></p>[Hack4Impact](https://github.com/hack4impact) | [![Feedback Survey Automation](https://github-readme-stats.vercel.app/api/pin/?username=hack4impact&repo=feedback-survey-automation)](https://github.com/hack4impact/feedback-survey-automation) |
 
 ## Contributors
 
