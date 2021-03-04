@@ -67,7 +67,7 @@ export type LogExtra = unknown;
  *
  */
 export type LogOptionsWithWrite = {
-  writeToFile: true;
+  writeToFile?: true;
   type?: LogType;
   extra?: LogExtra;
 };
@@ -78,7 +78,7 @@ export type LogOptionsWithWrite = {
  *
  */
 export type LogOptionsWithoutWrite = {
-  writeToFile?: false;
+  writeToFile: false;
   type?: LogType;
 };
 
@@ -235,7 +235,7 @@ export class Logger {
 
   /**
    *
-   * Logs a message to the console and DOES NOT write to the output file path
+   * Logs a message to the console and writes to the output file path
    *
    * @param message - The message to log
    * @example
@@ -251,7 +251,7 @@ export class Logger {
    * await logger.log(["hi!", 4, ["nested string"]]);
    * ```
    */
-  public log(message: LogMessage): Log;
+  public log(message: LogMessage): Promise<Log>;
   /**
    *
    * Logs a message to the console and DOES NOT write to the output file path
@@ -295,7 +295,6 @@ export class Logger {
    * @example
    * ```javascript
    * await logger.log(32, {
-   *   writeToFile: true,
    *   type: "info",
    *   extra: "this part is not logged"
    * });
@@ -320,9 +319,10 @@ export class Logger {
       Logger[type](message);
     } else Logger.log(message);
 
-    if (logOptions?.writeToFile) {
-      const { extra } = logOptions;
+    if (!(logOptions && logOptions.writeToFile === false)) {
+      const { extra } = logOptions ?? {};
       log = { ...log, extra };
+
       this.logs.push(log);
       return this.writeLogs().then(() => log);
     }
@@ -333,7 +333,7 @@ export class Logger {
 
   /**
    *
-   * Logs a success message to the console and DOES NOT write to the output file path
+   * Logs a success message to the console and writes to the output file path
    *
    * @param message - The success message to log
    * @example
@@ -349,7 +349,7 @@ export class Logger {
    * await logger.success(["hi!", 4, ["nested string"]]);
    * ```
    */
-  public success(message: LogMessage): Log;
+  public success(message: LogMessage): Promise<Log>;
   /**
    *
    * Logs a success message to the console and DOES NOT write to the output file path
@@ -382,7 +382,6 @@ export class Logger {
    * @example
    * ```javascript
    * await logger.success(32, {
-   *   writeToFile: true,
    *   extra: "this part is not logged"
    * });
    * ```
@@ -396,17 +395,18 @@ export class Logger {
     logOptions?: LogOptionsWithoutType
   ): Promise<Log> | Log {
     const options: LogOptions = {
-      writeToFile: false,
       ...logOptions,
       type: "success",
     };
-    if (options.writeToFile) return this.log(message, options);
+
+    if (options.writeToFile === false) return this.log(message, options);
+
     return this.log(message, options); // Same as above, but different overload and return value
   }
 
   /**
    *
-   * Logs an info message to the console and DOES NOT write to the output file path
+   * Logs a success message to the console and writes to the output file path
    *
    * @param message - The info message to log
    * @example
@@ -422,7 +422,7 @@ export class Logger {
    * await logger.info(["hi!", 4, ["nested string"]]);
    * ```
    */
-  public info(message: LogMessage): Log;
+  public info(message: LogMessage): Promise<Log>;
   /**
    *
    * Logs an info message to the console and DOES NOT write to the output file path
@@ -455,7 +455,6 @@ export class Logger {
    * @example
    * ```javascript
    * await logger.info(32, {
-   *   writeToFile: true,
    *   extra: "this part is not logged"
    * });
    * ```
@@ -469,17 +468,18 @@ export class Logger {
     logOptions?: LogOptionsWithoutType
   ): Promise<Log> | Log {
     const options: LogOptions = {
-      writeToFile: false,
       ...logOptions,
       type: "info",
     };
-    if (options.writeToFile) return this.log(message, options);
+
+    if (options.writeToFile === false) return this.log(message, options);
+
     return this.log(message, options); // Same as above, but different overload and return value
   }
 
   /**
    *
-   * Logs a warning message to the console and DOES NOT write to the output file path
+   * Logs a success message to the console and writes to the output file path
    *
    * @param message - The warn message to log
    * @example
@@ -495,7 +495,7 @@ export class Logger {
    * await logger.warn(["hi!", 4, ["nested string"]]);
    * ```
    */
-  public warn(message: LogMessage): Log;
+  public warn(message: LogMessage): Promise<Log>;
   /**
    *
    * Logs a warning message to the console and DOES NOT write to the output file path
@@ -528,7 +528,6 @@ export class Logger {
    * @example
    * ```javascript
    * await logger.warn(32, {
-   *   writeToFile: true,
    *   extra: "this part is not logged"
    * });
    * ```
@@ -542,17 +541,18 @@ export class Logger {
     logOptions?: LogOptionsWithoutType
   ): Promise<Log> | Log {
     const options: LogOptions = {
-      writeToFile: false,
       ...logOptions,
       type: "warn",
     };
-    if (options.writeToFile) return this.log(message, options);
+
+    if (options.writeToFile === false) return this.log(message, options);
+
     return this.log(message, options); // Same as above, but different overload and return value
   }
 
   /**
    *
-   * Logs an error message to the console and DOES NOT write to the output file path
+   * Logs a success message to the console and writes to the output file path
    *
    * @param message - The error message to log
    * @example
@@ -568,7 +568,7 @@ export class Logger {
    * await logger.error(["hi!", 4, ["nested string"]]);
    * ```
    */
-  public error(message: LogMessage): Log;
+  public error(message: LogMessage): Promise<Log>;
   /**
    *
    * Logs an error message to the console and DOES NOT write to the output file path
@@ -601,7 +601,6 @@ export class Logger {
    * @example
    * ```javascript
    * await logger.error(32, {
-   *   writeToFile: true,
    *   extra: "this part is not logged"
    * });
    * ```
@@ -615,11 +614,12 @@ export class Logger {
     logOptions?: LogOptionsWithoutType
   ): Promise<Log> | Log {
     const options: LogOptions = {
-      writeToFile: false,
       ...logOptions,
       type: "error",
     };
-    if (options.writeToFile) return this.log(message, options);
+
+    if (options.writeToFile === false) return this.log(message, options);
+
     return this.log(message, options); // Same as above, but different overload and return value
   }
 

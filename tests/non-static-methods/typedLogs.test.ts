@@ -28,14 +28,14 @@ LOG_TYPES.forEach((type) => {
         const message = messages[i];
         const spy = setUpConsoleSpy(type);
 
-        const log = logger[type](message);
+        const log = await logger[type](message);
 
-        checkFields(log, message, i, { type, writeToFile: false });
+        checkFields(log, message, i, { type });
 
         const rawLogs = await readFile(logsPath, "utf-8");
         const writtenLogs: Log[] = JSON.parse(rawLogs);
 
-        expect(writtenLogs.length).toEqual(0);
+        checkFields(writtenLogs[i], message, i, { type });
 
         checkConsoleSpy(spy, log);
       }
@@ -46,16 +46,13 @@ LOG_TYPES.forEach((type) => {
 
       const message = "hi";
 
-      const testParams: Omit<
-        LogOptionsWithWriteWithoutType,
-        "writeToFile"
-      >[] = [{ extra: "Extra" }, { extra: ["extra....."] }];
+      const testOptions: LogOptionsWithWriteWithoutType[] = [
+        { extra: "Extra" },
+        { extra: ["extra....."], writeToFile: true },
+      ];
 
-      for (let i = 0; i < testParams.length; i++) {
-        const options: LogOptionsWithWriteWithoutType = {
-          writeToFile: true,
-          ...testParams[i],
-        };
+      for (let i = 0; i < testOptions.length; i++) {
+        const options = testOptions[i];
 
         const spy = setUpConsoleSpy(type);
 

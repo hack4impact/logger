@@ -27,14 +27,14 @@ test("With only message", async () => {
     const message = messages[i];
     const spy = setUpConsoleSpy();
 
-    const log = logger.log(message);
+    const log = await logger.log(message);
 
     checkFields(log, message, i);
 
     const rawLogs = await readFile(logsPath, "utf-8");
     const writtenLogs: Log[] = JSON.parse(rawLogs);
 
-    expect(writtenLogs.length).toEqual(0);
+    checkFields(writtenLogs[i], message, i);
 
     checkConsoleSpy(spy, log);
   }
@@ -45,17 +45,17 @@ test("With writeToFile enabled", async () => {
 
   const message = "hi";
 
-  const testParams: Omit<LogOptionsWithWrite, "writeToFile">[] = [
+  const testOptions: LogOptionsWithWrite[] = [
     { type: "warn" },
     { extra: "Extra.." },
     { type: "success", extra: "Extra!" },
+    { type: "warn", writeToFile: true },
+    { extra: "Extra..", writeToFile: true },
+    { type: "success", extra: "Extra!", writeToFile: true },
   ];
 
-  for (let i = 0; i < testParams.length; i++) {
-    const options: LogOptionsWithWrite = {
-      writeToFile: true,
-      ...testParams[i],
-    };
+  for (let i = 0; i < testOptions.length; i++) {
+    const options = testOptions[i];
 
     const spy = setUpConsoleSpy(options.type);
 
@@ -78,7 +78,6 @@ test("With writeToFile disabled", async () => {
   const message = "hi";
 
   const testOptions: LogOptionsWithoutWrite[] = [
-    { type: "warn" },
     { type: "success", writeToFile: false },
     { writeToFile: false },
   ];
