@@ -3,6 +3,7 @@
     "esbenp.prettier-vscode",
     "DavidAnson.vscode-markdownlint",
     "EditorConfig.EditorConfig",
-    "yasht.terminal-all-in-one"
+    "yasht.terminal-all-in-one",
+    "jasonnutter.vscode-codeowners"
   ]
 }
