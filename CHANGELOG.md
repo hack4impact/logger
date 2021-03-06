@@ -7,14 +7,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 ## Table of Contents <!-- omit in toc -->
 
 - [Unreleased](#unreleased)
-- [[3.0.0] - (2020-03-03)](#300---2020-03-03)
+- [[3.0.1] - (2020-03-05)](#301---2020-03-05)
   - [Changed](#changed)
-- [[2.0.6] - (2020-03-03)](#206---2020-03-03)
+- [[3.0.0] - (2020-03-03)](#300---2020-03-03)
   - [Changed](#changed-1)
-- [[2.0.5] - (2020-02-20)](#205---2020-02-20)
+- [[2.0.6] - (2020-03-03)](#206---2020-03-03)
   - [Changed](#changed-2)
-- [[2.0.4] - (2020-02-19)](#204---2020-02-19)
+- [[2.0.5] - (2020-02-20)](#205---2020-02-20)
   - [Changed](#changed-3)
+- [[2.0.4] - (2020-02-19)](#204---2020-02-19)
+  - [Changed](#changed-4)
 - [[2.0.3] - (2020-02-18)](#203---2020-02-18)
   - [Added](#added)
 - [[2.0.2] - (2020-02-17)](#202---2020-02-17)
@@ -22,7 +24,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 - [[2.0.1] - (2020-02-17)](#201---2020-02-17)
   - [Added](#added-1)
 - [[2.0.0] - (2021-02-17)](#200---2021-02-17)
-  - [Changed](#changed-4)
+  - [Changed](#changed-5)
   - [Added](#added-2)
 - [[1.5.0] - (2021-02-12)](#150---2021-02-12)
   - [Added](#added-3)
@@ -32,20 +34,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
   - [Added](#added-5)
 - [[1.4.0] - (2021-02-12)](#140---2021-02-12)
   - [Added](#added-6)
-  - [Changed](#changed-5)
+  - [Changed](#changed-6)
 - [[1.3.2] - (2021-02-12)](#132---2021-02-12)
   - [Added](#added-7)
 - [[1.3.1] - (2021-02-12)](#131---2021-02-12)
   - [Added](#added-8)
 - [[1.3.0] - (2021-02-12)](#130---2021-02-12)
-  - [Changed](#changed-6)
+  - [Changed](#changed-7)
 - [[1.2.0] - (2021-02-11)](#120---2021-02-11)
   - [Added](#added-9)
 - [[1.1.0] - (2021-02-11)](#110---2021-02-11)
-  - [Changed](#changed-7)
+  - [Changed](#changed-8)
 - [[1.0.0] - (2021-02-11)](#100---2021-02-11)
 
 ## Unreleased
+
+---
+
+## [3.0.1] - (2020-03-05)
+
+### Changed
+
+- Updated Usage section in [README]
 
 ---
 
