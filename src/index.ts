@@ -117,7 +117,7 @@ export type LogOptionsWithoutType =
 
 /**
  *
- * Structure of all logs written to the output file
+ * Structure of all logs created by non-static log methods
  *
  */
 export type Log = {

@@ -59,18 +59,18 @@ const outputFile = join(__dirname, "logs.json");
 
 const logger = new Logger(outputFile);
 
-// Log "Hello" (DOES NOT append to the output file)
+// Log "Hello" an append a created Log object (w/ message, timestamp, index) to the output file
 logger.log("Hello");
 
-// Log "Hello" and append the created Log object (w/ message, timestamp, index) to the output file
-logger.log("Hello", { writeToFile: true });
+// Log "Hello" and don't append the Log object to the output file
+logger.log("Hello", { writeToFile: false });
 
-// Log "WARNING!" using console.warn and don't append to the output file
+// Log "WARNING!" using console.warn and append to the output file
 logger.warn("WARNING!");
-// ↑ Can also use logger.log("WARNING!", { type: warn })
+// ↑ Can also use logger.log("WARNING!", { type: "warn" })
 
-// Log "ERROR!" using console.error and append the created Log object to the output file
-logger.error("ERROR!", { writeToFile: true });
+// Log "ERROR!" using console.error and append the created Log object (w/ extra as well) to the output file
+logger.error("ERROR!", { extra: "Not logged but written to file" });
 
 // Log a success message using the static method 'success'
 Logger.success("It works!");
