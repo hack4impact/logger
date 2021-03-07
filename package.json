@@ -18,9 +18,6 @@
   "bugs": {
     "url": "https://github.com/hack4impact/logger/issues"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "keywords": [
     "node",
     "javascript",

@@ -23,33 +23,5 @@
   },
   "markdown.extension.toc.omittedFromToc": {
     "README.md": ["## Table of Contents"]
-  },
-  // Install the 'Terminal All In One' extension to use the scripts below
-  "terminalAllInOne.script.disableDescription": true,
-  "terminalAllInOne.scripts": [
-    {
-      "name": "Start",
-      "script": "npm run start" // Run with Cmd+i and then press 0
-    },
-    {
-      "name": "Test",
-      "script": "npm run test" // Run with Cmd+i and then press 1
-    },
-    {
-      "name": "Lint",
-      "script": "npm run lint" // Run with Cmd+i and then press 2
-    },
-    {
-      "name": "Build",
-      "script": "npm run build" // Run with Cmd+i and then press 3
-    },
-    {
-      "name": "Recreate Releases",
-      "script": "npm run recreate-releases" // Run with Cmd+i and then press 4
-    },
-    {
-      "name": "Create Doc",
-      "script": "npm run create-doc" // Run with Cmd+i and then press 5
-    }
-  ]
+  }
 }
