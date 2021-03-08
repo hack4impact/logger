@@ -3,7 +3,7 @@
   "version": "3.0.1",
   "description": "The lightweight & lightning-fast Logger Utility used by Hack4Impact Projects",
   "license": "MIT",
-  "homepage": "https://github.com/hack4impact/logger#readme",
+  "homepage": "https://hack4impact.github.io/logger/",
   "main": "dist/index.js",
   "author": {
     "name": "Yash Totale"
