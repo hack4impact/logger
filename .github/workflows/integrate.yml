@@ -29,6 +29,9 @@ jobs:
       - name: Lint Project
         run: npm run lint
 
+      - name: Check Links
+        run: npm run check-links
+
       - name: Test Project
         run: npm run test:coverage
 

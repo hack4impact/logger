@@ -12,3 +12,5 @@
 .snyk linguist-language=YAML
 
 .all-contributorsrc linguist-language=JSON
+
+.linkinatorrc linguist-language=JSON

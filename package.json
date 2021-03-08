@@ -46,6 +46,7 @@
     "eslint-plugin-tsdoc": "^0.2.11",
     "husky": "^5.0.9",
     "jest": "^26.6.3",
+    "linkinator": "^2.13.6",
     "lint-staged": "^10.5.4",
     "markdownlint-cli": "^0.26.0",
     "pinst": "^2.1.4",
@@ -77,6 +78,7 @@
     "recreate-releases": "ts-node scripts/recreate-releases.ts",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
-    "contributors:check": "all-contributors check"
+    "contributors:check": "all-contributors check",
+    "check-links": "bash scripts/check-links.sh"
   }
 }

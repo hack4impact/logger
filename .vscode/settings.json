@@ -18,8 +18,12 @@
     ".lintstagedrc": "json",
 
     ".snyk": "yaml",
+
     ".imgbotconfig": "json",
-    ".all-contributorsrc": "json"
+
+    ".all-contributorsrc": "json",
+
+    ".linkinatorrc": "json"
   },
   "markdown.extension.toc.omittedFromToc": {
     "README.md": ["## Table of Contents"]
