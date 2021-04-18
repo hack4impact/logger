@@ -20,7 +20,7 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Website](#website)
-- [Dependents](#dependents)
+- [Featured Dependents](#featured-dependents)
 - [Contributors](#contributors)
 
 ## Why should you use Hack4Impact's Logger?
@@ -45,6 +45,8 @@ Using [yarn](https://yarnpkg.com/):
 ```shell
 yarn add @hack4impact/logger
 ```
+
+You can browse the package's files on [unpkg](https://unpkg.com/browse/@hack4impact/logger/).
 
 ## Usage
 
@@ -86,13 +88,14 @@ Logger.success("It works!");
 
 **[The website contains all API documentation and information about this package.](https://hack4impact.github.io/logger/)**
 
-## Dependents
+## Featured Dependents
 
 If your project uses this package, you can add it to this list by submitting a PR [here](https://github.com/hack4impact/logger/pulls).
 
-| Owner                                                                                                                                                                                                                                                                                | Repository Information                                                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <p align="center"><a href="https://github.com/hack4impact"><img width="75" height="75" src="https://raw.githubusercontent.com/hack4impact/logger/a19d73c62f92cda577a120f32657cdba0d560c39/static/images/hack4impact-icon.svg"/></a></p>[Hack4Impact](https://github.com/hack4impact) | [![Feedback Survey Automation](https://github-readme-stats.vercel.app/api/pin/?username=hack4impact&repo=feedback-survey-automation)](https://github.com/hack4impact/feedback-survey-automation) |
+| Owner                                                                                                                                                                                                                                                                                          | Repository Information                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <p align="center"><a href="https://github.com/hack4impact"><img width="75" height="75" src="https://raw.githubusercontent.com/hack4impact/logger/main/static/images/hack4impact-icon.png"/></a></p><p align="center">[Hack4Impact](https://github.com/hack4impact)</p>                         | [![Feedback Survey Automation](https://github-readme-stats.vercel.app/api/pin/?username=hack4impact&repo=feedback-survey-automation)](https://github.com/hack4impact/feedback-survey-automation) |
+| <p align="center"><a href="https://github.com/hack4impact-calpoly"><img width="75" height="75" src="https://raw.githubusercontent.com/hack4impact/logger/main/static/images/hack4impact-icon.png"/></a></p><p align="center">[Hack4Impact Calpoly](https://github.com/hack4impact-calpoly)</p> | [![Feedback Survey Automation](https://github-readme-stats.vercel.app/api/pin/?username=hack4impact-calpoly&repo=happy-hats)](https://github.com/hack4impact-calpoly/happy-hats)                 |
 
 ## Contributors
 
