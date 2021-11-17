@@ -41,6 +41,7 @@ jobs:
           fail_ci_if_error: true
 
       - name: Deploy Coverage Website
+        if: ${{ github.event_name == 'push' }}
         run: curl "${{ secrets.COVERAGE_DEPLOY_URL }}"
 
       - name: Build Project
