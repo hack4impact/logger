@@ -71,7 +71,7 @@ export class Output {
    * ```
    */
   public line(): void {
-    this.output.push("\n");
+    this.output.push("");
   }
 
   /**

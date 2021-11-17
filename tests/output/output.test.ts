@@ -16,7 +16,7 @@ test("Logs and flushes message", () => {
     output.flush();
     expect(spy).toHaveBeenCalledTimes(2);
     expect(spy).toHaveBeenNthCalledWith(1, message);
-    expect(spy).toHaveBeenNthCalledWith(2, "\n");
+    expect(spy).toHaveBeenNthCalledWith(2, "");
 
     spy.mockReset();
   });
