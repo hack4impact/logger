@@ -1,6 +1,7 @@
 // Externals
 import { strict as assert } from "assert";
-import { writeFile } from "fs/promises";
+import { promises } from "fs";
+const { writeFile } = promises;
 
 // Internals
 import { INVALID_TYPE, NO_LOGS_PATH } from "./errors";
