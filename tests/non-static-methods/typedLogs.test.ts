@@ -20,7 +20,7 @@ LOG_TYPES.forEach((type) => {
     });
 
     test("With only message", async () => {
-      const logger = new Logger(logsPath);
+      const logger = new Logger({ logsPath });
 
       const messages: LogMessage[] = ["hello", true, ["hi there", ["hi"], 312]];
 
@@ -42,7 +42,7 @@ LOG_TYPES.forEach((type) => {
     });
 
     test("With writeToFile enabled", async () => {
-      const logger = new Logger(logsPath);
+      const logger = new Logger({ logsPath });
 
       const message = "hi";
 
@@ -70,7 +70,7 @@ LOG_TYPES.forEach((type) => {
     });
 
     test("With writeToFile disabled", async () => {
-      const logger = new Logger(logsPath);
+      const logger = new Logger({ logsPath });
 
       const message = "hi";
 

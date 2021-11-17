@@ -7,13 +7,6 @@ import { INVALID_TYPE } from "./errors";
 
 /**
  *
- * The possible console log levels (log, warn, or error)
- *
- */
-export type ConsoleLevel = "log" | "warn" | "error";
-
-/**
- *
  * Array of all possible console log levels
  *
  */
@@ -21,10 +14,10 @@ export const CONSOLE_LEVELS = ["log", "warn", "error"] as const;
 
 /**
  *
- * The type of log (success, info, warn, or error)
+ * The possible console log levels (log, warn, or error)
  *
  */
-export type LogType = "success" | "info" | "warn" | "error";
+export type ConsoleLevel = typeof CONSOLE_LEVELS[number];
 
 /**
  *
@@ -32,6 +25,17 @@ export type LogType = "success" | "info" | "warn" | "error";
  *
  */
 export const LOG_TYPES = ["success", "info", "error", "warn"] as const;
+
+/**
+ *
+ * The type of log (success, info, warn, or error)
+ *
+ */
+export type LogType = typeof LOG_TYPES[number];
+
+export type LoggerConstructorOptions = {
+  logsPath?: string;
+};
 
 /**
  *
@@ -171,7 +175,7 @@ export class Logger {
    * The output file path
    *
    */
-  private _logsPath: string;
+  private _logsPath?: string;
   /**
    *
    * All logs that have been output by this Logger instance
@@ -186,11 +190,11 @@ export class Logger {
    * @param logsPath - The output file path
    * @example
    * ```javascript
-   * const logger = new Logger(__dirname + "/logs.json");
+   * const logger = new Logger({ logsPath: __dirname + "/logs.json" });
    * ```
    */
-  constructor(logsPath: string) {
-    this._logsPath = logsPath;
+  constructor(options?: LoggerConstructorOptions) {
+    this._logsPath = options?.logsPath;
     this._logs = [];
   }
 
@@ -216,7 +220,7 @@ export class Logger {
    * const logsPath = logger.logsPath;
    * ```
    */
-  public get logsPath(): string {
+  public get logsPath(): InstanceType<typeof Logger>["_logsPath"] {
     return this._logsPath;
   }
 
@@ -229,7 +233,7 @@ export class Logger {
    * logger.logsPath = __dirname + "/logs.json";
    * ```
    */
-  public set logsPath(logsPath: string) {
+  public set logsPath(logsPath: InstanceType<typeof Logger>["_logsPath"]) {
     this._logsPath = logsPath;
   }
 
@@ -633,6 +637,11 @@ export class Logger {
    * ```
    */
   public writeLogs(): Promise<void> {
+    if (!this.logsPath)
+      throw new Error(
+        "No 'logsPath' was entered when initializing this Logger instance"
+      );
+
     return writeFile(this.logsPath, JSON.stringify(this.logs), "utf-8");
   }
 

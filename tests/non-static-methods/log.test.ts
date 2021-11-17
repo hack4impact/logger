@@ -14,13 +14,21 @@ import { checkFields, checkConsoleSpy } from "./helpers";
 
 const logsPath = createLogsPath(__filename);
 
+const withWriteOptions: LogOptionsWithWrite[] = [
+  { type: "warn" },
+  { extra: "Extra.." },
+  { type: "success", extra: "Extra!" },
+  { type: "warn", writeToFile: true },
+  { extra: "Extra..", writeToFile: true },
+  { type: "success", extra: "Extra!", writeToFile: true },
+];
+
 beforeEach(async () => {
   await writeFile(logsPath, "[]", "utf-8");
 });
 
 test("With only message", async () => {
-  const logger = new Logger(logsPath);
-
+  const logger = new Logger({ logsPath });
   const messages: LogMessage[] = ["hello", true, ["hi there", ["hi"], 312]];
 
   for (let i = 0; i < messages.length; i++) {
@@ -41,21 +49,11 @@ test("With only message", async () => {
 });
 
 test("With writeToFile enabled", async () => {
-  const logger = new Logger(logsPath);
-
+  const logger = new Logger({ logsPath });
   const message = "hi";
 
-  const testOptions: LogOptionsWithWrite[] = [
-    { type: "warn" },
-    { extra: "Extra.." },
-    { type: "success", extra: "Extra!" },
-    { type: "warn", writeToFile: true },
-    { extra: "Extra..", writeToFile: true },
-    { type: "success", extra: "Extra!", writeToFile: true },
-  ];
-
-  for (let i = 0; i < testOptions.length; i++) {
-    const options = testOptions[i];
+  for (let i = 0; i < withWriteOptions.length; i++) {
+    const options = withWriteOptions[i];
 
     const spy = setUpConsoleSpy(options.type);
 
@@ -73,8 +71,7 @@ test("With writeToFile enabled", async () => {
 });
 
 test("With writeToFile disabled", async () => {
-  const logger = new Logger(logsPath);
-
+  const logger = new Logger({ logsPath });
   const message = "hi";
 
   const testOptions: LogOptionsWithoutWrite[] = [
@@ -100,9 +97,20 @@ test("With writeToFile disabled", async () => {
   }
 });
 
-test("With invalid type", () => {
-  const logger = new Logger(logsPath);
+test("With no logsPath", async () => {
+  const logger = new Logger();
+  const message = "hi";
 
+  for (let i = 0; i < withWriteOptions.length; i++) {
+    const options = withWriteOptions[i];
+    const spy = setUpConsoleSpy(options.type);
+    expect(() => logger.log(message, options)).toThrowError();
+    spy.mockRestore();
+  }
+});
+
+test("With invalid type", () => {
+  const logger = new Logger({ logsPath });
   const invalidTypes = [31, "invalid-type", [], true, new Error(), writeFile];
 
   invalidTypes.forEach((invalid) => {
