@@ -8,7 +8,7 @@ import Logger, {
   LogOptionsWithWrite,
   LogOptionsWithoutWrite,
 } from "../../src";
-import { INVALID_TYPE } from "../../src/errors";
+import { INVALID_TYPE, NO_LOGS_PATH } from "../../src/errors";
 import { createLogsPath, setUpConsoleSpy } from "../helpers";
 import { checkFields, checkConsoleSpy } from "./helpers";
 
@@ -104,7 +104,7 @@ test("With no logsPath", async () => {
   for (let i = 0; i < withWriteOptions.length; i++) {
     const options = withWriteOptions[i];
     const spy = setUpConsoleSpy(options.type);
-    expect(() => logger.log(message, options)).toThrowError();
+    expect(() => logger.log(message, options)).toThrowError(NO_LOGS_PATH);
     spy.mockRestore();
   }
 });

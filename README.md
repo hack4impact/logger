@@ -59,7 +59,7 @@ const Logger = require("@hack4impact/logger");
 
 const outputFile = join(__dirname, "logs.json");
 
-const logger = new Logger(outputFile);
+const logger = new Logger({ logsPath: outputFile });
 
 // Log "Hello" an append a created Log object (w/ message, timestamp, index) to the output file
 logger.log("Hello");

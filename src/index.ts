@@ -3,7 +3,8 @@ import { strict as assert } from "assert";
 import { writeFile } from "fs/promises";
 
 // Internals
-import { INVALID_TYPE } from "./errors";
+import { INVALID_TYPE, NO_LOGS_PATH } from "./errors";
+import { COLORS } from "./colors";
 
 /**
  *
@@ -33,6 +34,11 @@ export const LOG_TYPES = ["success", "info", "error", "warn"] as const;
  */
 export type LogType = typeof LOG_TYPES[number];
 
+/**
+ *
+ * Logger constructor options
+ *
+ */
 export type LoggerConstructorOptions = {
   logsPath?: string;
 };
@@ -142,33 +148,7 @@ export class Logger {
    * console.log(Logger.COLORS.Dim + "Dim log" + Logger.COLORS.Reset);
    * ```
    */
-  public static readonly COLORS = {
-    Reset: "\x1b[0m",
-    Bright: "\x1b[1m",
-    Dim: "\x1b[2m",
-    Underscore: "\x1b[4m",
-    Blink: "\x1b[5m",
-    Reverse: "\x1b[7m",
-    Hidden: "\x1b[8m",
-
-    FgBlack: "\x1b[30m",
-    FgRed: "\x1b[31m",
-    FgGreen: "\x1b[32m",
-    FgYellow: "\x1b[33m",
-    FgBlue: "\x1b[34m",
-    FgMagenta: "\x1b[35m",
-    FgCyan: "\x1b[36m",
-    FgWhite: "\x1b[37m",
-
-    BgBlack: "\x1b[40m",
-    BgRed: "\x1b[41m",
-    BgGreen: "\x1b[42m",
-    BgYellow: "\x1b[43m",
-    BgBlue: "\x1b[44m",
-    BgMagenta: "\x1b[45m",
-    BgCyan: "\x1b[46m",
-    BgWhite: "\x1b[47m",
-  };
+  public static readonly COLORS = COLORS;
 
   /**
    *
@@ -637,10 +617,7 @@ export class Logger {
    * ```
    */
   public writeLogs(): Promise<void> {
-    if (!this.logsPath)
-      throw new Error(
-        "No 'logsPath' was entered when initializing this Logger instance"
-      );
+    if (!this.logsPath) throw NO_LOGS_PATH;
 
     return writeFile(this.logsPath, JSON.stringify(this.logs), "utf-8");
   }
@@ -805,4 +782,5 @@ export class Logger {
   }
 }
 
+export { Output, OutputMessage } from "./output";
 export default Logger;
