@@ -42,7 +42,7 @@ export class Output {
    * All messages or nested outputs of this Output instance
    *
    */
-  private set output(newOutput: OutputMessage[]) {
+  public set output(newOutput: OutputMessage[]) {
     this._output = newOutput;
   }
 
