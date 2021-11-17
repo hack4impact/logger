@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 ## Table of Contents <!-- omit in toc -->
 
 - [Unreleased](#unreleased)
+- [[4.0.1] - (2021-11-17)](#401---2021-11-17)
+  - [Fixed](#fixed)
 - [[4.0.0] - (2021-11-17)](#400---2021-11-17)
   - [Added](#added)
   - [Changed](#changed)
@@ -27,7 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 - [[2.0.3] - (2021-02-18)](#203---2021-02-18)
   - [Added](#added-1)
 - [[2.0.2] - (2021-02-17)](#202---2021-02-17)
-  - [Fixed](#fixed)
+  - [Fixed](#fixed-1)
 - [[2.0.1] - (2021-02-17)](#201---2021-02-17)
   - [Added](#added-2)
 - [[2.0.0] - (2021-02-17)](#200---2021-02-17)
@@ -55,6 +57,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/), and this 
 - [[1.0.0] - (2021-02-11)](#100---2021-02-11)
 
 ## Unreleased
+
+---
+
+## [4.0.1] - (2021-11-17)
+
+### Fixed
+
+- File System Promise Import
 
 ---
 
